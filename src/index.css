@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 公共样式 */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/*组件内嵌样式*/
+@layer utilities{
+  /*header*/
+  .container_header {
+    @apply bg-primary;
+  }
+}
