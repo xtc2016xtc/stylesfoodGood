@@ -2,14 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+.hover\:custom-text-shadow:hover {
+  text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
+}
+
+.hover\:text-white:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 1380px) {
+  .header_navitem {
+    margin: 0 17px !important;
+  }
+}
+
+@media screen and (max-width: 1490px) {
+  .header_navitem {
+    margin: 0 24px !important;
+  }
+}
+
 /* 公共样式 */
 @layer base {
   * {
-    @apply border-border;
+    @apply box-border m-0 p-0;
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, serif;
+    font-size: 14px;
+    word-spacing: 1px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
-  body {
-    @apply bg-background text-foreground;
+  *::before,
+  *::after {
+    @apply box-border m-0 p-0;
   }
+
 }
 
 /*组件内嵌样式*/
