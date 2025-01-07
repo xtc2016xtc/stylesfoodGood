@@ -1,7 +1,17 @@
+import Poster from '@/components/home/Poster';
+import {useOutletContext} from "react-router-dom";
+
+
+
 const Home = () => {
+    const { handlePlay } = useOutletContext<{ handlePlay: () => void }>();
+
     return (
-        <div className="bg-black">
-            {/* 其他内容 */}
+        <div className="Home">
+            <Poster onPlay={handlePlay} />
+            News
+            City
+            Social
         </div>
     );
 };

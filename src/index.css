@@ -22,6 +22,10 @@
   }
 }
 
+.bg-pos-y-0 {
+  background-position-y: 0;
+}
+
 /* 公共样式 */
 @layer base {
   * {
@@ -34,6 +38,7 @@
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
+  *,
   *::before,
   *::after {
     @apply box-border m-0 p-0;

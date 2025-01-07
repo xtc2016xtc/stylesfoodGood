@@ -1,4 +1,4 @@
-import {CSSProperties, useEffect, useRef, useState} from 'react';
+import {CSSProperties, useCallback, useEffect, useRef, useState} from 'react';
 import {Link, NavLink, useLocation} from 'react-router-dom';
 import {NavbarProps} from "@/types";
 
@@ -51,16 +51,16 @@ const Navbar = ({ navItems }:NavbarProps) => {
         setHoveredIndex(null);
     };
 
-    const updateIndicatorStyle = () => {
+    const updateIndicatorStyle = useCallback(() => {
         const activeIndex = navItems.findIndex(item => item.path === location.pathname);
         if (activeIndex !== -1 && navRefs.current[activeIndex]) {
-            const { offsetLeft, offsetWidth } = navRefs.current[activeIndex]!;
+            const { offsetLeft, offsetWidth } = navRefs.current[activeIndex];
             setIndicatorStyle({
                 left: offsetLeft,
                 width: offsetWidth,
             });
         }
-    };
+    }, [location.pathname, navItems]);
 
     useEffect(() => {
         updateIndicatorStyle();
@@ -68,10 +68,10 @@ const Navbar = ({ navItems }:NavbarProps) => {
         return () => {
             window.removeEventListener('resize', updateIndicatorStyle);
         };
-    }, [location.pathname]);
+    }, [updateIndicatorStyle]);
 
     return (
-        <section className="fixed top-0 z-0 w-full opacity-100 justify-center transition-opacity duration-500 ease-in-out flex flex-row ">
+        <section className="fixed top-0 z-10 w-full opacity-100 justify-center transition-opacity duration-500 ease-in-out flex flex-row ">
            <div className="h-[66px] translate-x-0 opacity-100 flex flex-shrink fixed top-0 left-0 w-full transition-opacity duration-500 ease-in-out min-w-[1208px] bg-black bg-opacity-75 shadow-md">
                {/* Logo */}
                <img src="https://via.placeholder.com/188x88.png?text=Logo" alt="Logo" className='opacity-100 w-[317px] float-left ml-2 mr-0 h-full cursor-pointer bg-no-repeat'/>
