@@ -10,7 +10,7 @@ const PosterSign = ({ onPlay }:PosterProps) => {
             {/*跳转专题*/}
             <Pingstre />
             {/*播放*/}
-            <PosterVideoEntry />
+            <PosterVideoEntry  onPlay={onPlay}/>
             <div>
 
             </div>
@@ -23,12 +23,6 @@ const PosterSign = ({ onPlay }:PosterProps) => {
             <div>
 
             </div>
-            <button  onClick={() => {
-                console.log('播放按钮被点击');
-                onPlay();
-            }} className="absolute top-5 ml-52 text-white bg-white z-40">
-                点我播放
-            </button>
         </div>
     )
 }
