@@ -1,4 +1,6 @@
 const MediaPG = () => {
+
+
     return (
         <video id="bg" poster="https://via.placeholder.com/188x88.png?text=Logo"
                loop

@@ -13,6 +13,9 @@ export default {
 			'-34':'-34px',
 			'-40':"40px"
 		},
+		backgroundImage: {
+			'custom-image': "url('/')",
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

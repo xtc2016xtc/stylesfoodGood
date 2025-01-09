@@ -8,6 +8,7 @@ const Navbar = ({ navItems }:NavbarProps) => {
     const location = useLocation(); // 获取当前路径
     const navRefs = useRef<(HTMLAnchorElement | null)[]>([]) // 存储导航项的引用
 
+
     // 获取当前激活的导航项索引
     const getActiveIndex = () => {
         const activeItem = navItems.findIndex(item => item.path === location.pathname);
