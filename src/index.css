@@ -22,8 +22,54 @@
   }
 }
 
+.hover\:custom-bg-transparent::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 28px; /* 根据需要调整 */
+  height: 28px; /* 根据需要调整 */
+  transform: translate(-50%, -50%);
+  background: url('https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/yscc.png') no-repeat center top;
+  z-index: 10;
+}
+
+.hover\:custom-bg-transparent:hover::before {
+  background: url('https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/yscc.png') no-repeat center bottom; /* 更改为你的新图片 */
+
+}
+.hover\:custom-bg-transparent:hover{
+  background: rgba(0,0,0,0);
+}
+
 .bg-pos-y-0 {
   background-position-y: 0;
+}
+
+.custom-background {
+  background: rgba(0, 0, 0, 0) url("https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/clonse.png") no-repeat center center;
+}
+
+
+.custom-position-important {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  overflow: visible !important;
+  transform: translate(-50%, -50%);
+  font-size: 0;
+}
+
+.bg-custom-image{
+  background: url("https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/fy.png") no-repeat center center;
+}
+
+.bg-black-7{
+  background: rgba(0,0,0,.7);
+}
+
+.text-0 {
+  font-size: 0;
 }
 
 /* 公共样式 */

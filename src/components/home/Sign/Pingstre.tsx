@@ -7,7 +7,7 @@ const Pingstre = () => {
 
     return (
         <div className="absolute w-[161px] h-[152px] top-[71px] right-7 z-50" onClick={Pingstre}>
-            <img src="https://via.placeholder.com/188x88.png?text=ping" alt="专题"
+            <img src="/Header/pcpng.png" alt="专题"
                  className="w-full h-auto cursor-pointer"/>
         </div>
     )

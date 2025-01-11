@@ -72,10 +72,10 @@ const Navbar = ({ navItems }:NavbarProps) => {
     }, [updateIndicatorStyle]);
 
     return (
-        <section className="fixed top-0 z-10 w-full opacity-100 justify-center transition-opacity duration-500 ease-in-out flex flex-row ">
+        <div className="fixed top-0 z-10 w-full opacity-100 justify-center transition-opacity duration-500 ease-in-out flex flex-row ">
            <div className="h-[66px] translate-x-0 opacity-100 flex flex-shrink fixed top-0 left-0 w-full transition-opacity duration-500 ease-in-out min-w-[1208px] bg-black bg-opacity-75 shadow-md">
                {/* Logo */}
-               <img src="https://via.placeholder.com/188x88.png?text=Logo" alt="Logo" className='opacity-100 w-[317px] float-left ml-2 mr-0 h-full cursor-pointer bg-no-repeat'/>
+               <img src="/Header/logo-header-cut.png" alt="Logo" className='opacity-100 w-[317px] float-left ml-2 mr-0 h-full cursor-pointer bg-no-repeat'/>
                <div className="inline-block relative max-w-[750px] w-auto -ml-34">
                    {/* 导航项 */}
                    <div className="inline-block list-none -ml-40 pr-2.5">
@@ -105,18 +105,18 @@ const Navbar = ({ navItems }:NavbarProps) => {
                <div className="absolute right-[30px] top-0 h-full max-w-[270px] flex items-center hover:opacity-100">
                    <Link to="https://www.baidu.com" className="flex items-center mr-[20px] hover:opacity-100 opacity-60">
                        <span className=" leading-[66px] text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer">新手引导指南</span>
-                       <img src="https://via.placeholder.com/40" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
+                       <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
                    </Link>
                    {/* 未登录 */}
                    <div className="flex justify-end h-full whitespace-nowrap">
                        <button className="flex items-center px-[10px] border-none outline-none bg-none text-white cursor-pointer hover:opacity-100 opacity-60">
                            <span className="leading-[66px] opacity-60 text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer">登录</span>
-                           <img src="https://via.placeholder.com/40" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
+                           <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
                        </button>
                    </div>
                </div>
            </div>
-        </section>
+        </div>
     );
 };
 
