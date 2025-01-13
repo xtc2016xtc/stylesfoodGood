@@ -1,6 +1,8 @@
 import {PosterProps} from "@/types";
 import Pingstre from "@/components/home/Sign/Pingstre.tsx";
 import PosterVideoEntry from "@/components/home/PosterVideoEntry.tsx";
+import YsDownloadPc from "@/components/home/download/YsDownloadPc.tsx";
+import PosterArrows from "@/components/home/PosterArrows.tsx";
 
 
 const PosterSign = ({ onPlay }:PosterProps) => {
@@ -11,9 +13,11 @@ const PosterSign = ({ onPlay }:PosterProps) => {
             <Pingstre />
             {/*播放*/}
             <PosterVideoEntry  onPlay={onPlay}/>
-            <div>
+           {/*下载链接*/}
+           <YsDownloadPc />
+            {/*动画*/}
+            <PosterArrows />
 
-            </div>
             <div>
 
             </div>

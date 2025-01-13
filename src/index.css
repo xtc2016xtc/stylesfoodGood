@@ -72,6 +72,38 @@
   font-size: 0;
 }
 
+@keyframes arrow {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.element-one {
+  top: 0;
+  animation-delay: 0s;
+}
+
+.element-two {
+  top: 12px;
+  animation-delay: .5s;
+}
+
+.element-three {
+  top: 24px;
+  animation-delay: 1s;
+}
+
+/* 共同属性 */
+.arrow-animation {
+  background-image: url(./assets/Arrows.png);
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: auto;
+  animation-name: arrow;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
 /* 公共样式 */
 @layer base {
   * {
