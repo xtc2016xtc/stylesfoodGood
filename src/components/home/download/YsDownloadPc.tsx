@@ -6,7 +6,7 @@ const YsDownloadPc = () => {
                 <div className="relative w-[94px] h-[94px]">
                     <img src="" alt="icon" />
                     {/*二维码*/}
-                    <img src="" alt=""/>
+                    <img src="" alt="eaoo" />
                 </div>
             </div>
         </div>
