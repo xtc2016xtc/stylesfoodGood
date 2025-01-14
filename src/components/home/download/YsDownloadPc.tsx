@@ -1,3 +1,4 @@
+
 const YsDownloadPc = () => {
     return (
         <div className="shrink-0 mb-[20px] h-[125px]">
@@ -7,7 +8,6 @@ const YsDownloadPc = () => {
                     <img src="" alt="icon" className="absolute"/>
                     {/*二维码*/}
                     <img src="" alt="eaoo" />
-                    {/*<SidebarVite/>*/}
                 </div>
             </div>
         </div>

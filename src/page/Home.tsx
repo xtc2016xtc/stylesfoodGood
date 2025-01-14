@@ -1,7 +1,6 @@
 import Poster from '@/components/home/Poster';
 
 
-
 const Home = () => {
 
 
