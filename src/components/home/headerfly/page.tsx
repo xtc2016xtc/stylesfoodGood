@@ -58,7 +58,7 @@ const Headerfly = () => {
                 </footer>
 
                 {/* 美观侧边栏 */}
-                <aside id="sidebar"
+                <aside id="sidebars"
                        className="hidden md:block fixed right-0 top-0 bottom-0 w-64 bg-white shadow-lg transition-transform transform-gpu duration-300 ease-in-out">
                     <div className="px-6 py-4">
                         <h3 className="font-semibold mb-4">快速导航</h3>
