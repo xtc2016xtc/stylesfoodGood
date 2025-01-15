@@ -19,7 +19,7 @@ const PosterSign = ({ onPlay }:PosterProps) => {
             <PosterArrows />
 
             {/*侧边栏*/}
-            {/*<Headerfly/>*/}
+            {/*<Headerfly />*/}
 
             <div>
 
