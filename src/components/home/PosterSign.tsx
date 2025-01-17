@@ -5,7 +5,7 @@ import YsDownloadPc from "@/components/home/download/YsDownloadPc.tsx";
 import PosterArrows from "@/components/home/PosterArrows.tsx";
 
 
-const PosterSign = ({ onPlay }:PosterProps) => {
+const PosterSign = ({ onPlay,AriaECX }:PosterProps) => {
 
     return (
         <div className="z-[5] flex flex-col items-center justify-end absolute top-0 bottom-0 right-0 left-0 box-border">
@@ -14,7 +14,7 @@ const PosterSign = ({ onPlay }:PosterProps) => {
             {/*播放*/}
             <PosterVideoEntry  onPlay={onPlay}/>
            {/*下载链接*/}
-           <YsDownloadPc />
+           <YsDownloadPc  AriaECX={AriaECX}/>
             {/*动画*/}
             <PosterArrows />
 

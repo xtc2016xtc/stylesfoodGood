@@ -3,6 +3,7 @@ import Navbar from "@/components/Nav/Navbar.tsx";
 import {NavItem} from "@/types";
 import Mediaido from "@/components/media/Mediaido.tsx";
 import {useState} from "react";
+import ModalOverlay from "@/components/home/Modal/ModalOverlay.tsx";
 
 
 
@@ -18,7 +19,11 @@ const navItems: NavItem[] = [
 
 const RootLayout = () => {
 
+    /*视频*/
     const [isMediaidoVisible, setIsMediaidoVisible] = useState(false);
+
+    /*蒙版*/
+    const [isModalOverlay, setIsModalOverlay] = useState(false);
 
     const handlePlay = () => {
         console.log('handlePlay 被调用');
@@ -30,6 +35,16 @@ const RootLayout = () => {
         setIsMediaidoVisible(false);
     };
 
+    const AriaECX = () =>{
+        console.log('Aria ECX被调用');
+        setIsModalOverlay(true);
+    }
+
+    const AriaPass = () => {
+        console.log('Aria Pass被调用');
+        setIsModalOverlay(false);
+    }
+
     return (
         <div id="_layout">
             <div>
@@ -37,11 +52,15 @@ const RootLayout = () => {
                     <Mediaido isVisible={isMediaidoVisible} onClose={handleClose} />
                     <Navbar navItems={navItems} />
                     <div className="flex-grow visible bg-black bg-pos-y-0">
-                        <Outlet context={{ handlePlay }}/>
+                        <Outlet context={{ handlePlay,AriaECX }}/>
                     </div>
                     <footer></footer>
                 </div>
             </div>
+
+            {/*展开提示*/}
+            <ModalOverlay AriaPass={isModalOverlay} onClose={AriaPass} />
+
         </div>
     );
 };

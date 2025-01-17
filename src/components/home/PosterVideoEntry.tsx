@@ -1,6 +1,6 @@
-import {PosterProps} from "@/types";
+import {PosterVideoEntryPorops} from "@/types";
 
-const PosterVideoEntry = ({ onPlay }:PosterProps) => {
+const PosterVideoEntry = ({ onPlay }:PosterVideoEntryPorops) => {
     return (
         <div className="w-[356px] h-[76px] mb-5 bg-custom-image">
             <button onClick={() => {

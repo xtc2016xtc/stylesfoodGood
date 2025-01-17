@@ -22,6 +22,8 @@
   }
 }
 
+
+
 .hover\:custom-bg-transparent::before {
   content: "";
   position: absolute;
@@ -104,12 +106,25 @@
   animation-iteration-count: infinite;
 }
 
+*:focus {
+  outline: none;
+}
+
+.age-close{
+  background-size: 100% 100%;
+  background-image: url(./assets/clones.png);
+}
+
 /* 公共样式 */
 @layer base {
   * {
     @apply box-border m-0 p-0;
     font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu, serif;
     font-size: 14px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     word-spacing: 1px;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -123,6 +138,7 @@
   }
 
 }
+
 
 /*组件内嵌样式*/
 @layer utilities{
