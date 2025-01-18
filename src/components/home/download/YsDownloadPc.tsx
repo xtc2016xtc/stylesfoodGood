@@ -1,7 +1,7 @@
 import {Link, Link as RouterLink } from 'react-router-dom';
-import {LinkItem, YsDownloadPcPorops} from "@/types";
+import {LinkItem} from "@/types";
 
-const YsDownloadPc = ({AriaECX}:YsDownloadPcPorops) => {
+const YsDownloadPc = () => {
 
     /*
     * 便利
@@ -60,13 +60,6 @@ const YsDownloadPc = ({AriaECX}:YsDownloadPcPorops) => {
                 {/*        <img src="/Header/ps4.png" alt="ps4" className="hidden w-full h-full object-cover"/>*/}
                 {/*    </Link>*/}
                 {/*</div>*/}
-                {/*点击*/}
-                <div className="absolute bottom-[20px] right-[20px] w-[100px] cursor-pointer" onClick={() => {
-                    console.log('蒙版被点击');
-                    AriaECX()
-                }}>
-                    <img src="/Header/ts.png" alt="" className="w-full"/>
-                </div>
 
                 {/*pc本地*/}
                 <Link to="https://www.baidu.com" className="block cursor-pointer shrink-0 w-[95px] h-[95px]">
