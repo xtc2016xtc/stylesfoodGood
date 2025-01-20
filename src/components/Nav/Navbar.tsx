@@ -71,19 +71,20 @@ const Navbar = ({ navItems }:NavbarProps) => {
         };
     }, [updateIndicatorStyle]);
 
+
     return (
-        <div className="fixed top-0 z-10 w-full opacity-100 justify-center transition-opacity duration-500 ease-in-out flex flex-row ">
-           <div className="h-[66px] translate-x-0 opacity-100 flex flex-shrink fixed top-0 left-0 w-full transition-opacity duration-500 ease-in-out min-w-[1208px] bg-black bg-opacity-75 shadow-md">
+        <div className="Navbar">
+           <div className="Navbar-container">
                {/* Logo */}
-               <img src="/Header/logo-header-cut.png" alt="Logo" className='opacity-100 w-[317px] float-left ml-2 mr-0 h-full cursor-pointer bg-no-repeat'/>
-               <div className="inline-block relative max-w-[750px] w-auto -ml-34">
+               <img src="/Header/logo-header-cut.png" alt="Logo" className='Navbar-logo'/>
+               <div className="Navbar-items">
                    {/* 导航项 */}
-                   <div className="inline-block list-none -ml-40 pr-2.5">
+                   <div className="Navbar-items-content">
                        {navItems.map((item, index) => (
                            <NavLink
                                key={index}
                                to={item.path}
-                               className="relative float-left w-auto h-[66px] header_navitem hover:text-white hover:custom-text-shadow mx-[30px] !important leading-[66px] text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer select-none no-underline"
+                               className="Navbar-link"
                                onMouseEnter={() => handleMouseEnter(index)}
                                onMouseLeave={handleMouseLeave}
                                ref={el => navRefs.current[index] = el}
@@ -91,18 +92,15 @@ const Navbar = ({ navItems }:NavbarProps) => {
                                {item.label}
                                {((hoveredIndex === index) || (hoveredIndex === null && activeIndex === index)) && (
                                    <div
-                                       className="absolute z-10 transition-all duration-200 ease-in-out bg-[#69e0ff] h-[5px] w-[40px] top-0"></div>
+                                       className="Navbar-length" />
                                )}
                            </NavLink>
                        ))}
-                       <div
-                           className="absolute z-10 transition-all duration-200 ease-in-out bg-[#69e0ff] h-[5px] w-[40px] top-0"
-                           style={indicatorStyle}
-                       ></div>
+                       <div className="Navbar-length" style={indicatorStyle} />
                    </div>
                </div>
                {/* 用户信息 */}
-               <div className="absolute right-[30px] top-0 h-full max-w-[270px] flex items-center hover:opacity-100">
+               <div className="Navbar-userinfo">
                    <Link to="https://www.baidu.com" className="flex items-center mr-[20px] hover:opacity-100 opacity-60">
                        <span className=" leading-[66px] text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer">新手引导指南</span>
                        <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />

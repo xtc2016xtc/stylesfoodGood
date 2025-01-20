@@ -6,9 +6,9 @@ const Pingstre = () => {
 
 
     return (
-        <div className="absolute w-[161px] h-[152px] top-[71px] right-7 z-50" onClick={Pingstre}>
+        <div className="Sign-pcpng" onClick={Pingstre}>
             <img src="/Header/pcpng.png" alt="专题"
-                 className="w-full h-auto cursor-pointer"/>
+                 className="Sign-pcpng-1"/>
         </div>
     )
 }

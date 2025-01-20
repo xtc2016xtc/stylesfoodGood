@@ -10,7 +10,7 @@ import TextYsTS from "@/components/home/download/TextYsTS.tsx";
 const PosterSign = ({ onPlay,AriaECX }:PosterProps) => {
 
     return (
-        <div className="z-[5] flex flex-col items-center justify-end absolute top-0 bottom-0 right-0 left-0 box-border">
+        <div className="Sign-master">
             {/*跳转专题*/}
             <Pingstre />
 
