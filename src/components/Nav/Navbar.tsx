@@ -2,12 +2,31 @@ import {CSSProperties, useCallback, useEffect, useRef, useState} from 'react';
 import {Link, NavLink, useLocation} from 'react-router-dom';
 import {NavbarProps} from "@/types";
 
+/*问候语*/
+function Timeauto(): string {
+    const date = new Date();
+    const hours = date.getHours();
+
+    if(hours >=7 && hours <= 11){
+        return "早上好"
+    }else if(hours >=12 && hours <= 13){
+        return "中午好"
+    }else if(hours >=14 && hours <= 17){
+        return "下午好"
+    }else {
+        return "晚上好"
+    }
+}
+
 const Navbar = ({ navItems }:NavbarProps) => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // 当前悬停的导航项索引
     const [indicatorStyle, setIndicatorStyle] = useState<CSSProperties>({}); // 蓝色长条的样式
     const location = useLocation(); // 获取当前路径
     const navRefs = useRef<(HTMLAnchorElement | null)[]>([]) // 存储导航项的引用
 
+    const title = Timeauto()
+
+    console.log("navRefs", title)
 
     // 获取当前激活的导航项索引
     const getActiveIndex = () => {
@@ -101,17 +120,33 @@ const Navbar = ({ navItems }:NavbarProps) => {
                </div>
                {/* 用户信息 */}
                <div className="Navbar-userinfo">
-                   <Link to="https://www.baidu.com" className="flex items-center mr-[20px] hover:opacity-100 opacity-60">
-                       <span className=" leading-[66px] text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer">新手引导指南</span>
-                       <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
+                   <Link to="https://www.baidu.com" className="Navbar-User">
+                       <span className="Navbar-Info-1">新手引导指南</span>
+                       <img src="/Header/ys.png" alt="User" className="Navbar-ImgUser" />
                    </Link>
-                   {/* 未登录 */}
+
+
                    <div className="flex justify-end h-full whitespace-nowrap">
-                       <button className="flex items-center px-[10px] border-none outline-none bg-none text-white cursor-pointer hover:opacity-100 opacity-60">
+                       {/* 未登录 */}
+                       <button className="flex items-center px-[10px] br-0 outline-0 bg-none text-white cursor-pointer hover:opacity-100 opacity-60">
                            <span className="leading-[66px] opacity-60 text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer">登录</span>
                            <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
                        </button>
+                       {/*已登录*/}
+                       {/*<div className="flex items-center">*/}
+                       {/*     <button className="Navbar-users">*/}
+                       {/*         <span className="text-1 text-[#ccc] cursor-pointer">{title}!</span>*/}
+                       {/*         &nbsp;&nbsp;*/}
+                       {/*         <strong className="font-[normal] text-decoration">155****91</strong>*/}
+                       {/*     </button>*/}
+                       {/*    下拉*/}
+                       {/*    <div className="translate-y-[82px]">*/}
+
+                       {/*    </div>*/}
+                       {/*</div>*/}
                    </div>
+
+
                </div>
            </div>
         </div>

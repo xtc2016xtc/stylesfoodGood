@@ -36,6 +36,21 @@
   z-index: 10;
 }
 
+
+.login::before{
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-bottom: 6px solid #ccc;
+  border-left: 6px solid rgba(0, 0, 0, 0);
+  border-right: 6px solid rgba(0, 0, 0, 0);
+  transform: rotate(-180deg);
+  transition: all .2s;
+}
+
 .hover\:custom-bg-transparent:hover::before {
   background: url('https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/yscc.png') no-repeat center bottom; /* 更改为你的新图片 */
 
@@ -52,6 +67,27 @@
   background: rgba(0, 0, 0, 0) url("https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/clonse.png") no-repeat center center;
 }
 
+.br-0{
+  border:none;
+}
+
+/*
+
+display: none;
+    position: absolute;
+    top: 0;
+    right: -16px;
+    padding: 30px 48px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, .9);
+    transform: translateY(-104px);
+    transform-origin: top;
+    white-space: nowrap;
+
+*/
+.outline-0{
+  outline: none;
+}
 
 .custom-position-important {
   position: absolute !important;
@@ -70,9 +106,18 @@
   background: rgba(0,0,0,.7);
 }
 
+.bg-black-6{
+  background: rgba(0,0,0,0);
+}
+
 .text-0 {
   font-size: 0;
 }
+
+.text-1{
+  font-size: 17px;
+}
+
 
 @keyframes arrow {
   from { opacity: 0; }
@@ -93,6 +138,11 @@
   top: 24px;
   animation-delay: 1s;
 }
+
+.text-decoration{
+  text-decoration: underline;
+}
+
 
 /* 共同属性 */
 .arrow-animation {
@@ -170,8 +220,26 @@
   }
   /*用户信息*/
   .Navbar-userinfo{
-    @apply absolute right-[30px] top-0 h-full max-w-[270px] flex items-center hover:opacity-100
+    @apply absolute right-[30px] top-0 h-full  flex items-center hover:opacity-100
   }
+  .Navbar-User {
+    @apply flex items-center mr-[20px] hover:opacity-100 opacity-60
+  }
+  .Navbar-Info{
+    @apply leading-[66px] text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer
+  }
+  .Navbar-Info-1{
+    @apply text-1 text-[#ccc]
+  }
+  .Navbar-ImgUser {
+    @apply w-[27px] h-[27px] ml-[18px] opacity-60
+  }
+  /*已登录*/
+  .Navbar-users{
+    @apply relative login pl-0 pr-[30px] pt-0 pb-0 bg-black-6 text-1 h-full outline-0 cursor-pointer text-white hover:opacity-100 opacity-60
+  }
+
+  /*未登录*/
 
   /*Sign*/
   .Sign-master {
