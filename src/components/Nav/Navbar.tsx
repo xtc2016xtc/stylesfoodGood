@@ -128,12 +128,12 @@ const Navbar = ({ navItems }:NavbarProps) => {
 
                    <div className="flex justify-end h-full whitespace-nowrap">
                        {/* 未登录 */}
-                       <button className="flex items-center px-[10px] br-0 outline-0 bg-none text-white cursor-pointer hover:opacity-100 opacity-60">
+                       <button className="Navbar-center px-[10px] br-0 outline-0 bg-none text-white cursor-pointer hover:opacity-100 opacity-60">
                            <span className="leading-[66px] opacity-60 text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer">登录</span>
                            <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
                        </button>
                        {/*已登录*/}
-                       {/*<div className="flex items-center">*/}
+                       {/*<div className="Navbar-center">*/}
                        {/*     <button className="Navbar-users">*/}
                        {/*         <span className="text-1 text-[#ccc] cursor-pointer">{title}!</span>*/}
                        {/*         &nbsp;&nbsp;*/}

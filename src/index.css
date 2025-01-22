@@ -234,6 +234,9 @@ display: none;
   .Navbar-ImgUser {
     @apply w-[27px] h-[27px] ml-[18px] opacity-60
   }
+  .Navbar-center{
+    @apply flex items-center
+  }
   /*已登录*/
   .Navbar-users{
     @apply relative login pl-0 pr-[30px] pt-0 pb-0 bg-black-6 text-1 h-full outline-0 cursor-pointer text-white hover:opacity-100 opacity-60
