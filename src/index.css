@@ -237,12 +237,18 @@ display: none;
   .Navbar-center{
     @apply flex items-center
   }
+  .Navbar-span{
+    @apply leading-[66px] opacity-60 text-[17px] font-normal tracking-[0px] text-[#ccc] text-center cursor-pointer
+  }
   /*已登录*/
   .Navbar-users{
     @apply relative login pl-0 pr-[30px] pt-0 pb-0 bg-black-6 text-1 h-full outline-0 cursor-pointer text-white hover:opacity-100 opacity-60
   }
 
   /*未登录*/
+  .Navbar-userU{
+    @apply Navbar-center px-[10px] br-0 outline-0 bg-none text-white cursor-pointer hover:opacity-100 opacity-60
+  }
 
   /*Sign*/
   .Sign-master {
