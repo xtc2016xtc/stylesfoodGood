@@ -4,6 +4,7 @@ import {NavItem} from "@/types";
 import Mediaido from "@/components/media/Mediaido.tsx";
 import {useState} from "react";
 import ModalOverlay from "@/components/home/Modal/ModalOverlay.tsx";
+import Footer from "@/components/Footer/page.tsx";
 
 
 
@@ -45,6 +46,8 @@ const RootLayout = () => {
         setIsModalOverlay(false);
     }
 
+    /**/
+
     return (
         <div id="_layout">
             <div>
@@ -54,7 +57,7 @@ const RootLayout = () => {
                     <div className="flex-grow visible bg-black bg-pos-y-0">
                         <Outlet context={{ handlePlay,AriaECX }}/>
                     </div>
-                    <footer></footer>
+                    <Footer />
                 </div>
             </div>
 

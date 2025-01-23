@@ -51,6 +51,29 @@
   transition: all .2s;
 }
 
+.dropdown::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -22px;
+  width: 100%;
+  height: 22px;
+  background: rgba(0, 0, 0, 0);
+}
+
+.dropdown::after{
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border-top: 0;
+  border-bottom: 12px solid rgba(0, 0, 0, .9);
+  border-left: 12px solid rgba(0, 0, 0, 0);
+  border-right: 12px solid rgba(0, 0, 0, 0);
+}
+
 .hover\:custom-bg-transparent:hover::before {
   background: url('https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/yscc.png') no-repeat center bottom; /* 更改为你的新图片 */
 
@@ -71,20 +94,7 @@
   border:none;
 }
 
-/*
 
-display: none;
-    position: absolute;
-    top: 0;
-    right: -16px;
-    padding: 30px 48px;
-    border-radius: 6px;
-    background: rgba(0, 0, 0, .9);
-    transform: translateY(-104px);
-    transform-origin: top;
-    white-space: nowrap;
-
-*/
 .outline-0{
   outline: none;
 }
@@ -100,6 +110,10 @@ display: none;
 
 .bg-custom-image{
   background: url("https://static-mp-27e2abce-1f98-4743-b169-8c5f9ac24dbb.next.bspapp.com/wvuecat/fy.png") no-repeat center center;
+}
+
+.bg-black-8{
+  background: rgba(0,0,0,.9);
 }
 
 .bg-black-7{
@@ -139,8 +153,19 @@ display: none;
   animation-delay: 1s;
 }
 
+.border-left{
+  border-left: 2px solid #ccc;
+}
+
 .text-decoration{
   text-decoration: underline;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+.text-colorBus{
+  color: #ccc;
 }
 
 
@@ -163,6 +188,22 @@ display: none;
 .age-close{
   background-size: 100% 100%;
   background-image: url(./assets/clones.png);
+}
+
+.block {
+  display: block !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.txt{
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+  -webkit-text-decoration-color: #fff;
+  text-decoration-color: #fff;
+  color: #fff;
 }
 
 /* 公共样式 */
@@ -243,6 +284,9 @@ display: none;
   /*已登录*/
   .Navbar-users{
     @apply relative login pl-0 pr-[30px] pt-0 pb-0 bg-black-6 text-1 h-full outline-0 cursor-pointer text-white hover:opacity-100 opacity-60
+  }
+  .Navbar-Usee {
+    @apply absolute hidden bg-black-8 pt-[30px] pr-[48px] pb-[30px] pl-[48px] top-0 right-[-16px] rounded-[6px] translate-y-[82px]  origin-top whitespace-normal
   }
 
   /*未登录*/

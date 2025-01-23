@@ -23,8 +23,25 @@ const Navbar = ({ navItems }:NavbarProps) => {
     const [indicatorStyle, setIndicatorStyle] = useState<CSSProperties>({}); // 蓝色长条的样式
     const location = useLocation(); // 获取当前路径
     const navRefs = useRef<(HTMLAnchorElement | null)[]>([]) // 存储导航项的引用
+    /*显示下拉*/
+    const [dropdownVisible, setDropdownVisible] = useState(false);
+
 
     const title = Timeauto()
+    /*点击*/
+    // const toggleDropdown = () => {
+    //     setDropdownVisible(!dropdownVisible);
+    // };
+
+    /*移入*/
+    const showDropdown = () => {
+        setDropdownVisible(true);
+    };
+
+    /*移出*/
+    const hideDropdown = () => {
+        setDropdownVisible(false);
+    };
 
     console.log("navRefs", title)
 
@@ -128,21 +145,29 @@ const Navbar = ({ navItems }:NavbarProps) => {
 
                    <div className="flex justify-end h-full whitespace-nowrap">
                        {/* 未登录 */}
-                       <button className="Navbar-userU">
-                           <span className="Navbar-span">登录</span>
-                           <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />
-                       </button>
+                       {/*<button className="Navbar-userU">*/}
+                       {/*    <span className="Navbar-span">登录</span>*/}
+                       {/*    <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />*/}
+                       {/*</button>*/}
                        {/*已登录*/}
-                       {/*<div className="Navbar-center">*/}
-                       {/*     <button className="Navbar-users">*/}
-                       {/*         <span className="text-1 text-[#ccc] cursor-pointer">{title}!</span>*/}
-                       {/*         &nbsp;&nbsp;*/}
-                       {/*         <strong className="font-[normal] text-decoration">155****91</strong>*/}
-                       {/*     </button>*/}
-                       {/*    下拉*/}
-                       {/*    <div className="translate-y-[82px]">*/}
-                       {/*    </div>*/}
-                       {/*</div>*/}
+                       <div className="Navbar-center">
+                            <button className="Navbar-users" onMouseEnter={showDropdown}
+                                    onMouseLeave={hideDropdown}>
+                                <span className="text-1 text-[#ccc] cursor-pointer">{title}!</span>
+                                &nbsp;&nbsp;
+                                <strong className="font-[normal] text-decoration">155****91</strong>
+                            </button>
+                           {/*下拉*/}
+                           <div className={`Navbar-Usee dropdown ${dropdownVisible ? 'block' : 'hidden'}`} onMouseEnter={showDropdown}
+                                onMouseLeave={hideDropdown}>
+                               <Link to="https://www.baidu.com" className="text-1 hover:text-white text-decoration-none text-colorBus">
+                                   通行证
+                               </Link>
+                               <Link to="/" className="ml-[20px] hover:text-white text-1 text-decoration-none text-colorBus pl-[22px] border-left" >
+                                   登出
+                               </Link>
+                           </div>
+                       </div>
                    </div>
 
 
