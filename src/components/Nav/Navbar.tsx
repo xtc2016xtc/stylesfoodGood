@@ -110,69 +110,75 @@ const Navbar = ({ navItems }:NavbarProps) => {
 
     return (
         <div className="Navbar">
-           <div className="Navbar-container">
-               {/* Logo */}
-               <img src="/Header/logo-header-cut.png" alt="Logo" className='Navbar-logo'/>
-               <div className="Navbar-items">
-                   {/* 导航项 */}
-                   <div className="Navbar-items-content">
-                       {navItems.map((item, index) => (
-                           <NavLink
-                               key={index}
-                               to={item.path}
-                               className="Navbar-link"
-                               onMouseEnter={() => handleMouseEnter(index)}
-                               onMouseLeave={handleMouseLeave}
-                               ref={el => navRefs.current[index] = el}
-                           >
-                               {item.label}
-                               {((hoveredIndex === index) || (hoveredIndex === null && activeIndex === index)) && (
-                                   <div
-                                       className="Navbar-length" />
-                               )}
-                           </NavLink>
-                       ))}
-                       <div className="Navbar-length" style={indicatorStyle} />
-                   </div>
-               </div>
-               {/* 用户信息 */}
-               <div className="Navbar-userinfo">
-                   <Link to="https://www.baidu.com" className="Navbar-User">
-                       <span className="Navbar-Info-1">新手引导指南</span>
-                       <img src="/Header/ys.png" alt="User" className="Navbar-ImgUser" />
-                   </Link>
+            <div className="Navbar-container">
+                {/* Logo */}
+                <Link to="/" className='Navbar-logo'/>
+                <Link to="/" className='Navbar-logo-1'/>
+                {/*<img src="/src/assets/logo-header-cut.png" alt="Logo" />*/}
+                {/*<img src="/src/assets/logo-header-full.png" alt="Logo" />*/}
+                <div className="Navbar-items">
+                    {/* 导航项 */}
+                    <div className="Navbar-items-content">
+                        {navItems.map((item, index) => (
+                            <NavLink
+                                key={index}
+                                to={item.path}
+                                className="Navbar-link"
+                                onMouseEnter={() => handleMouseEnter(index)}
+                                onMouseLeave={handleMouseLeave}
+                                ref={el => navRefs.current[index] = el}
+                            >
+                                {item.label}
+                                {((hoveredIndex === index) || (hoveredIndex === null && activeIndex === index)) && (
+                                    <div
+                                        className="Navbar-length"/>
+                                )}
+                            </NavLink>
+                        ))}
+                        <div className="Navbar-length" style={indicatorStyle}/>
+                    </div>
+                </div>
+                {/* 用户信息 */}
+                <div className="Navbar-userinfo">
+                    <Link to="https://www.baidu.com" className="Navbar-User">
+                        <span className="Navbar-Info-1">新手引导指南</span>
+                        <img src="/Header/ys.png" alt="User" className="Navbar-ImgUser"/>
+                    </Link>
 
 
-                   <div className="flex justify-end h-full whitespace-nowrap">
-                       {/* 未登录 */}
-                       {/*<button className="Navbar-userU">*/}
-                       {/*    <span className="Navbar-span">登录</span>*/}
-                       {/*    <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />*/}
-                       {/*</button>*/}
-                       {/*已登录*/}
-                       <div className="Navbar-center">
+                    <div className="flex justify-end h-full whitespace-nowrap">
+                        {/* 未登录 */}
+                        {/*<button className="Navbar-userU">*/}
+                        {/*    <span className="Navbar-span">登录</span>*/}
+                        {/*    <img src="/Header/ys.png" alt="User" className="w-[27px] h-[27px] ml-[18px]" />*/}
+                        {/*</button>*/}
+                        {/*已登录*/}
+                        <div className="Navbar-center">
                             <button className="Navbar-users" onMouseEnter={showDropdown}
                                     onMouseLeave={hideDropdown}>
                                 <span className="text-1 text-[#ccc] cursor-pointer">{title}!</span>
                                 &nbsp;&nbsp;
                                 <strong className="font-[normal] text-decoration">155****91</strong>
                             </button>
-                           {/*下拉*/}
-                           <div className={`Navbar-Usee dropdown ${dropdownVisible ? 'block' : 'hidden'}`} onMouseEnter={showDropdown}
-                                onMouseLeave={hideDropdown}>
-                               <Link to="https://www.baidu.com" className="text-1 hover:text-white text-decoration-none text-colorBus">
-                                   通行证
-                               </Link>
-                               <Link to="/" className="ml-[20px] hover:text-white text-1 text-decoration-none text-colorBus pl-[22px] border-left" >
-                                   登出
-                               </Link>
-                           </div>
-                       </div>
-                   </div>
+                            {/*下拉*/}
+                            <div className={`Navbar-Usee dropdown ${dropdownVisible ? 'block' : 'hidden'}`}
+                                 onMouseEnter={showDropdown}
+                                 onMouseLeave={hideDropdown}>
+                                <Link to="https://www.baidu.com"
+                                      className="text-1 hover:text-white text-decoration-none text-colorBus">
+                                    通行证
+                                </Link>
+                                <Link to="/"
+                                      className="ml-[20px] hover:text-white text-1 text-decoration-none text-colorBus pl-[22px] border-left">
+                                    登出
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
 
 
-               </div>
-           </div>
+                </div>
+            </div>
         </div>
     );
 };

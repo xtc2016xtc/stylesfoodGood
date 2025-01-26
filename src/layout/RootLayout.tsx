@@ -5,6 +5,7 @@ import Mediaido from "@/components/media/Mediaido.tsx";
 import {useState} from "react";
 import ModalOverlay from "@/components/home/Modal/ModalOverlay.tsx";
 import Footer from "@/components/Footer/page.tsx";
+import MusicMediaido from "@/components/Root/Music/MusicMediaido.tsx";
 
 
 
@@ -52,6 +53,8 @@ const RootLayout = () => {
         <div id="_layout">
             <div>
                 <div className="relative h-screen w-full min-w-[1280px] min-h-screen flex flex-col">
+                    {/*音乐播放*/}
+                    <MusicMediaido />
                     <Mediaido isVisible={isMediaidoVisible} onClose={handleClose} />
                     <Navbar navItems={navItems} />
                     <div className="flex-grow visible bg-black bg-pos-y-0">

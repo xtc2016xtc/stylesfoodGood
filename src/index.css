@@ -190,6 +190,14 @@
   background-image: url(./assets/clones.png);
 }
 
+.bgclogo {
+  background: rgba(0, 0, 0, 0) url(./assets/logo-header-cut.png) no-repeat 0 0;
+}
+
+.bgclogo-1 {
+  background: rgba(0, 0, 0, 0) url(./assets/logo-header-full.png) no-repeat 0 0;
+}
+
 .block {
   display: block !important;
 }
@@ -245,7 +253,10 @@
     @apply h-[66px] translate-x-0 opacity-100 flex flex-shrink fixed top-0 left-0 w-full transition-opacity duration-500 ease-in-out min-w-[1208px] bg-black bg-opacity-75 shadow-md
   }
   .Navbar-logo{
-    @apply opacity-100 w-[317px] float-left ml-2 mr-0 h-full cursor-pointer bg-no-repeat
+    @apply bgclogo opacity-100 w-[317px] float-left ml-2 mr-0 h-full cursor-pointer bg-no-repeat
+  }
+  .Navbar-logo-1{
+    @apply bgclogo-1 opacity-0 w-[0] mt-[-137px] float-left ml-[-50px] h-[213px] cursor-pointer bg-no-repeat
   }
   .Navbar-items{
     @apply inline-block relative max-w-[750px] w-auto -ml-34
