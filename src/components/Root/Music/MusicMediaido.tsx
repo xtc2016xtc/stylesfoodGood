@@ -5,7 +5,7 @@ interface MusicMediaidoProps {
     togglePlay: () => void;
     musicFiles: string[];
 }
-
+/*初版*/
 /*const MusicMediaido = ({ isPlaying, togglePlay, musicFiles }: MusicMediaidoProps) => {
     // const getRandomMusicIndex = () => Math.floor(Math.random() * musicFiles.length);原方案
     /!*修改方案*!/
@@ -115,16 +115,7 @@ interface MusicMediaidoProps {
 export default MusicMediaido;*/
 
 /*修改方案*/
-/*
-import { useCallback, useEffect, useRef, useState } from 'react';
-
-interface MusicMediaidoProps {
-    isPlaying: boolean;
-    togglePlay: () => void;
-    musicFiles: string[];
-}
-
-const MusicMediaido = ({ isPlaying, togglePlay, musicFiles }: MusicMediaidoProps) => {
+/*const MusicMediaido = ({ isPlaying, togglePlay, musicFiles }: MusicMediaidoProps) => {
     const getRandomMusicIndex = useCallback(
         () => Math.floor(Math.random() * musicFiles.length),
         [musicFiles.length]
