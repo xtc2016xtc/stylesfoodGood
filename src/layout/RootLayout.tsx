@@ -27,14 +27,19 @@ const RootLayout = () => {
     /*蒙版*/
     const [isModalOverlay, setIsModalOverlay] = useState(false);
 
+    /* 音乐播放状态 */
+    const [isMusicPlaying, setIsMusicPlaying] = useState(true);
+
     const handlePlay = () => {
         console.log('handlePlay 被调用');
         setIsMediaidoVisible(true);
+        setIsMusicPlaying(false); // 视频播放时静音
     };
 
     const handleClose = () => {
         console.log('handlePlay 被调用');
         setIsMediaidoVisible(false);
+        setIsMusicPlaying(true); // 视频关闭时播放音乐
     };
 
     const AriaECX = () =>{
@@ -47,14 +52,23 @@ const RootLayout = () => {
         setIsModalOverlay(false);
     }
 
-    /**/
+    const toggleMusicPlay = () => {
+        setIsMusicPlaying(!isMusicPlaying);
+    };
+
+    /*音乐列表*/
+    const musicFiles = [
+        '/music/01.mp3',
+        '/music/02.mp3',
+        '/music/03.mp3'
+    ];
 
     return (
         <div id="_layout">
             <div>
                 <div className="relative h-screen w-full min-w-[1280px] min-h-screen flex flex-col">
                     {/*音乐播放*/}
-                    <MusicMediaido />
+                    <MusicMediaido isPlaying={isMusicPlaying} togglePlay={toggleMusicPlay} musicFiles={musicFiles}/>
                     <Mediaido isVisible={isMediaidoVisible} onClose={handleClose} />
                     <Navbar navItems={navItems} />
                     <div className="flex-grow visible bg-black bg-pos-y-0">
