@@ -5,6 +5,11 @@ export interface NavItem {
     path: string;
 }
 
+export interface Socials{
+    link: string;
+    text: string;
+    path:string
+}
 export interface NavbarProps {
     navItems: NavItem[];
 }

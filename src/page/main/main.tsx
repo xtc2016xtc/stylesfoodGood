@@ -1,4 +1,5 @@
 import Poster from "@/components/home/Poster.tsx";
+import Social from "@/components/Social/page.tsx";
 
 const Main = () => {
     return (
@@ -6,7 +7,7 @@ const Main = () => {
             <Poster/>
             News
             City
-            Social
+            <Social />
         </div>
     )
 }
