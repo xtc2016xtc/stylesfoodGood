@@ -36,6 +36,9 @@
 .icon-bilibili:before{content:"g"}
 
 
+.border-bottom_list{
+  border-bottom: 2px solid rgba(255, 255, 255, .08);
+}
 
 .hover\:custom-text-shadow:hover {
   text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
@@ -57,6 +60,9 @@
   }
 }
 
+.zx{
+  background: url(./assets/news/jia.png) no-repeat left center / 22px;
+}
 
 
 .hover\:custom-bg-transparent::before {
@@ -71,6 +77,16 @@
   z-index: 10;
 }
 
+.active::after {
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: #ffd49f;
+}
 
 .login::before{
   content: "";
@@ -115,6 +131,10 @@
 }
 .hover\:custom-bg-transparent:hover{
   background: rgba(0,0,0,0);
+}
+
+.Tabs{
+  background: rgba(38,18,12,.62);
 }
 
 .bg-pos-y-0 {
@@ -217,6 +237,28 @@
   border-top-left-radius: 4px;
 }
 
+.news{
+  background: url(./assets/news/news_bg.jpg) no-repeat center / cover;
+  color: #fff;
+}
+
+.newst::after{
+  right: 0;
+  transform: translate(calc(100% + 32px), -50%) rotateY(180deg);
+}
+.newst::before{
+  left: 0;
+  transform: translate(calc(-100% - 32px), -50%);
+}
+
+.newst::after,.newst::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 385px;
+  height: 14px;
+  background: url(./assets/news/lt.png) no-repeat right center / cover;
+}
 
 
 .social_btn::before{
@@ -244,6 +286,16 @@
 *:focus {
   outline: none;
 }
+
+.Tabss{
+  border-bottom: 3px solid rgba(255, 255, 255, .1);
+}
+
+
+.active {
+  color: #ffd49f !important;
+}
+
 
 .age-close{
   background-size: 100% 100%;
@@ -374,5 +426,9 @@
   }
   .Sign-pcpng-1 {
     @apply w-full h-auto cursor-pointer
+  }
+  /*Tabs*/
+  .Tabs_conte{
+    @apply Tabs relative w-[640px] m-0
   }
 }
