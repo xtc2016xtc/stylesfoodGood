@@ -94,7 +94,7 @@ const TabsT = () => {
                     ))}
                 </TabsContent>
             ))}
-            <Link to="/" className="absolute right-[33px] bottom-[30px] h-[22px] leading-[22px] text-lg text-[rgba(255,255,255,0.75)] cursor-pointer pl-[38px] zx hover:text-[rgba(255,212,159,0.75)] hover:bg-[url('./assets/news/jia1.png')]">
+            <Link to="/" className="absolute right-[33px] bottom-[20px] h-[22px] leading-[22px] text-lg text-[rgba(255,255,255,0.75)] cursor-pointer pl-[38px] zx hover:text-[rgba(255,212,159,0.75)] hover:bg-[url('./assets/news/jia1.png')]">
                 查看全部咨询
             </Link>
         </Tabs>
