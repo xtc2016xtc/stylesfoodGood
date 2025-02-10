@@ -70,7 +70,7 @@ const TabsT = () => {
                     <TabsTrigger
                         key={tab.number}
                         value={tab.number.toString()}
-                        className={`pt-0 pb-[12px] px-[19px] relative text-[18px] items-center cursor-pointer ${activeTab === tab.number.toString() ? 'active' : ''}`}
+                        className={`pt-0 pb-[12px] px-[19px] relative text-[18px] items-center cursor-pointer ${activeTab === tab.number.toString() ? 'activeTS' : ''}`}
                     >
                         {tab.label}
                     </TabsTrigger>

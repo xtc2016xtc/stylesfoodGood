@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @font-face{
   font-family:"icomoon";
   src:url("https://webstatic.mihoyo.com/upload/hk4e/fonts/icomoon.eot");
@@ -77,7 +79,7 @@
   z-index: 10;
 }
 
-.active::after {
+.activeTS::after {
   position: absolute;
   left: 0;
   bottom: -3px;
@@ -287,12 +289,28 @@
   outline: none;
 }
 
+
 .Tabss{
   border-bottom: 3px solid rgba(255, 255, 255, .1);
 }
 
+.swiper-pagination-bullet {
+  width: 18px !important;
+  height: 18px !important;
+  background-color: rgba(0, 0, 0, .1) !important;
+  border-radius: 50% !important;
+  border: solid 2px rgba(255, 255, 255, .3) !important;
+  box-sizing: border-box !important;
+  box-shadow: 0 0 12px 0 rgba(17, 17, 17, .3) !important;
+  opacity: 1 !important;
+}
 
-.active {
+.swiper-pagination-bullet-active{
+  background-color: #fff !important;
+  border: solid 2px #fff !important;
+}
+
+.activeTS {
   color: #ffd49f !important;
 }
 

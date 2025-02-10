@@ -10,12 +10,12 @@ import MusicMediaido from "@/components/Root/Music/MusicMediaido.tsx";
 
 
 const navItems: NavItem[] = [
-    { label: '首页', path: '/' },
-    { label: '新闻', path: '/news' },
-    { label: '关于', path: '/about' },
-    { label: '服务', path: '/services' },
-    { label: '产品', path: '/products' },
-    { label: '联系我们', path: '/contact' },
+    { label: '首 页', path: '/main' },
+    { label: '新 闻', path: '/main/news' },
+    { label: '关 于', path: '/main/about' },
+    { label: '服 务', path: '/main/services' },
+    { label: '产 品', path: '/main/products' },
+    { label: '联系我们', path: '/main/contact' },
 ];
 
 

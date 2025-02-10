@@ -1,5 +1,5 @@
-import Swiper from "@/components/Swiper/Swiper.tsx";
 import TabsT from "@/components/News/Tabs.tsx";
+import SwiperComponent from "@/components/Swiper/SwiperComponent.tsx";
 
 const News = () => {
     return (
@@ -9,7 +9,7 @@ const News = () => {
             </h3>
             <div className="flex justify-center h-[400px] mx-auto my-0">
                 {/*轮播*/}
-                <Swiper />
+                <SwiperComponent />
 
                 <TabsT />
             </div>

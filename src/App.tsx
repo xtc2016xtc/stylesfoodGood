@@ -7,25 +7,27 @@ import Products from "@/page/Products.tsx";
 import Contact from "@/page/Contact.tsx";
 import RootLayout from "@/layout/RootLayout.tsx";
 import Main from "@/page/main/main.tsx";
+import Detail from "@/components/News/detail/Detail.tsx";
+import { ActiveIndexProvider } from './components/Nav/ActiveIndexContext';
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/main" element={<RootLayout />}>
-                <Route index element={<Main />} />
-                <Route path="main" element={<Main />} />
-                <Route path="news" element={<News />} />
-                <Route path="about" element={<About />} />
-                <Route path="services" element={<Services />} />
-                <Route path="products" element={<Products />} />
-                <Route path="contact" element={<Contact />} />
-                {/*<Route path="admin" element={<Admin />} />*/}
-                {/* 其他路由 */}
-            </Route>
-            </Routes>
-        </Router>
+        <ActiveIndexProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/main" element={<RootLayout />}>
+                        <Route index element={<Main />} />
+                        <Route path="news" element={<News />} />
+                        <Route path="news/detail/:id" element={<Detail />} />
+                        <Route path="about" element={<About />} />
+                        <Route path="services" element={<Services />} />
+                        <Route path="products" element={<Products />} />
+                        <Route path="contact" element={<Contact />} />
+                    </Route>
+                </Routes>
+            </Router>
+        </ActiveIndexProvider>
     );
 };
 
