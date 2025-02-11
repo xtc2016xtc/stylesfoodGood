@@ -1,8 +1,7 @@
-/*初版*/
-import {CSSProperties, useCallback, useEffect, useRef, useState} from 'react';
-import {Link, NavLink, useLocation} from 'react-router-dom';
-import {NavbarProps} from "@/types";
-import {useActiveIndex} from "@/components/Nav/ActiveIndexContext.tsx";
+import { CSSProperties, useCallback, useEffect, useRef, useState } from 'react';
+import {Link, useLocation} from 'react-router-dom';
+import { NavbarProps } from "@/types";
+import { useActiveIndex } from '@/components/Nav/ActiveIndexContext';
 
 /*问候语*/
 /*function Timeauto(): string {
@@ -55,12 +54,6 @@ const Navbar = ({ navItems }:NavbarProps) => {
 
     const activeIndex = getActiveIndex();
 
-    // 手动设置导航索引为 2
-    useEffect(() => {
-        if (location.pathname.startsWith('/main/news/detail')) {
-
-        }
-    }, [location.pathname]);
 
     // 当路径变化时，更新蓝色长条的位置和宽度
     useEffect(() => {
@@ -1073,18 +1066,21 @@ export default Navbar;*/
 
 /*7*/
 /*问候语*/
-function Timeauto(): string {
+
+
+/*问候语*/
+/*function Timeauto(): string {
     const date = new Date();
     const hours = date.getHours();
 
     if (hours >= 7 && hours <= 11) {
-        return "早上好"
+        return "早上好";
     } else if (hours >= 12 && hours <= 13) {
-        return "中午好"
+        return "中午好";
     } else if (hours >= 14 && hours <= 17) {
-        return "下午好"
+        return "下午好";
     } else {
-        return "晚上好"
+        return "晚上好";
     }
 }
 
@@ -1092,19 +1088,18 @@ const Navbar = ({ navItems }: NavbarProps) => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // 当前悬停的导航项索引
     const [indicatorStyle, setIndicatorStyle] = useState<CSSProperties>({}); // 蓝色长条的样式
     const location = useLocation(); // 获取当前路径
-    const navRefs = useRef<(HTMLAnchorElement | null)[]>([]) // 存储导航项的引用
+    const navRefs = useRef<(HTMLAnchorElement | null)[]>([]); // 存储导航项的引用
     const { activeIndex, setActiveIndex } = useActiveIndex(); // 使用上下文获取和设置 activeIndex
-    /*显示下拉*/
-    const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [dropdownVisible, setDropdownVisible] = useState(false); // 显示下拉
 
-    const title = Timeauto()
+    const title = Timeauto();
 
-    /*移入*/
+    /!*移入*!/
     const showDropdown = () => {
         setDropdownVisible(true);
     };
 
-    /*移出*/
+    /!*移出*!/
     const hideDropdown = () => {
         setDropdownVisible(false);
     };
@@ -1112,10 +1107,9 @@ const Navbar = ({ navItems }: NavbarProps) => {
     // 获取当前激活的导航项索引
     const getActiveIndex = () => {
         const activeItem = navItems.findIndex(item => {
-            const regex = new RegExp(`^${item.path.replace(/:\w+/g, '\\w+')}`);
+            const regex = new RegExp(`^${item.path.replace(/:\w+/g, '\\w+')}$`);
             return regex.test(location.pathname);
         });
-        console.log("当前路径索引:", activeItem); // 打印当前路径的索引
         return activeItem !== -1 ? activeItem : 0;
     };
 
@@ -1161,7 +1155,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
 
     const updateIndicatorStyle = useCallback(() => {
         const activeIndex = navItems.findIndex(item => {
-            const regex = new RegExp(`^${item.path.replace(/:\w+/g, '\\w+')}`);
+            const regex = new RegExp(`^${item.path.replace(/:\w+/g, '\\w+')}$`);
             return regex.test(location.pathname);
         });
         if (activeIndex !== -1 && navRefs.current[activeIndex]) {
@@ -1181,10 +1175,176 @@ const Navbar = ({ navItems }: NavbarProps) => {
         };
     }, [updateIndicatorStyle]);
 
-    // 打印当前路径
+    return (
+        <div className="Navbar">
+            <div className="Navbar-container">
+                {/!* Logo *!/}
+                <Link to="/" className='Navbar-logo' />
+                <Link to="/" className='Navbar-logo-1' />
+                <div className="Navbar-items">
+                    {/!* 导航项 *!/}
+                    <div className="Navbar-items-content">
+                        {navItems.map((item, index) => (
+                            <Link
+                                key={index}
+                                to={item.path}
+                                className={`Navbar-link ${activeIndex === index ? 'active' : ''}`}
+                                onMouseEnter={() => handleMouseEnter(index)}
+                                onMouseLeave={handleMouseLeave}
+                                ref={el => navRefs.current[index] = el}
+                            >
+                                {item.label}
+                                {((hoveredIndex === index) || (hoveredIndex === null && activeIndex === index)) && (
+                                    <div className="Navbar-length" />
+                                )}
+                            </Link>
+                        ))}
+                        <div className="Navbar-length" style={indicatorStyle} />
+                    </div>
+                </div>
+                {/!* 用户信息 *!/}
+                <div className="Navbar-userinfo">
+                    <Link to="https://www.baidu.com" className="Navbar-User">
+                        <span className="Navbar-Info-1">新手引导指南</span>
+                        <img src="/Header/ys.png" alt="User" className="Navbar-ImgUser" />
+                    </Link>
+                    <div className="flex justify-end h-full whitespace-nowrap">
+                        <div className="Navbar-center">
+                            <button className="Navbar-users" onMouseEnter={showDropdown} onMouseLeave={hideDropdown}>
+                                <span className="text-1 text-[#ccc] cursor-pointer">{title}!</span>
+                                &nbsp;&nbsp;
+                                <strong className="font-[normal] text-decoration">155****91</strong>
+                            </button>
+                            {/!*下拉*!/}
+                            <div className={`Navbar-Usee dropdown ${dropdownVisible ? 'block' : 'hidden'}`}
+                                 onMouseEnter={showDropdown}
+                                 onMouseLeave={hideDropdown}>
+                                <Link to="https://www.baidu.com"
+                                      className="text-1 hover:text-white text-decoration-none text-colorBus">
+                                    通行证
+                                </Link>
+                                <Link to="/"
+                                      className="ml-[20px] hover:text-white text-1 text-decoration-none text-colorBus pl-[22px] border-left">
+                                    登出
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Navbar;*/
+
+
+/*问候语*/
+function Timeauto(): string {
+    const date = new Date();
+    const hours = date.getHours();
+
+    if (hours >= 7 && hours <= 11) {
+        return "早上好";
+    } else if (hours >= 12 && hours <= 13) {
+        return "中午好";
+    } else if (hours >= 14 && hours <= 17) {
+        return "下午好";
+    } else {
+        return "晚上好";
+    }
+}
+
+const Navbar = ({ navItems }: NavbarProps) => {
+    const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // 当前悬停的导航项索引
+    const [indicatorStyle, setIndicatorStyle] = useState<CSSProperties>({}); // 蓝色长条的样式
+    const location = useLocation(); // 获取当前路径
+    const navRefs = useRef<(HTMLAnchorElement | null)[]>([]); // 存储导航项的引用
+    const { activeIndex, setActiveIndex } = useActiveIndex(); // 使用上下文获取和设置 activeIndex
+    const [dropdownVisible, setDropdownVisible] = useState(false); // 显示下拉
+
+    const title = Timeauto();
+
+    /*移入*/
+    const showDropdown = () => {
+        setDropdownVisible(true);
+    };
+
+    /*移出*/
+    const hideDropdown = () => {
+        setDropdownVisible(false);
+    };
+
+    // 获取当前激活的导航项索引
+    const getActiveIndex = useCallback(() => {
+        const activeItem = navItems.findIndex(item => {
+            const regex = new RegExp(`^${item.path.replace(/:\w+/g, '\\w+')}$`);
+            return regex.test(location.pathname);
+        });
+        return activeItem !== -1 ? activeItem : 0;
+    }, [location.pathname, navItems]);
+
     useEffect(() => {
-        console.log("当前路径:", location.pathname);
-    }, [location.pathname]);
+        const index = getActiveIndex();
+        setActiveIndex(index);
+    }, [location.pathname, getActiveIndex, setActiveIndex]);
+
+    // 当路径变化时，更新蓝色长条的位置和宽度
+    useEffect(() => {
+        if (navRefs.current[activeIndex]) {
+            const { offsetLeft, offsetWidth } = navRefs.current[activeIndex];
+            setIndicatorStyle({
+                left: offsetLeft,
+                width: offsetWidth,
+            });
+        }
+    }, [activeIndex, location.pathname]);
+
+    // 当鼠标悬停在导航项上时，更新蓝色长条的位置和宽度
+    const handleMouseEnter = (index: number) => {
+        if (navRefs.current[index]) {
+            const { offsetLeft, offsetWidth } = navRefs.current[index];
+            setIndicatorStyle({
+                left: offsetLeft,
+                width: offsetWidth,
+            });
+        }
+        setHoveredIndex(index);
+    };
+
+    // 当鼠标离开导航项时，恢复蓝色长条的位置和宽度
+    const handleMouseLeave = () => {
+        if (navRefs.current[activeIndex]) {
+            const { offsetLeft, offsetWidth } = navRefs.current[activeIndex];
+            setIndicatorStyle({
+                left: offsetLeft,
+                width: offsetWidth,
+            });
+        }
+        setHoveredIndex(null);
+    };
+
+    const updateIndicatorStyle = useCallback(() => {
+        const activeIndex = navItems.findIndex(item => {
+            const regex = new RegExp(`^${item.path.replace(/:\w+/g, '\\w+')}$`);
+            return regex.test(location.pathname);
+        });
+        if (activeIndex !== -1 && navRefs.current[activeIndex]) {
+            const { offsetLeft, offsetWidth } = navRefs.current[activeIndex];
+            setIndicatorStyle({
+                left: offsetLeft,
+                width: offsetWidth,
+            });
+        }
+    }, [location.pathname, navItems]);
+
+    useEffect(() => {
+        updateIndicatorStyle();
+        window.addEventListener('resize', updateIndicatorStyle);
+        return () => {
+            window.removeEventListener('resize', updateIndicatorStyle);
+        };
+    }, [updateIndicatorStyle]);
 
     return (
         <div className="Navbar">
@@ -1196,10 +1356,10 @@ const Navbar = ({ navItems }: NavbarProps) => {
                     {/* 导航项 */}
                     <div className="Navbar-items-content">
                         {navItems.map((item, index) => (
-                            <NavLink
+                            <Link
                                 key={index}
                                 to={item.path}
-                                className="Navbar-link"
+                                className={`Navbar-link ${activeIndex === index ? 'active' : ''}`}
                                 onMouseEnter={() => handleMouseEnter(index)}
                                 onMouseLeave={handleMouseLeave}
                                 ref={el => navRefs.current[index] = el}
@@ -1208,7 +1368,7 @@ const Navbar = ({ navItems }: NavbarProps) => {
                                 {((hoveredIndex === index) || (hoveredIndex === null && activeIndex === index)) && (
                                     <div className="Navbar-length" />
                                 )}
-                            </NavLink>
+                            </Link>
                         ))}
                         <div className="Navbar-length" style={indicatorStyle} />
                     </div>
@@ -1248,3 +1408,5 @@ const Navbar = ({ navItems }: NavbarProps) => {
 };
 
 export default Navbar;
+
+
