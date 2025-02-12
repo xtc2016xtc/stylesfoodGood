@@ -1,59 +1,14 @@
 import { SetStateAction, useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {Link} from "react-router-dom";
+import {tabsData} from "@/data/slidesData.ts";
 
-interface TabsDate {
-    number: number;
-    label: string;
-    items: {
-        content: string;
-        path:string;
-        timestamp: string | null;
-    }[];
-}
+
 
 const TabsT = () => {
     const storedActiveTab = localStorage.getItem('activeTab');
     const [activeTab, setActiveTab] = useState(storedActiveTab !== null ? storedActiveTab : '719');
 
-    // 定义虚拟数据
-    const tabsData: TabsDate[] = [
-        {
-            number: 719,
-            label: '最新',
-            items: [
-                { content: '最新内容1',path:'/', timestamp: new Date().toISOString() },
-                { content: '最新内容2',path:'/', timestamp: null }, // 时间为空
-                { content: '最新内容3',path:'/', timestamp: new Date().toISOString() },
-                { content: '最新内容4',path:'/', timestamp: new Date().toISOString() },
-                { content: '最新内容5',path:'/', timestamp: new Date().toISOString() },
-            ]
-        },
-        {
-            number: 720,
-            label: '新闻',
-            items: [
-                { content: '新闻内容1',path:'/', timestamp: new Date().toISOString() },
-                { content: '新闻内容2',path:'/', timestamp: new Date().toISOString() }
-            ]
-        },
-        {
-            number: 721,
-            label: '公告',
-            items: [
-                { content: '公告内容1',path:'/', timestamp: new Date().toISOString() },
-                { content: '《原神》「神铸赋形」活动祈愿现已开启，「长柄武器·赤月之形」「单手剑·赦罪」概率UP！',path:'/', timestamp: new Date().toISOString() }
-            ]
-        },
-        {
-            number: 722,
-            label: '活动',
-            items: [
-                { content: '活动内容1',path:'/', timestamp: new Date().toISOString() },
-                { content: '活动内容2',path:'/', timestamp: new Date().toISOString() }
-            ]
-        }
-    ];
 
     useEffect(() => {
         localStorage.setItem('activeTab', activeTab);

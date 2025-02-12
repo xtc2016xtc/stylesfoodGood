@@ -1,9 +1,27 @@
 
-
+export interface SlideData {
+    id: string;
+    url: string;
+    image: string;
+    alt: string;
+    content: string[];
+    timestamp: string | null;
+}
 export interface NavItem {
     label: string;
     path: string;
 }
+
+export interface TabsDate {
+    number: number;
+    label: string;
+    items: {
+        content: string;
+        path:string;
+        timestamp: string | null;
+    }[];
+}
+
 
 export interface Socials{
     link: string;
