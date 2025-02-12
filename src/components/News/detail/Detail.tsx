@@ -70,7 +70,7 @@ const Detail = () => {
                             返回新闻列表
                         </Link>
                     </div>
-                    <div className="min-h-[754px] relative bg-[#f0f0f0] text-[0] px-[90px] pt-[79px] pb-[115px]">
+                    <div className="min-h-[0px] cate relative bg-[#f0f0f0] text-[0] px-[90px] pt-[79px] pb-[115px]">
                         <div className="leading-[40px] text-[32px] text-[#333]">{slide.alt}</div>
                         {slide.timestamp ? (
                             <div
