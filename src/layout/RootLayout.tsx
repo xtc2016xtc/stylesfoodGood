@@ -71,7 +71,7 @@ const RootLayout = () => {
                     <MusicMediaido isPlaying={isMusicPlaying} togglePlay={toggleMusicPlay} musicFiles={musicFiles}/>
                     <Mediaido isVisible={isMediaidoVisible} onClose={handleClose} />
                     <Navbar navItems={navItems} />
-                    <div className="flex-grow visible bg-black bg-pos-y-0">
+                    <div className="flex-grow visible bg-black">
                         <Outlet context={{ handlePlay,AriaECX }}/>
                     </div>
                     <Footer />

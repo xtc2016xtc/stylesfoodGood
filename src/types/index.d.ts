@@ -4,7 +4,7 @@ export interface SlideData {
     url: string;
     image: string;
     alt: string;
-    content: string[];
+    content: (string | { type: 'placeholder' })[];
     timestamp: string | null;
 }
 export interface NavItem {

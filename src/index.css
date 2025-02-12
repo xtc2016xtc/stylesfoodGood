@@ -90,9 +90,40 @@
   background: #ffd49f;
 }
 
+.news_detail {
+  background: #4d6e80 url(./assets/detail/detail-bg.jpg) no-repeat top center;
+  background-size: 100% auto;
+}
+
+.Home{
+  background-color: rgba(17, 17, 17, .75);
+}
 .active{
   text-shadow: 0 0 10px #69e0ff, 0 0 20px #69e0ff, 0 0 40px #69e0ff;
   color: #fff;
+}
+
+.detail7{
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.buttombarr{
+  background: #393b40 url(./assets/detail/z.png) no-repeat center;
+  background-size: 14px 23px;
+}
+.backTop{
+  background:#fff url(./assets/detail/s.png) no-repeat center / 22px 24px;
+  box-shadow: 0 0 14px 0 rgba(18,18,18,.04);
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+  transition-delay: 0s;
+  transition-property: all;
+}
+
+.videsss{
+  max-width: 100% !important;
+  height: unset !important;
 }
 
 .login::before{
