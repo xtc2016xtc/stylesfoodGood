@@ -10,19 +10,19 @@ export interface SlideData {
     videoSrc: string;
     buttons: { url: string }[];
 }
+
+export interface DeatailDlProps {
+    relatedList: {
+        alt: string;
+        timestamp: string;
+        url: string;
+        image: string;
+    }[];
+}
+
 export interface NavItem {
     label: string;
     path: string;
-}
-
-export interface TabsDate {
-    number: number;
-    label: string;
-    items: {
-        content: string;
-        path:string;
-        timestamp: string | null;
-    }[];
 }
 
 

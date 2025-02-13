@@ -4,8 +4,17 @@ import { Swiper, SwiperSlide } from 'swiper/react'; // 导入 Swiper 组件和 S
 // @ts-expect-error
 import "swiper/css/bundle"; // 导入 Swiper 的 CSS 文件
 import { Link } from "react-router-dom";
-import {slidesData} from "@/data/slidesData.ts";
+// import {latestData} from "@/data/slidesData.ts";
 
+interface SwiperComponent{
+    relatedList: {
+        id:string,
+        alt: string;
+        timestamp: string;
+        url: string;
+        image: string;
+    }[];
+}
 // 定义虚拟数据的类型
 /*interface SlideData {
     id: string;
@@ -81,7 +90,7 @@ export default SwiperComponent; */// 导出 SwiperComponent 组件
 
 
 // 定义 SwiperComponent 组件
-const SwiperComponent = () => {
+const SwiperComponent = ({ relatedList }:SwiperComponent) => {
 
     return (
         <Swiper
@@ -100,7 +109,7 @@ const SwiperComponent = () => {
             className="Tabs_conte" // 自定义的 CSS 类名
         >
             {/* 使用虚拟数据生成 SwiperSlide 组件 */}
-            {slidesData.map((slide) => (
+            {relatedList.map((slide) => (
                 <SwiperSlide key={slide.id} className="w-[640px]">
                     <Link to={slide.url} className="flex w-full h-full">
                         <img

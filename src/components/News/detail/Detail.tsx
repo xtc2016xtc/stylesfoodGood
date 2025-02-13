@@ -1,7 +1,8 @@
 import {Link, useLocation, useParams} from 'react-router-dom';
 import { useActiveIndex } from "@/components/Nav/ActiveIndexContext.tsx";
 import {useEffect, useState} from "react";
-import {slidesData} from '@/data/slidesData'; // 导入虚拟数据
+import {latestData} from '@/data/slidesData'
+import DeatailDl from "@/components/News/detail/DeatailDl.tsx"; // 导入虚拟数据
 
 // 定义 Detail 组件
 const Detail = () => {
@@ -27,7 +28,7 @@ const Detail = () => {
 
 
     const { id } = useParams<{ id: string }>(); // 获取 URL 参数
-    const slide = slidesData.find((slide) => slide.id === id); // 根据 URL 参数查找相应的详情数据
+    const slide = latestData.find((slide) => slide.id === id); // 根据 URL 参数查找相应的详情数据
 
     useEffect(() => {
         if (!slide) {
@@ -59,6 +60,49 @@ const Detail = () => {
     const handleBackToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    // 获取相关的列表数据（例如，排除当前的 slide）
+    /*const relatedList = slidesData.filter((item) => item.id !== slide.id);*/
+
+    // 获取相关的列表数据（例如，排除当前的 slide）
+    // const relatedList = slidesData
+    //     .filter((item) => item.id !== slide.id)
+    //     .map((item) => ({
+    //         alt: item.alt,
+    //         timestamp: item.timestamp || '',
+    //         url: item.url,
+    //         image: item.image,
+    //     }));
+
+   /* const startId = "127773"
+
+    /!*指定id*!/
+    // 获取相关的列表数据（例如，排除当前的 slide）
+    const relatedList = slidesData
+        .filter((item) => item.id !== slide.id && item.id >= startId) // 过滤出 id 大于等于 startId 的数据
+        .map((item) => ({
+            alt: item.alt,
+            timestamp: item.timestamp || '', // 确保 timestamp 始终是字符串
+            url: item.url,
+            image: item.image,
+        }));*/
+
+    // 获取相关的列表数据（例如，排除当前的 slide）
+    const startId = "127773"; // 指定起始 id
+    const relatedList = latestData
+        .filter((item) => item.id >= startId)// 过滤出 id 大于等于 startId 的数据
+        .slice(0,5)
+        .map((item) => ({
+            alt: item.alt,
+            timestamp: item.timestamp || '', // 确保 timestamp 始终是字符串
+            url: item.url,
+            image: item.image,
+        }));
+
+    if(!relatedList){
+        return null
+    }
+
 
     return (
         <div className="news_detail bg-pos-y-0">
@@ -147,9 +191,7 @@ const Detail = () => {
                         </div>
                     </div>
                 </div>
-                <dl className="list">
-                    
-                </dl>
+                <DeatailDl relatedList={relatedList}/>
                 {showBackToTop && (
                     <button
                         onClick={handleBackToTop}
