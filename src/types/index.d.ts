@@ -6,6 +6,9 @@ export interface SlideData {
     alt: string;
     content: (string | { type: 'placeholder' })[];
     timestamp: string | null;
+    breadcrumbs: { name: string; url: string }[];
+    videoSrc: string;
+    buttons: { url: string }[];
 }
 export interface NavItem {
     label: string;

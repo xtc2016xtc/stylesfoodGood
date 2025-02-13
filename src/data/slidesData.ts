@@ -192,7 +192,17 @@ const slidesData: SlideData[] = [
             "PS5™或PS4™：打开系统界面-选择《原神》-按下手柄OPTIONS键-选择确认升级；",
             "若遇到任何安装问题，请联系客服，我们将为旅行者解决问题。"
         ],
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        breadcrumbs: [
+            { name: "首页", url: "/main/" },
+            { name: "新闻", url: "/main/news" },
+            { name: "新闻", url: "/main/news/720" }
+        ],
+        videoSrc: "https://fastcdn.mihoyo.com/content-v2/hk4e/127773/4d01d53e2c13542effd3d340c158e9b0_6492437629142038616.mp4",
+        buttons: [
+            { url: "/main/news/detail/127515" },
+            { url: "/main/news/detail/127773" }
+        ]
     },
     {
         id: "127773",
@@ -225,7 +235,17 @@ const slidesData: SlideData[] = [
             "PS5™或PS4™：打开系统界面-选择《原神》-按下手柄OPTIONS键-选择确认升级；",
             "若遇到任何安装问题，请联系客服，我们将为旅行者解决问题。"
         ],
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        breadcrumbs: [
+            { name: "首页", url: "/main/" },
+            { name: "新闻", url: "/main/news" },
+            { name: "新闻", url: "/main/news/720" }
+        ],
+        videoSrc: "https://fastcdn.mihoyo.com/content-v2/hk4e/127773/4d01d53e2c13542effd3d340c158e9b0_6492437629142038616.mp4",
+        buttons: [
+            { url: "/main/news/detail/127515" },
+            { url: "/main/news/detail/127773" }
+        ]
     },
     {
         id: "127699",
@@ -258,7 +278,17 @@ const slidesData: SlideData[] = [
             "PS5™或PS4™：打开系统界面-选择《原神》-按下手柄OPTIONS键-选择确认升级；",
             "若遇到任何安装问题，请联系客服，我们将为旅行者解决问题。"
         ],
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        breadcrumbs: [
+            { name: "首页", url: "/main/" },
+            { name: "新闻", url: "/main/news" },
+            { name: "新闻", url: "/main/news/720" }
+        ],
+        videoSrc: "https://fastcdn.mihoyo.com/content-v2/hk4e/127773/4d01d53e2c13542effd3d340c158e9b0_6492437629142038616.mp4",
+        buttons: [
+            { url: "/main/news/detail/127515" },
+            { url: "/main/news/detail/127773" }
+        ]
     },
     {
         id: "127563",
@@ -291,7 +321,17 @@ const slidesData: SlideData[] = [
             "PS5™或PS4™：打开系统界面-选择《原神》-按下手柄OPTIONS键-选择确认升级；",
             "若遇到任何安装问题，请联系客服，我们将为旅行者解决问题。"
         ],
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        breadcrumbs: [
+            { name: "首页", url: "/main/" },
+            { name: "新闻", url: "/main/news" },
+            { name: "新闻", url: "/main/news/720" }
+        ],
+        videoSrc: "https://fastcdn.mihoyo.com/content-v2/hk4e/127773/4d01d53e2c13542effd3d340c158e9b0_6492437629142038616.mp4",
+        buttons: [
+            { url: "/main/news/detail/127515" },
+            { url: "/main/news/detail/127773" }
+        ]
     }
 ];
 
@@ -328,9 +368,6 @@ const tabsData: TabsDate[] = [
         ]
     }
 ];
-
-
-
 
 export  {
     slidesData,
