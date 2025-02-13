@@ -147,7 +147,9 @@ const Detail = () => {
                         </div>
                     </div>
                 </div>
-
+                <dl className="list">
+                    
+                </dl>
                 {showBackToTop && (
                     <button
                         onClick={handleBackToTop}
