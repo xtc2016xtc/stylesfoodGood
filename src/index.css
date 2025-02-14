@@ -478,6 +478,18 @@
   background: rgba(255, 255, 255, .14);
 }
 
+.city__list-item::before {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .4);
+}
+
 .city_shider{
   background: url(./assets/CharacterDetail/01.png) no-repeat 18px center;
   text-shadow: 0 2px 6px rgba(0, 0, 0, .2);
@@ -498,12 +510,100 @@
   }
 }
 
+.city__list-item{
+  background: center no-repeat;
+  background-size: 100% auto;
+}
+
+@media screen and (max-width: 1920px) {
+   .city__list-item {
+    background-size: 1920px 260px ;
+  }
+}
+
+
+
+.city__list-item:hover::before {
+  background: rgba(0, 0, 0, .2);
+}
+
+.city__list-bg:hover{
+  transform: scale(1.05);
+}
+
+.city__list-bg {
+  background: center no-repeat;
+  background-size: 100% auto;
+  transition: transform .4s 0s ease-out;
+}
+
+
+@media screen and (max-width: 1920px) {
+   .city__list-bg {
+    background-size: 1920px 260px;
+    transition: transform .4s 0s ease-out;
+  }
+}
+
+
 .character__city--active{
   text-shadow: none;
   padding-left: 70px;
   background: url(./assets/CharacterDetail/02.png) no-repeat left center;
   background-size: contain;
   pointer-events: none;
+}
+
+.city__list-itema{
+  background: url(./assets/CharacterDetail/0.png) center no-repeat;
+  background-size: 132px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  margin: 0 !important;
+}
+.city__list-item:hover .city__list-char {
+  opacity: 1;
+}
+
+.pda::after {
+  position: absolute;
+  bottom: 91px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  content: "";
+  width: 210px;
+  height: 10px;
+  background: url(./assets/CharacterDetail/00.png) center no-repeat;
+  background-size: 210px 10px;
+  opacity: 0;
+}
+.pda:hover::after {
+  opacity: 1;
+}
+
+.city__list-item2{
+  background-image: url(./assets/CharacterDetail/008881654.jpg);
+}
+.city__list-item-des{
+  color: rgba(255, 255, 255, .3) !important;
+  background: rgba(0, 0, 0, .3) !important;
+}
+
+.city__list-char {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: calc(50% + 360px) 50%;
+  background-size: 960px 260px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+  border: #fff solid 6px;
+  box-sizing: border-box;
 }
 
 

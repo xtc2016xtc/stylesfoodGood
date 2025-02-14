@@ -480,7 +480,7 @@ const generateCityData = (count: number, prefix: string): CityData => {
     const details = [];
     for (let i = 0; i < count; i++) {
         details.push({
-            image: `/md01.png`,
+            image: `/CharacterDetail/CharacterDetail/001.png`,
             alt: `${prefix} image ${i}`,
             content: `这是 ${prefix} 的第 ${i + 1} 条详细信息。`
         });
@@ -488,23 +488,22 @@ const generateCityData = (count: number, prefix: string): CityData => {
     return {
         id: prefix,
         name: `${prefix}城`,
-        bg:'/CharacterDetail/01.jpg',
-        bgImg:'/CharacterDetail/02.jpg',
+        bg: '/CharacterDetail/01.jpg',
+        bgImg: '/CharacterDetail/02.jpg',
         url: `/main/about/${prefix}`,
-        backgroundImage: "https://uploadstatic.mihoyo.com/contentweb/20200211/2020021114213984258.jpg",
-        characterImage: "https://uploadstatic.mihoyo.com/contentweb/20220121/2022012117384457834.png",
+        backgroundImage: "/CharacterDetail/CharacterDetail/001.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/001.png",
         details
     };
 };
 
 // 定义虚拟城市数据
 export const cityData: CityData[] = [
-    generateCityData(21, 'mondstadt'),
-    generateCityData(21, 'liyue'),
-    generateCityData(21, 'inazuma'),
-    generateCityData(21, 'sumeru')
+    generateCityData(6, 'mondstadt'),
+    generateCityData(6, 'liyue'),
+    generateCityData(6, 'inazuma'),
+    generateCityData(6, 'sumeru')
 ];
-
 /*
 // 导出动态生成的虚拟数据
 export const slidesData = generateSlidesData(6); // 生成10个幻灯片数据*/

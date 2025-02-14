@@ -4,22 +4,27 @@ import { cityData } from '@/data/slidesData';
 const City = () => {
     return (
         <section className="w-full">
-            <ul className="flex flex-wrap justify-center">
+            <ul className="overflow-hidden">
                 {cityData.map((city) => (
-                    <li key={city.id} className="city__list-item relative m-4 w-64 h-64">
+                    <li key={city.id}
+                        className="city__list-item relative w-full h-[260px] cursor-pointer overflow-hidden">
                         <div
-                            className="city__list-bg absolute inset-0 bg-cover bg-center"
-                            style={{ backgroundImage: `url(${city.backgroundImage})` }}
+                            className="city__list-bg absolute top-0 left-0 block w-full h-full"
+                            style={{backgroundImage: `url(${city.backgroundImage})`}}
                         ></div>
-                        <Link to={`${city.url}?cat=0`} className="relative z-10 flex items-center justify-center h-full text-white text-xl font-bold">
-                            <p>{city.name}</p>
+                        <Link to={`${city.url}?cat=0`}
+                              className="city__list-itema inline-block relative z-[3] text-[36px] text-[#fff] leading-[260px] w-full h-[260px] text-center overflow-hidden">
+                            <p className="city__list-itema inline-block relative z-[3] text-[36px] text-[#fff] leading-[260px] w-full h-[260px] text-center overflow-hidden pda">{city.name}</p>
                         </Link>
                         <div
-                            className="city__list-char absolute bottom-0 right-0 w-24 h-24 bg-cover bg-center"
-                            style={{ backgroundImage: `url(${city.characterImage})` }}
+                            className="city__list-char"
+                            style={{backgroundImage: `url(${city.characterImage})`}}
                         ></div>
                     </li>
                 ))}
+                <li className="city__list-item pointer-events-none city__list-item2 relative w-full h-[260px] cursor-pointer overflow-hidden">
+                    <p className="city__list-item-des city__list-itema inline-block relative z-[3] text-[36px] text-[#fff] leading-[260px] w-full h-[260px] text-center overflow-hidden pda">敬请期待</p>
+                </li>
             </ul>
         </section>
     );
