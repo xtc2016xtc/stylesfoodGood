@@ -88,7 +88,7 @@ const Detail = () => {
         }));*/
 
     // 获取相关的列表数据（例如，排除当前的 slide）
-    const startId = "latest"; // 指定起始 id
+    const startId = "773"; // 指定起始 id
     const relatedList = latestData
         .filter((item) => item.id >= startId)// 过滤出 id 大于等于 startId 的数据
         .slice(0,5)

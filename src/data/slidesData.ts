@@ -475,35 +475,284 @@ const generateSlidesData = (count: number, prefix: string): SlideData[] => {
     return slidesData;
 };
 
-// 动态生成虚拟数据的函数
-const generateCityData = (count: number, prefix: string): CityData => {
-    const details = [];
-    for (let i = 0; i < count; i++) {
-        details.push({
-            image: `/CharacterDetail/CharacterDetail/001.png`,
-            alt: `${prefix} image ${i}`,
-            content: `这是 ${prefix} 的第 ${i + 1} 条详细信息。`
-        });
-    }
-    return {
-        id: prefix,
-        name: `${prefix}城`,
-        bg: '/CharacterDetail/01.jpg',
-        bgImg: '/CharacterDetail/02.jpg',
-        url: `/main/about/${prefix}`,
+// // 动态生成虚拟数据的函数
+// const generateCityData = (count: number, prefix: string): CityData => {
+//     const details = [];
+//     for (let i = 0; i < count; i++) {
+//         details.push({
+//             image: `/CharacterDetail/CharacterDetail/001.png`,
+//             alt: `${prefix} image ${i}`,
+//             content: `这是 ${prefix} 的第 ${i + 1} 条详细信息。`
+//         });
+//     }
+//     return {
+//         id: prefix,
+//         name: `${prefix}城`,
+//         bg: '/CharacterDetail/01.jpg',
+//         bgImg: '/CharacterDetail/02.jpg',
+//         url: `/main/about/${prefix}`,
+//         backgroundImage: "/CharacterDetail/CharacterDetail/001.jpg",
+//         characterImage: "/CharacterDetail/CharacterDetail/001.png",
+//         details
+//     };
+// };
+
+// // 定义虚拟城市数据
+// export const cityData: CityData[] = [
+//     generateCityData(6, 'mondstadt'),
+//     generateCityData(6, 'liyue'),
+//     generateCityData(6, 'inazuma'),
+//     generateCityData(6, 'sumeru')
+// ];
+export const cityData: CityData[] = [
+    {
+        id: "mondstadt",
+        name: "蒙德城",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/mondstadt",
         backgroundImage: "/CharacterDetail/CharacterDetail/001.jpg",
         characterImage: "/CharacterDetail/CharacterDetail/001.png",
-        details
-    };
-};
-
-// 定义虚拟城市数据
-export const cityData: CityData[] = [
-    generateCityData(6, 'mondstadt'),
-    generateCityData(6, 'liyue'),
-    generateCityData(6, 'inazuma'),
-    generateCityData(6, 'sumeru')
+        details: [
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "mondstadt image 0",
+                content: "这是 mondstadt 的第 1 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "mondstadt image 1",
+                content: "这是 mondstadt 的第 2 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "mondstadt image 2",
+                content: "这是 mondstadt 的第 3 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "mondstadt image 3",
+                content: "这是 mondstadt 的第 4 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "mondstadt image 4",
+                content: "这是 mondstadt 的第 5 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "mondstadt image 5",
+                content: "这是 mondstadt 的第 6 条详细信息。"
+            }
+        ]
+    },
+    {
+        id: "liyue",
+        name: "璃月城",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/liyue",
+        backgroundImage: "/CharacterDetail/CharacterDetail/002.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/002.png",
+        details: [
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "liyue image 0",
+                content: "这是 liyue 的第 1 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "liyue image 1",
+                content: "这是 liyue 的第 2 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "liyue image 2",
+                content: "这是 liyue 的第 3 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "liyue image 3",
+                content: "这是 liyue 的第 4 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "liyue image 4",
+                content: "这是 liyue 的第 5 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "liyue image 5",
+                content: "这是 liyue 的第 6 条详细信息。"
+            }
+        ]
+    },
+    {
+        id: "inazuma",
+        name: "稻妻城",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/inazuma",
+        backgroundImage: "/CharacterDetail/CharacterDetail/003.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/003.png",
+        details: [
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "inazuma image 0",
+                content: "这是 inazuma 的第 1 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "inazuma image 1",
+                content: "这是 inazuma 的第 2 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "inazuma image 2",
+                content: "这是 inazuma 的第 3 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "inazuma image 3",
+                content: "这是 inazuma 的第 4 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "inazuma image 4",
+                content: "这是 inazuma 的第 5 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "inazuma image 5",
+                content: "这是 inazuma 的第 6 条详细信息。"
+            }
+        ]
+    },
+    {
+        id: "sumeru",
+        name: "枫丹城",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/sumeru",
+        backgroundImage: "/CharacterDetail/CharacterDetail/004.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/004.png",
+        details: [
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 0",
+                content: "这是 sumeru 的第 1 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 1",
+                content: "这是 sumeru 的第 2 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 2",
+                content: "这是 sumeru 的第 3 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 3",
+                content: "这是 sumeru 的第 4 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 4",
+                content: "这是 sumeru 的第 5 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 5",
+                content: "这是 sumeru 的第 6 条详细信息。"
+            }
+        ]
+    },
+    {
+        id: "nata",
+        name: "续尼城",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/nata",
+        backgroundImage: "/CharacterDetail/CharacterDetail/005.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/005.png",
+        details: [
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 0",
+                content: "这是 sumeru 的第 1 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 1",
+                content: "这是 sumeru 的第 2 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 2",
+                content: "这是 sumeru 的第 3 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 3",
+                content: "这是 sumeru 的第 4 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 4",
+                content: "这是 sumeru 的第 5 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 5",
+                content: "这是 sumeru 的第 6 条详细信息。"
+            }
+        ]
+    },
+    {
+        id: "naata",
+        name: "纳塔",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/naata",
+        backgroundImage: "/CharacterDetail/CharacterDetail/006.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/006.png",
+        details: [
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 0",
+                content: "这是 sumeru 的第 1 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 1",
+                content: "这是 sumeru 的第 2 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 2",
+                content: "这是 sumeru 的第 3 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 3",
+                content: "这是 sumeru 的第 4 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 4",
+                content: "这是 sumeru 的第 5 条详细信息。"
+            },
+            {
+                image: "/CharacterDetail/CharacterDetail/001.png",
+                alt: "sumeru image 5",
+                content: "这是 sumeru 的第 6 条详细信息。"
+            }
+        ]
+    },
 ];
+
 /*
 // 导出动态生成的虚拟数据
 export const slidesData = generateSlidesData(6); // 生成10个幻灯片数据*/
