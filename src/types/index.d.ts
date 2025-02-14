@@ -25,6 +25,15 @@ export interface NavItem {
     path: string;
 }
 
+export interface CityData {
+    id: string;
+    name: string;
+    url: string;
+    backgroundImage: string;
+    characterImage: string;
+    details: { image: string, alt: string, content: string }[];
+}
+
 
 export interface Socials{
     link: string;

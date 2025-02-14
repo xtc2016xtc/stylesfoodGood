@@ -157,7 +157,41 @@ const slidesData: SlideData[] = [
 ];*/
 
 
-import {SlideData } from "@/types";
+import {CityData, SlideData} from "@/types";
+
+
+
+// 定义虚拟城市数据
+/*export const cityData: CityData[] = [
+    {
+        id: "0",
+        name: "蒙德城",
+        url: "/main/about/mondstadt",
+        backgroundImage: "https://uploadstatic.mihoyo.com/contentweb/20200211/2020021114213984258.jpg",
+        characterImage: "https://uploadstatic.mihoyo.com/contentweb/20220121/2022012117384457834.png"
+    },
+    {
+        id: "1",
+        name: "璃月港",
+        url: "/main/about/liyue",
+        backgroundImage: "https://uploadstatic.mihoyo.com/contentweb/20200211/2020021114213984258.jpg",
+        characterImage: "https://uploadstatic.mihoyo.com/contentweb/20220121/2022012117384457834.png"
+    },
+    {
+        id: "2",
+        name: "稻妻城",
+        url: "/main/about/inazuma",
+        backgroundImage: "https://uploadstatic.mihoyo.com/contentweb/20200211/2020021114213984258.jpg",
+        characterImage: "https://uploadstatic.mihoyo.com/contentweb/20220121/2022012117384457834.png"
+    },
+    {
+        id: "3",
+        name: "须弥城",
+        url: "/main/about/sumeru",
+        backgroundImage: "https://uploadstatic.mihoyo.com/contentweb/20200211/2020021114213984258.jpg",
+        characterImage: "https://uploadstatic.mihoyo.com/contentweb/20220121/2022012117384457834.png"
+    }
+];*/
 
 /*
 /!*Detail*!//!*轮播*!/
@@ -440,6 +474,34 @@ const generateSlidesData = (count: number, prefix: string): SlideData[] => {
     }
     return slidesData;
 };
+
+// 动态生成虚拟数据的函数
+const generateCityData = (count: number, prefix: string): CityData => {
+    const details = [];
+    for (let i = 0; i < count; i++) {
+        details.push({
+            image: `/md01.png`,
+            alt: `${prefix} image ${i}`,
+            content: `这是 ${prefix} 的第 ${i + 1} 条详细信息。`
+        });
+    }
+    return {
+        id: prefix,
+        name: `${prefix}城`,
+        url: `/main/character/${prefix}`,
+        backgroundImage: "https://uploadstatic.mihoyo.com/contentweb/20200211/2020021114213984258.jpg",
+        characterImage: "https://uploadstatic.mihoyo.com/contentweb/20220121/2022012117384457834.png",
+        details
+    };
+};
+
+// 定义虚拟城市数据
+export const cityData: CityData[] = [
+    generateCityData(21, 'mondstadt'),
+    generateCityData(21, 'liyue'),
+    generateCityData(21, 'inazuma'),
+    generateCityData(21, 'sumeru')
+];
 
 /*
 // 导出动态生成的虚拟数据

@@ -407,6 +407,19 @@
 
 }
 
+.swiper-pagination-bullet{
+  width: 110px;
+  margin-right: 34px;
+  font-size: 0;
+  cursor: pointer;
+  background: rgba(0,0,0,0) url(./assets/CharacterDetail/ba.png) no-repeat 0 0;
+}
+/*分页*/
+.my-bullet-active{
+  background-position: 0 -132px;
+}
+
+
 
 /*组件内嵌样式*/
 @layer utilities{
