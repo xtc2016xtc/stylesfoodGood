@@ -13,6 +13,9 @@ export default {
 			'-34':'-34px',
 			'-40':"40px"
 		},
+		height:{
+			'800px':'800px'
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

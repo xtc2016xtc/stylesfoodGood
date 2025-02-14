@@ -488,7 +488,9 @@ const generateCityData = (count: number, prefix: string): CityData => {
     return {
         id: prefix,
         name: `${prefix}城`,
-        url: `/main/character/${prefix}`,
+        bg:'/CharacterDetail/01.jpg',
+        bgImg:'/CharacterDetail/02.jpg',
+        url: `/main/about/${prefix}`,
         backgroundImage: "https://uploadstatic.mihoyo.com/contentweb/20200211/2020021114213984258.jpg",
         characterImage: "https://uploadstatic.mihoyo.com/contentweb/20220121/2022012117384457834.png",
         details

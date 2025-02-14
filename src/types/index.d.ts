@@ -29,6 +29,8 @@ export interface CityData {
     id: string;
     name: string;
     url: string;
+    bg:string,
+    bgImg:string,
     backgroundImage: string;
     characterImage: string;
     details: { image: string, alt: string, content: string }[];

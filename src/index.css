@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 @font-face{
   font-family:"icomoon";
   src:url("https://webstatic.mihoyo.com/upload/hk4e/fonts/icomoon.eot");
@@ -53,6 +52,12 @@
 @media screen and (max-width: 1380px) {
   .header_navitem {
     margin: 0 17px !important;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .character {
+    height: 800px;
   }
 }
 
@@ -180,6 +185,9 @@
 
 .bg-pos-y-0 {
   background-position-y: 0;
+}
+.bg-pos-cen{
+  background-position: center;
 }
 
 .custom-background {
@@ -419,6 +427,84 @@
   background-position: 0 -132px;
 }
 
+.character__bg1 {
+  -webkit-animation: breath 80s infinite linear;
+  animation: breath 80s infinite linear;
+  opacity: 1;
+}
+
+.character__bg2 {
+  -webkit-animation: bg-change 15s infinite linear, breath 80s infinite linear;
+  animation: bg-change 15s infinite linear, breath 80s infinite linear;
+  opacity: 0;
+}
+
+@keyframes breath {
+  0%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
+@keyframes bg-change {
+  48% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*时间轴*/
+.character__sidebar::before {
+  position: absolute;
+  top: 0;
+  left: 37px;
+  display: block;
+  content: "";
+  width: 2px;
+  height: 1280px;
+  background: rgba(255, 255, 255, .14);
+}
+
+.city_shider{
+  background: url(./assets/CharacterDetail/01.png) no-repeat 18px center;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  background-size: 40px;
+}
+
+.city_shider_img{
+  background: url(./assets/CharacterDetail/bg.png) no-repeat center bottom;
+  background-size: auto 100vh;
+}
+
+.city_shider_tran{
+  transform: translate3d(0px, 0px, 0px);
+}
+@media screen and (max-height: 800px) {
+  .city_shider_img {
+    background-size: auto 800px;
+  }
+}
+
+.character__city--active{
+  text-shadow: none;
+  padding-left: 70px;
+  background: url(./assets/CharacterDetail/02.png) no-repeat left center;
+  background-size: contain;
+  pointer-events: none;
+}
 
 
 /*组件内嵌样式*/
