@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'; // 导入 Swiper 组件和 S
 import "swiper/css/bundle"; // 导入 Swiper 的 CSS 文件
 
 import SwiperCore from 'swiper';
+// import Shider from "@/components/Character/shider.tsx";
 
 
 
@@ -86,6 +87,7 @@ const CharacterDetail = () => {
                 ))}
                 <li className="pointer-events-none w-full h-[54px] leading-[54px] text-[18px] text-[#fff] box-border pl-[56px] bg-[18px] select-none city_shider">敬请期待</li>
             </ul>
+            {/*<Shider/>*/}
             {/*详情页内容*/}
             <div className="city_shider_img relative w-full h-full">
                 <div className="text-center">
