@@ -11,7 +11,7 @@ const About = () => {
     }, [setActiveIndex]);
 
     return (
-        <div>
+        <div className="city_shider_img relative w-full h-full">
             <Shider/>
         </div>
     )

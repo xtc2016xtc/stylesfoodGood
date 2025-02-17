@@ -504,6 +504,7 @@
 .city_shider_tran{
   transform: translate3d(0px, 0px, 0px);
 }
+
 @media screen and (max-height: 800px) {
   .city_shider_img {
     background-size: auto 800px;
@@ -609,6 +610,10 @@
 
 /*组件内嵌样式*/
 @layer utilities{
+  /*swiper*/
+  .swiper-shier{
+    @apply city_shider_img !relative w-full h-full z-[9999]
+  }
   /*header*/
   .container_header {
     @apply bg-primary;
