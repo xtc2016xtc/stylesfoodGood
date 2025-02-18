@@ -415,8 +415,8 @@
 
 }
 
-.swiper-pagination-bullet{
-  width: 110px;
+.swiper-slide-thumb-active{
+  width: 110px ;
   margin-right: 34px;
   font-size: 0;
   cursor: pointer;
@@ -607,12 +607,20 @@
   box-sizing: border-box;
 }
 
+.animated{
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
 
 /*组件内嵌样式*/
 @layer utilities{
   /*swiper*/
   .swiper-shier{
-    @apply city_shider_img !relative w-full h-full z-[9999]
+    @apply city_shider_img relative w-full h-full z-[9999]
   }
   /*header*/
   .container_header {

@@ -1,173 +1,148 @@
-// import { useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import "swiper/css/bundle"; // 导入 Swiper 的 CSS 文件
+import "swiper/css/bundle";
+// import characterData from "@/data/slidesData.ts";
 
 // import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import {FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
+import characterData from "@/data/slidesData.ts";
+import {useState} from "react";
+import SwiperCore from "swiper";
 
 
 /*初版*/
 const Shider = () => {
-    // const images = [
-    //     "https://swiperjs.com/demos/images/nature-1.jpg",
-    //     "https://swiperjs.com/demos/images/nature-2.jpg",
-    //     "https://swiperjs.com/demos/images/nature-3.jpg",
-    //     "https://swiperjs.com/demos/images/nature-4.jpg",
-    //     "https://swiperjs.com/demos/images/nature-5.jpg",
-    //     "https://swiperjs.com/demos/images/nature-6.jpg",
-    //     "https://swiperjs.com/demos/images/nature-7.jpg",
-    //     "https://swiperjs.com/demos/images/nature-8.jpg",
-    //     "https://swiperjs.com/demos/images/nature-9.jpg",
-    //     "https://swiperjs.com/demos/images/nature-10.jpg",
-    // ];
-    //
-    // // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    // const captions = [
-    //     "内容 1", "内容 2", "内容 3", "内容 4", "内容 5", "内容 6",
-    //     "内容 7", "内容 8", "内容 9", "内容 10"
-    // ];
-    //
-    // const relatedList = [
-    //     { imgSrc: "https://swiperjs.com/demos/images/nature-1.jpg", text: "内容1" },
-    //     { imgSrc: "https://swiperjs.com/demos/images/nature-1.jpg", text: "内容2" },
-    //     // 其他内容
-    // ];
+
+    const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
 
 
-    // const [thumbsSwiper, setThumbsSwiper] = useState(null)
     return (
         <>
-            {/*主体*/}
+            <div className="relative">
+                {/* 主 Swiper (主图展示) */}
+                <Swiper
+                    spaceBetween={10}
+                    navigation={true}
+                    loop={true} // 启用主图循环模式
+                    thumbs={{ swiper: thumbsSwiper }} // 使用缩略图同步
+                    modules={[FreeMode, Navigation, Thumbs, Pagination]} // 启用各个模块
+                    className="swiper-container my-swiper" // 添加自定义类名
+                >
+                    {characterData.map((character) => (
+                        <SwiperSlide key={character.id}>
+                            <div className="relative overflow-hidden rounded-xl shadow-lg">
+                                {/* 角色图片 */}
+                                <img
+                                    src={character.imageUrl}
+                                    draggable="false"
+                                    className="w-full h-[400px] object-cover"
+                                    alt={character.name}
+                                />
+                                <div className="absolute top-4 left-4 z-10 text-white">
+                                    <img
+                                        src={character.iconUrl}
+                                        draggable="false"
+                                        className="w-16 h-16 rounded-full"
+                                        alt={`${character.name} Icon`}
+                                    />
+                                </div>
+                                <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black to-transparent w-full text-white">
+                                    <h2 className="text-2xl font-bold">{character.name}</h2>
+                                    <p className="text-sm">{character.cv}</p>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* 缩略图 Swiper */}
+                <Swiper
+                    onSwiper={setThumbsSwiper} // 获取缩略图Swiper实例
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    freeMode={true}
+                    loop={true} // 启用缩略图循环模式
+                    watchSlidesProgress={true}
+                    modules={[FreeMode, Navigation, Thumbs]}
+                    className="swiper-container my-thumbs"
+                >
+                    {characterData.map((character) => (
+                        <SwiperSlide key={character.id}>
+                            <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0 cursor-pointer">
+                                <img
+                                    src={character.pageThumb.imageUrl}
+                                    alt={character.pageThumb.name}
+                                    className="w-full h-[106px] object-cover rounded-lg"
+                                />
+                                <p className="text-center text-white text-sm mt-1">{character.pageThumb.name}</p>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+            );
+        </>
+        /*<>
+            {/!* 主体 Swiper *!/}
             <Swiper
                 spaceBetween={10}
                 navigation={true}
-                // thumbs={{ swiper: thumbsSwiper }}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className="swiper-shier"
-                >
-                <SwiperSlide style={{opacity:1}}>
-                    <ul>
-
-                    </ul>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg"  alt="" className="w-[800px] h-[300px]"/>
-                </SwiperSlide>
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-4.jpg"  alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-5.jpg"  alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-6.jpg"  alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-7.jpg" alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-8.jpg" alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-9.jpg" alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <img src="https://swiperjs.com/demos/images/nature-10.jpg" alt="" className="w-[800px] h-[300px]"/>*/}
-                {/*</SwiperSlide>*/}
+                modules={[FreeMode, Navigation, Thumbs, Pagination]}
+                pagination={pagination}
+                className="swiper-shier select-none"
+            >
+                {characterData.map((character) => (
+                    <SwiperSlide key={character.id}>
+                        <div className="">
+                            <img
+                                src={character.imageUrl}
+                                draggable="false"
+                                className=""
+                                alt={character.name}
+                            />
+                            {/!*<img*!/}
+                            {/!*    src={character.iconUrl}*!/}
+                            {/!*    draggable="false"*!/}
+                            {/!*    className="character__icon"*!/}
+                            {/!*    alt={`${character.name} Icon`}*!/}
+                            {/!*!/>*!/}
+                        </div>
+                    </SwiperSlide>
+                ))}
             </Swiper>
-            {/*分页器*/}
+
+            {/!* 分页器 Swiper
             <Swiper
-                // onSwiper={setThumbsSwiper}
                 spaceBetween={10}
                 slidesPerView={4}
                 freeMode={true}
                 wrapperClass="list-none"
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
-                className="absolute left-1/2 z-[998] transform -translate-x-1/2 flex items-center space-x-4 w-[800px] justify-center"
+                className=""
             >
-                <SwiperSlide>
-                    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">
-                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="内容1" className="w-full h-[106px] object-cover"/>
-                        <p className="text-center">内容1</p>
-                    </div>
-                </SwiperSlide>
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-6.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-7.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-8.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-9.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-                {/*<SwiperSlide>*/}
-                {/*    <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0">*/}
-                {/*        <img src="https://swiperjs.com/demos/images/nature-10.jpg" alt="内容1"*/}
-                {/*             className="w-full h-[106px] object-cover"/>*/}
-                {/*        <p className="text-center">内容1</p>*/}
-                {/*    </div>*/}
-                {/*</SwiperSlide>*/}
-            </Swiper>
-        </>
+                {characterData.map((character) => (
+                    <SwiperSlide key={character.id} className="">
+                        <div className="">
+                            <img
+                                src={character.pageThumb.imageUrl}
+                                alt={character.pageThumb.name}
+                                className=""
+                            />
+                            <p className="">{character.pageThumb.name}</p>
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>*!/}
+        </>*/
     );
 }
 
 export default Shider
+
+
 
 
