@@ -33,7 +33,7 @@ const Shider = () => {
     }, [audioGroup]);
 
     const toggleLanguage = () => {
-        // 为了过渡的流畅性，加一个动画效果
+        // 为了过度的流畅性，加一个动画效果
         const newLanguage = !isChinese;
         setIsChinese(newLanguage); // 切换语言
         setCvName(newLanguage ? '林簌' : '斋藤千和'); // 切换CV名字
