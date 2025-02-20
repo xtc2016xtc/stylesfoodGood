@@ -64,6 +64,10 @@ const Shider = () => {
         }
     }, [audioGroup]);
 
+    // 引用自定义按钮
+    const nextButtonRef = useRef<HTMLDivElement>(null);
+    const prevButtonRef = useRef<HTMLDivElement>(null);
+
     return (
 
         <div className="city_shider_img relative w-full h-full">
@@ -73,14 +77,17 @@ const Shider = () => {
                 {/* 主 Swiper (主图展示) */}
                 <Swiper
                     spaceBetween={10}
-                    navigation={true}
+                    navigation={{
+                        nextEl: nextButtonRef.current,
+                        prevEl: prevButtonRef.current,
+                    }}
                     loop={true} // 启用主图循环模式
-                    thumbs={{ swiper: thumbsSwiper }} // 使用缩略图同步
+                    thumbs={{swiper: thumbsSwiper}} // 使用缩略图同步
                     modules={[FreeMode, Navigation, Thumbs, Pagination]} // 启用各个模块
                     className="my-swiper swiper-wrapper" // 添加自定义类名
                 >
                     {characterData.map((character) => (
-                        <SwiperSlide key={character.id} style={{opacity:0}}>
+                        <SwiperSlide key={character.id} style={{opacity: 0}}>
                             {/* 角色图片 */}
                             <img
                                 src={character.imageUrl}
@@ -139,13 +146,14 @@ const Shider = () => {
                                     </div>
                                 </div>
                                 {/*介绍*/}
-                                <div className="touch-none character__intro mCustomScrollbar _mCS_73 mCS_no_scrollbar w-[550px] h-[150px]">
+                                <div
+                                    className="touch-none character__intro mCustomScrollbar _mCS_73 mCS_no_scrollbar w-[550px] h-[150px]">
                                     <div id="mCSB_73"
                                          className="mCustomScrollBox mCS-light-thick mCSB_vertical mCSB_inside"
-                                         >
+                                    >
                                         <div id="mCSB_73_container"
                                              className="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
-                                              dir="ltr">
+                                             dir="ltr">
                                             <div className="character__intro-content">
                                                 <p>
                                                     身为西风骑士团的代理团长，琴一直忠于职守，为人们带来安宁。虽然并非天赋异禀，但通过刻苦训练，如今的她已然能够独当一面。
@@ -157,11 +165,11 @@ const Shider = () => {
                                         </div>
                                         <div id="mCSB_73_scrollbar_vertical"
                                              className="mCSB_scrollTools mCSB_73_scrollbar mCS-light-thick mCSB_scrollTools_vertica hidden"
-                                             >
+                                        >
                                             <div className="mCSB_draggerContainer">
                                                 <div id="mCSB_73_dragger_vertical" className="mCSB_dragger"
-                                                     >
-                                                    <div className="mCSB_dragger_bar" ></div>
+                                                >
+                                                    <div className="mCSB_dragger_bar"></div>
                                                 </div>
                                                 <div className="mCSB_draggerRail"></div>
                                             </div>
@@ -187,7 +195,10 @@ const Shider = () => {
                                     className="character__audio"></audio>
                             </div>
                             <div ref={audioGroup01Ref}
-                                 style={{ display: audioGroup === 'group01' ? 'block' : 'none',transition: 'opacity 0.3s ease-in-out' }}>
+                                 style={{
+                                     display: audioGroup === 'group01' ? 'block' : 'none',
+                                     transition: 'opacity 0.3s ease-in-out'
+                                 }}>
                                 <audio src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3"
                                        className="character__audio"></audio>
                                 <audio src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145562610.mp3"
@@ -197,32 +208,47 @@ const Shider = () => {
                             </div>
                         </SwiperSlide>
                     ))}
+                    <span className="swiper-notification"/>
                 </Swiper>
-
-                {/* 缩略图 Swiper */}
-                <Swiper
-                    onSwiper={setThumbsSwiper} // 获取缩略图Swiper实例
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    freeMode={true}
-                    loop={true} // 启用缩略图循环模式
-                    watchSlidesProgress={true}
-                    modules={[FreeMode, Navigation, Thumbs]}
-                    className="swiper-container my-thumbs"
-                >
-                    {characterData.map((character) => (
-                        <SwiperSlide key={character.id}>
-                            <div className="w-[110px] h-[132px] mx-[9px] flex-shrink-0 cursor-pointer">
+                {/*分页*/}
+                <div className="character__page">
+                    {/* 缩略图 Swiper */}
+                    <Swiper
+                        onSwiper={setThumbsSwiper} // 获取缩略图Swiper实例
+                        spaceBetween={34}
+                        slidesPerView={4}
+                        freeMode={true}
+                        loop={true} // 启用缩略图循环模式
+                        watchSlidesProgress={true}
+                        modules={[FreeMode, Navigation, Thumbs]}
+                        className="character__swiper--page swiper-container"
+                    >
+                        {characterData.map((character) => (
+                            <SwiperSlide key={character.id} style={{width: 110}}
+                                         className="swiper-slide swiper-slide-visible">
                                 <img
                                     src={character.pageThumb.imageUrl}
                                     alt={character.pageThumb.name}
-                                    className="w-full h-[106px] object-cover rounded-lg"
                                 />
-                                <p className="text-center text-white text-sm mt-1">{character.pageThumb.name}</p>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                                <p>{character.pageThumb.name}</p>
+                            </SwiperSlide>
+                        ))}
+                        <span className="swiper-notification"/>
+                    </Swiper>
+
+                    {/* 自定义按钮 */}
+                    <div
+                        ref={nextButtonRef}
+                        className="swiper-button-nex1t"
+                    />
+                    <div
+                        ref={prevButtonRef}
+                        className="swiper-button-pre1v"
+                    />
+
+
+                </div>
+
             </div>
         </div>
         /*<>
