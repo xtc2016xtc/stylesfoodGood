@@ -67,7 +67,6 @@ const Shider = () => {
     // 引用自定义按钮
     const nextButtonRef = useRef<HTMLDivElement>(null);
     const prevButtonRef = useRef<HTMLDivElement>(null);
-
     return (
 
         <div className="city_shider_img relative w-full h-full">
@@ -76,18 +75,18 @@ const Shider = () => {
 
                 {/* 主 Swiper (主图展示) */}
                 <Swiper
-                    spaceBetween={10}
                     navigation={{
                         nextEl: nextButtonRef.current,
                         prevEl: prevButtonRef.current,
                     }}
                     loop={true} // 启用主图循环模式
+                    allowTouchMove={false}
                     thumbs={{swiper: thumbsSwiper}} // 使用缩略图同步
                     modules={[FreeMode, Navigation, Thumbs, Pagination]} // 启用各个模块
                     className="my-swiper swiper-wrapper" // 添加自定义类名
                 >
                     {characterData.map((character) => (
-                        <SwiperSlide key={character.id} style={{opacity: 0}}>
+                        <SwiperSlide key={character.id} style={{width:1681}}>
                             {/* 角色图片 */}
                             <img
                                 src={character.imageUrl}
@@ -216,7 +215,12 @@ const Shider = () => {
                     <Swiper
                         onSwiper={setThumbsSwiper} // 获取缩略图Swiper实例
                         spaceBetween={34}
-                        slidesPerView={4}
+                        slidesPerView={6}
+                        allowTouchMove={false}
+                        navigation={{
+                            nextEl: nextButtonRef.current,
+                            prevEl: prevButtonRef.current,
+                        }}
                         freeMode={true}
                         loop={true} // 启用缩略图循环模式
                         watchSlidesProgress={true}

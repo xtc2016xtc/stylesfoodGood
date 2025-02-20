@@ -1,12 +1,12 @@
 import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useActiveIndex } from "@/components/Nav/ActiveIndexContext.tsx";
-import { cityData } from "@/data/slidesData.ts";
-import {  Navigation, Pagination } from "swiper/modules"; // 导入 Swiper 模块
-import { Swiper, SwiperSlide } from 'swiper/react'; // 导入 Swiper 组件和 SwiperSlide 组件
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+import  { cityData } from "@/data/slidesData.ts";
+// import {  Navigation, Pagination } from "swiper/modules"; // 导入 Swiper 模块
+// import { Swiper, SwiperSlide } from 'swiper/react'; // 导入 Swiper 组件和 SwiperSlide 组件
+/*// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import "swiper/css/bundle"; // 导入 Swiper 的 CSS 文件
+import "swiper/css/bundle"; // 导入 Swiper 的 CSS 文件*/
 
 import SwiperCore from 'swiper';
 import Shider from "@/components/Character/shider.tsx";

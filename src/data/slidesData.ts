@@ -161,8 +161,8 @@ import {CityData, SlideData} from "@/types";
 
 
 /*shilder*/
-type Character = {
-    id: number;
+export interface Character  {
+    id: number,
     name: string;
     imageUrl: string;
     iconUrl: string;
@@ -261,7 +261,7 @@ const characterData: Character[] = [
         ],
         pageThumb: {
             imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-            name: '琴2',
+            name: '琴3',
         }
     },{
         id: 4,
@@ -282,7 +282,7 @@ const characterData: Character[] = [
         ],
         pageThumb: {
             imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-            name: '琴2',
+            name: '琴4',
         }
     },{
         id: 5,
@@ -303,7 +303,7 @@ const characterData: Character[] = [
         ],
         pageThumb: {
             imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-            name: '琴2',
+            name: '琴5',
         }
     },{
         id: 6,
@@ -324,7 +324,7 @@ const characterData: Character[] = [
         ],
         pageThumb: {
             imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-            name: '琴2',
+            name: '琴6',
         }
     },{
         id: 7,
@@ -345,7 +345,7 @@ const characterData: Character[] = [
         ],
         pageThumb: {
             imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-            name: '琴2',
+            name: '琴7',
         }
     },
 
