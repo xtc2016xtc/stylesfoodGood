@@ -88,7 +88,7 @@ const CharacterDetail = () => {
                 ))}
                 <li className="pointer-events-none w-full h-[54px] leading-[54px] text-[18px] text-[#fff] box-border pl-[56px] bg-[18px] select-none city_shider">敬请期待</li>
             </ul>
-            <Shider/>
+            <Shider />
         </div>
     );
 };
