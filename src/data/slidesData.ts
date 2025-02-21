@@ -174,13 +174,13 @@ export interface Character  {
         imageUrl: string;
         name: string;
     };
-};
+}
 
 const characterData: Character[] = [
     {
         id: 0,
         name: '琴',
-        imageUrl: 'https://webstatic.mihoyo.com/upload/contentweb/2022/06/30/b51565c6f1298e534e90b6e63332e9c1_6618231443033589469.png',
+        imageUrl: '/CharacterDetail/cat/002.png',
         iconUrl: 'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png',
         nameImageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png',
         cv: '林簌',
@@ -820,8 +820,8 @@ export const cityDateData: cityDate[] = [
     },{
         id: "liyue",
         name: "璃月城",
-        bg: "/CharacterDetail/01.jpg",
-        bgImg: "/CharacterDetail/02.jpg",
+        bg: "/CharacterDetail/001.jpg",
+        bgImg: "/CharacterDetail/002.jpg",
         url: "/main/about/liyue",
         backgroundImage: "/CharacterDetail/CharacterDetail/002.jpg",
         characterImage: "/CharacterDetail/CharacterDetail/002.png",
@@ -829,10 +829,10 @@ export const cityDateData: cityDate[] = [
             {
                 cat: "0",
                 catName: "liy",
-                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catImage: "/CharacterDetail/CharacterDetail/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "/CharacterDetail/CharacterDetail/001.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                catIcon: "/CharacterDetail/CharacterDetail/002.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/002.png",
                 cv: [
                     { cvC: "林簌", readonly: "CV信息1" }
                 ],
@@ -842,7 +842,7 @@ export const cityDateData: cityDate[] = [
                     "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3"
                 ],
                 pageThumb: {
-                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    imageUrl: "/CharacterDetail/CharacterDetail/002.png",
                     name: "详情1"
                 }
             },
