@@ -1,7 +1,7 @@
 import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { useActiveIndex } from "@/components/Nav/ActiveIndexContext.tsx";
-import  { cityData } from "@/data/slidesData.ts";
+import { cityDateData } from "@/data/slidesData.ts";
 // import {  Navigation, Pagination } from "swiper/modules"; // 导入 Swiper 模块
 // import { Swiper, SwiperSlide } from 'swiper/react'; // 导入 Swiper 组件和 SwiperSlide 组件
 /*// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -41,7 +41,7 @@ const CharacterDetail = () => {
         setActiveIndex(2);
     }, [locations, setActiveIndex]);
 
-    const cityDetail = cityData.find(c => c.id === city);
+    const cityDetail = cityDateData.find(c => c.id === city);
 
     useEffect(() => {
         if (cityDetail) {
@@ -79,7 +79,7 @@ const CharacterDetail = () => {
                  style={{backgroundImage: `url(${cityDetail.bgImg})`}}/>
             {/*时间轴*/}
             <ul className="absolute z-[9] top-0 left-0 w-[370px] h-full box-border pt-[187px] character__sidebar">
-                {cityData.map((city, index) => (
+                {cityDateData.map((city, index) => (
                     <li key={index}
                         className={`w-full h-[54px] leading-[54px] text-[18px] text-[#fff] box-border pl-[56px] bg-[18px] select-none city_shider ${city.id === cityDetail.id ? 'character__city--active' : ''}`}>
                         <Link to={`${city.url}?cat=0`}

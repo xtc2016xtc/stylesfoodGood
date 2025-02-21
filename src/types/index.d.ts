@@ -36,6 +36,34 @@ export interface CityData {
     details: { image: string, alt: string, content: string }[];
 }
 
+export interface cityDate {
+    id: string;
+    name: string;
+    bg: string;
+    bgImg: string;
+    url: string;
+    backgroundImage: string;
+    characterImage: string;
+    details: {
+        cat: string;
+        catName: string;
+        catImage: string;
+        catUrl: string;
+        catIcon: string;
+        catNameUrl: string;
+        cv: {
+            cvC: string;
+            readonly: string;
+        }[];
+        intro: string;
+        voice: string[];
+        pageThumb: {
+            imageUrl: string;
+            name: string;
+        };
+    }[];
+}
+
 
 export interface Socials{
     link: string;

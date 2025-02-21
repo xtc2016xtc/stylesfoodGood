@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { cityData } from '@/data/slidesData';
+import { cityDateData } from '@/data/slidesData';
 
 const City = () => {
     return (
         <section className="w-full">
             <ul className="overflow-hidden">
-                {cityData.map((city) => (
+                {cityDateData.map((city) => (
                     <li key={city.id}
                         className="city__list-item relative w-full h-[260px] cursor-pointer overflow-hidden">
                         <div

@@ -157,7 +157,7 @@ const slidesData: SlideData[] = [
 ];*/
 
 
-import {CityData, SlideData} from "@/types";
+import {CityData, cityDate, SlideData} from "@/types";
 
 
 /*shilder*/
@@ -688,6 +688,264 @@ const generateSlidesData = (count: number, prefix: string): SlideData[] => {
 //         details
 //     };
 // };
+
+
+export const cityDateData: cityDate[] = [
+    {
+        id: "mondstadt",
+        name: "蒙德城",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/mondstadt",
+        backgroundImage: "/CharacterDetail/CharacterDetail/001.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/001.png",
+        details: [
+            {
+                cat: "0",
+                catName: "详情1",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=0",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息1" }
+                ],
+                intro: "这是 mondstadt 的第 1 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice1.mp3",
+                    "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情1"
+                }
+            },
+            {
+                cat: "1",
+                catName: "详情2",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=1",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息2" }
+                ],
+                intro: "这是 mondstadt 的第 2 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice3.mp3",
+                    "https://webstatic.mihoyo.com/upload/op-public/voice4.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情2"
+                }
+            },
+            {
+                cat: "2",
+                catName: "详情3",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=2",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息3" }
+                ],
+                intro: "这是 mondstadt 的第 3 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice5.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情3"
+                }
+            },
+            {
+                cat: "3",
+                catName: "详情4",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=3",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息4" }
+                ],
+                intro: "这是 mondstadt 的第 4 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice6.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情4"
+                }
+            },
+            {
+                cat: "4",
+                catName: "详情5",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=4",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息5" }
+                ],
+                intro: "这是 mondstadt 的第 5 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice7.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情5"
+                }
+            },
+            {
+                cat: "5",
+                catName: "详情6",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=5",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息6" }
+                ],
+                intro: "这是 mondstadt 的第 6 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice8.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情6"
+                }
+            }
+        ]
+    },{
+        id: "liyue",
+        name: "璃月城",
+        bg: "/CharacterDetail/01.jpg",
+        bgImg: "/CharacterDetail/02.jpg",
+        url: "/main/about/liyue",
+        backgroundImage: "/CharacterDetail/CharacterDetail/002.jpg",
+        characterImage: "/CharacterDetail/CharacterDetail/002.png",
+        details: [
+            {
+                cat: "0",
+                catName: "liy",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=0",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息1" }
+                ],
+                intro: "这是 mondstadt 的第 1 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice1.mp3",
+                    "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情1"
+                }
+            },
+            {
+                cat: "1",
+                catName: "详情2",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=1",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息2" }
+                ],
+                intro: "这是 mondstadt 的第 2 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice3.mp3",
+                    "https://webstatic.mihoyo.com/upload/op-public/voice4.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情2"
+                }
+            },
+            {
+                cat: "2",
+                catName: "详情3",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=2",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息3" }
+                ],
+                intro: "这是 mondstadt 的第 3 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice5.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情3"
+                }
+            },
+            {
+                cat: "3",
+                catName: "详情4",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=3",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息4" }
+                ],
+                intro: "这是 mondstadt 的第 4 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice6.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情4"
+                }
+            },
+            {
+                cat: "4",
+                catName: "详情5",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=4",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息5" }
+                ],
+                intro: "这是 mondstadt 的第 5 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice7.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情5"
+                }
+            },
+            {
+                cat: "5",
+                catName: "详情6",
+                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catUrl: "/main/about/mondstadt?cat=5",
+                catIcon: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                cv: [
+                    { cvC: "林簌", readonly: "CV信息6" }
+                ],
+                intro: "这是 mondstadt 的第 6 条详细信息。",
+                voice: [
+                    "https://webstatic.mihoyo.com/upload/op-public/voice8.mp3"
+                ],
+                pageThumb: {
+                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
+                    name: "详情6"
+                }
+            }
+        ]
+    },
+];
+
 
 // // 定义虚拟城市数据
 // export const cityData: CityData[] = [
