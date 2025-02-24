@@ -54,7 +54,7 @@ export interface cityDate {
         cv: {
             cvC: string;
             readonly: string;
-        }[];
+        };
         intro: string;
         voice: string[];
         pageThumb: {
@@ -64,6 +64,26 @@ export interface cityDate {
     }[];
 }
 
+export interface Details{
+    details: {
+        cat: string;
+        catName: string;
+        catImage: string;
+        catUrl: string;
+        catIcon: string;
+        catNameUrl: string;
+        cv: {
+            cvC: string;
+            readonly: string;
+        };
+        intro: string;
+        voice: string[];
+        pageThumb: {
+            imageUrl: string;
+            name: string;
+        };
+    }[];
+}
 
 export interface Socials{
     link: string;

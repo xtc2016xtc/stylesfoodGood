@@ -60,4 +60,4 @@ const TabsT = () => {
     );
 };
 
-export default TabsT;
+export default TabsT

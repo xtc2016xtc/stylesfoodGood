@@ -11,10 +11,14 @@ import {FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
 import characterData from "@/data/slidesData.ts";
 import {useEffect, useRef, useState} from "react";
 import SwiperCore from "swiper";
+import {useLocation} from "react-router-dom";
 
 
 /*初版*/
 const Shider = () => {
+
+    const locations = useLocation();
+    console.log(locations.pathname)
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
 
@@ -177,7 +181,7 @@ const Shider = () => {
                                 </div>
                             </div>
                             <img src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620144979413.png"
-                                 draggable="false" className="character__sen hidden" alt=""/>
+                                 draggable="false" className="character__sen" alt=""/>
                             <div ref={audioGroup00Ref}
                                  style={{
                                      display: audioGroup === 'group00' ? 'block' : 'none',
