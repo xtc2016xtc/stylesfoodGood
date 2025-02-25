@@ -157,7 +157,7 @@ const slidesData: SlideData[] = [
 ];*/
 
 
-import {CityData, cityDate, SlideData} from "@/types";
+import { cityDate, SlideData} from "@/types";
 
 
 /*shilder*/
@@ -713,8 +713,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 1 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice1.mp3",
-                    "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -734,8 +742,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 2 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice3.mp3",
-                    "https://webstatic.mihoyo.com/upload/op-public/voice4.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -755,7 +771,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 3 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice5.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -775,7 +800,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 4 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice6.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -795,7 +829,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 5 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice7.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -815,7 +858,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 6 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice8.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -846,8 +898,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 1 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice1.mp3",
-                    "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/002.png",
@@ -867,8 +927,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 2 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice3.mp3",
-                    "https://webstatic.mihoyo.com/upload/op-public/voice4.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -888,7 +956,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 3 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice5.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -908,7 +985,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 4 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice6.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -928,7 +1014,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 5 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice7.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -948,7 +1043,16 @@ export const cityDateData: cityDate[] = [
                 },
                 intro: "这是 mondstadt 的第 6 条详细信息。",
                 voice: [
-                    "https://webstatic.mihoyo.com/upload/op-public/voice8.mp3"
+                    {
+                        cn:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ],
+                        rb:[
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                        ]
+                    }
                 ],
                 pageThumb: {
                     imageUrl: "/CharacterDetail/CharacterDetail/001.png",
@@ -960,7 +1064,7 @@ export const cityDateData: cityDate[] = [
 ];
 
 
-// // 定义虚拟城市数据
+/*// // 定义虚拟城市数据
 // export const cityData: CityData[] = [
 //     generateCityData(6, 'mondstadt'),
 //     generateCityData(6, 'liyue'),
@@ -1214,7 +1318,7 @@ export const cityData: CityData[] = [
             }
         ]
     },
-];
+];*/
 
 /*
 // 导出动态生成的虚拟数据

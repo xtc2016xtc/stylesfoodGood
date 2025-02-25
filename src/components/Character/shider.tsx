@@ -1,23 +1,24 @@
 // Import Swiper React components
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import "swiper/css/bundle";
 // import characterData from "@/data/slidesData.ts";
-
 // import required modules
-import {FreeMode, Navigation, Pagination, Thumbs } from 'swiper/modules';
+import {FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
 import characterData from "@/data/slidesData.ts";
 import {useEffect, useRef, useState} from "react";
 import SwiperCore from "swiper";
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 /*初版*/
 const Shider = () => {
 
     const locations = useLocation();
+
+
     console.log(locations.pathname)
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
@@ -90,7 +91,7 @@ const Shider = () => {
                     className="my-swiper swiper-wrapper" // 添加自定义类名
                 >
                     {characterData.map((character) => (
-                        <SwiperSlide key={character.id} style={{width:1681}}>
+                        <SwiperSlide key={character.id} style={{width: 1681}}>
                             {/* 角色图片 */}
                             <img
                                 src={character.imageUrl}

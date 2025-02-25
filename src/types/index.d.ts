@@ -25,16 +25,6 @@ export interface NavItem {
     path: string;
 }
 
-export interface CityData {
-    id: string;
-    name: string;
-    url: string;
-    bg:string,
-    bgImg:string,
-    backgroundImage: string;
-    characterImage: string;
-    details: { image: string, alt: string, content: string }[];
-}
 
 export interface cityDate {
     id: string;
@@ -56,7 +46,10 @@ export interface cityDate {
             readonly: string;
         };
         intro: string;
-        voice: string[];
+        voice: {
+            cn:string[];
+            rb:string[];
+        }[];
         pageThumb: {
             imageUrl: string;
             name: string;
