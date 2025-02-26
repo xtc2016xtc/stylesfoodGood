@@ -1,6 +1,5 @@
 import {useActiveIndex} from "@/components/Nav/ActiveIndexContext.tsx";
 import {useEffect} from "react";
-import Shider from "@/components/Character/shider.tsx";
 
 const About = () => {
 
@@ -12,7 +11,7 @@ const About = () => {
 
     return (
         <div className="city_shider_img relative w-full h-full">
-            <Shider/>
+
         </div>
     )
 }

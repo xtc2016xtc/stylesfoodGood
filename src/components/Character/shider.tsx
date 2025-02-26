@@ -10,10 +10,7 @@ import {FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
 import characterData from "@/data/slidesData.ts";
 import {useEffect, useRef, useState} from "react";
 import SwiperCore from "swiper";
-import { useLocation } from "react-router-dom";
 import {Details} from "@/types";
-
-
 
 interface ShiderProps {
     cityDetail:Details[]
@@ -21,13 +18,15 @@ interface ShiderProps {
 
 /*初版*/
 const Shider = ({cityDetail}:ShiderProps) => {
-
-    const locations = useLocation()
-
-
-    console.log(locations.pathname)
     console.log("调试",cityDetail.map(detail => detail.cv.cvC))
     console.log("调试",cityDetail.map(detail => detail.cv.readonly))
+
+    const handleSlideChange = (swiper: SwiperCore) => {
+        const activeIndex = swiper.realIndex;
+        const activeDetail = cityDetail[activeIndex];
+        setCvName(isChinese ? activeDetail.cv.cvC : activeDetail.cv.readonly);
+    };
+
 
     const cnChinense = cityDetail.map(detail=>detail.cv.cvC)
     const rbCjom =cityDetail.map(detail=>detail.cv.readonly)
@@ -39,7 +38,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
 
     const [isChinese, setIsChinese] = useState(true); // 中/日切换
     const [isVoiceActive, setIsVoiceActive] = useState(false); // 判断是否播放
-    const [cvName, setCvName] = useState(cityDetail[0].cv.cvC); // CV 姓名
+    const [cvName, setCvName] = useState(cityDetail[0].cv.cvC); // 姓名
     const [audioGroup, setAudioGroup] = useState('group00'); // 默认音频组
     const audioGroup00Ref = useRef<HTMLDivElement | null>(null); // 音频组 0 (中文)
     const audioGroup01Ref = useRef<HTMLDivElement | null>(null); // 音频组 1 (日文)
@@ -52,12 +51,12 @@ const Shider = ({cityDetail}:ShiderProps) => {
     }, [audioGroup]);
 
     const toggleLanguage = () => {
-        // 为了过度的流畅性，加一个动画效果
         const newLanguage = !isChinese;
         setIsChinese(newLanguage); // 切换语言
         setCvName(newLanguage ? cnChinense[0] : rbCjom[0]); // 切换CV名字
         setAudioGroup(newLanguage ? 'group00' : 'group01'); // 切换音频组
     };
+
 
     const handleVoiceClick = () => {
         setIsVoiceActive(true);
@@ -89,11 +88,8 @@ const Shider = ({cityDetail}:ShiderProps) => {
     const nextButtonRef = useRef<HTMLDivElement>(null);
     const prevButtonRef = useRef<HTMLDivElement>(null);
     return (
-
         <div className="city_shider_img relative w-full h-full">
-
             <div className="character__swiper--con swiper-container">
-
                 {/* 主 Swiper (主图展示) */}
                 <Swiper
                     navigation={{
@@ -102,6 +98,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
                     }}
                     loop={true} // 启用主图循环模式
                     allowTouchMove={false}
+                    onSlideChange={handleSlideChange} // 监听滑动事件
                     thumbs={{swiper: thumbsSwiper}} // 使用缩略图同步
                     modules={[FreeMode, Navigation, Thumbs, Pagination]} // 启用各个模块
                     className="my-swiper swiper-wrapper" // 添加自定义类名

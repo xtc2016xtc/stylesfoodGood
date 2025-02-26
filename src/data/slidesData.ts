@@ -703,10 +703,10 @@ export const cityDateData: cityDate[] = [
             {
                 cat: "0",
                 catName: "详情1",
-                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catImage: "/CharacterDetail/CharacterDetail/001.jpg",
                 catUrl: "/main/about/mondstadt?cat=0",
                 catIcon: "/CharacterDetail/CharacterDetail/001.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
+                catNameUrl: "/CharacterDetail/CharacterDetail/001.jpg",
                 cv: {
                     cvC: "林簌1",
                     readonly: "日本1"
