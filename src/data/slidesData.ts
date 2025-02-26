@@ -699,7 +699,7 @@ export const cityDateData: cityDate[] = [
         url: "/main/about/mondstadt",
         backgroundImage: "/CharacterDetail/CharacterDetail/001.jpg",
         characterImage: "/CharacterDetail/CharacterDetail/001.png",
-        details: [
+        Details: [
             {
                 cat: "0",
                 catName: "详情1",
@@ -708,8 +708,8 @@ export const cityDateData: cityDate[] = [
                 catIcon: "/CharacterDetail/CharacterDetail/001.png",
                 catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "林簌1",
+                    readonly: "日本1"
                 },
                 intro: "这是 mondstadt 的第 1 条详细信息。",
                 voice: [
@@ -737,8 +737,8 @@ export const cityDateData: cityDate[] = [
                 catIcon: "/CharacterDetail/CharacterDetail/001.png",
                 catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "林簌2",
+                    readonly: "日本2"
                 },
                 intro: "这是 mondstadt 的第 2 条详细信息。",
                 voice: [
@@ -766,8 +766,8 @@ export const cityDateData: cityDate[] = [
                 catIcon: "/CharacterDetail/CharacterDetail/001.png",
                 catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "林簌3",
+                    readonly: "日本3"
                 },
                 intro: "这是 mondstadt 的第 3 条详细信息。",
                 voice: [
@@ -795,8 +795,8 @@ export const cityDateData: cityDate[] = [
                 catIcon: "/CharacterDetail/CharacterDetail/001.png",
                 catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "林簌4",
+                    readonly: "日本4"
                 },
                 intro: "这是 mondstadt 的第 4 条详细信息。",
                 voice: [
@@ -824,8 +824,8 @@ export const cityDateData: cityDate[] = [
                 catIcon: "/CharacterDetail/CharacterDetail/001.png",
                 catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "林簌5",
+                    readonly: "日本5"
                 },
                 intro: "这是 mondstadt 的第 5 条详细信息。",
                 voice: [
@@ -853,8 +853,8 @@ export const cityDateData: cityDate[] = [
                 catIcon: "/CharacterDetail/CharacterDetail/001.png",
                 catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "林簌6",
+                    readonly: "日本6"
                 },
                 intro: "这是 mondstadt 的第 6 条详细信息。",
                 voice: [
@@ -884,7 +884,7 @@ export const cityDateData: cityDate[] = [
         url: "/main/about/liyue",
         backgroundImage: "/CharacterDetail/CharacterDetail/002.jpg",
         characterImage: "/CharacterDetail/CharacterDetail/002.png",
-        details: [
+        Details: [
             {
                 cat: "0",
                 catName: "liy",

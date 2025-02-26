@@ -34,7 +34,10 @@ export interface cityDate {
     url: string;
     backgroundImage: string;
     characterImage: string;
-    details: {
+    Details:Details[]
+}
+
+export interface Details{
         cat: string;
         catName: string;
         catImage: string;
@@ -47,36 +50,15 @@ export interface cityDate {
         };
         intro: string;
         voice: {
-            cn:string[];
-            rb:string[];
+           cn: string[];
+           rb: string[];
         }[];
         pageThumb: {
             imageUrl: string;
             name: string;
-        };
-    }[];
+        }
 }
 
-export interface Details{
-    details: {
-        cat: string;
-        catName: string;
-        catImage: string;
-        catUrl: string;
-        catIcon: string;
-        catNameUrl: string;
-        cv: {
-            cvC: string;
-            readonly: string;
-        };
-        intro: string;
-        voice: string[];
-        pageThumb: {
-            imageUrl: string;
-            name: string;
-        };
-    }[];
-}
 
 export interface Socials{
     link: string;

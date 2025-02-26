@@ -11,21 +11,35 @@ import characterData from "@/data/slidesData.ts";
 import {useEffect, useRef, useState} from "react";
 import SwiperCore from "swiper";
 import { useLocation } from "react-router-dom";
+import {Details} from "@/types";
 
+
+
+interface ShiderProps {
+    cityDetail:Details[]
+}
 
 /*初版*/
-const Shider = () => {
+const Shider = ({cityDetail}:ShiderProps) => {
 
-    const locations = useLocation();
+    const locations = useLocation()
 
 
     console.log(locations.pathname)
+    console.log("调试",cityDetail.map(detail => detail.cv.cvC))
+    console.log("调试",cityDetail.map(detail => detail.cv.readonly))
+
+    const cnChinense = cityDetail.map(detail=>detail.cv.cvC)
+    const rbCjom =cityDetail.map(detail=>detail.cv.readonly)
+
+    console.log("中文",cnChinense)
+    console.log("日文",rbCjom)
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
 
     const [isChinese, setIsChinese] = useState(true); // 中/日切换
     const [isVoiceActive, setIsVoiceActive] = useState(false); // 判断是否播放
-    const [cvName, setCvName] = useState('林簌'); // CV 姓名
+    const [cvName, setCvName] = useState(cityDetail[0].cv.cvC); // CV 姓名
     const [audioGroup, setAudioGroup] = useState('group00'); // 默认音频组
     const audioGroup00Ref = useRef<HTMLDivElement | null>(null); // 音频组 0 (中文)
     const audioGroup01Ref = useRef<HTMLDivElement | null>(null); // 音频组 1 (日文)
@@ -41,7 +55,7 @@ const Shider = () => {
         // 为了过度的流畅性，加一个动画效果
         const newLanguage = !isChinese;
         setIsChinese(newLanguage); // 切换语言
-        setCvName(newLanguage ? '林簌' : '斋藤千和'); // 切换CV名字
+        setCvName(newLanguage ? cnChinense[0] : rbCjom[0]); // 切换CV名字
         setAudioGroup(newLanguage ? 'group00' : 'group01'); // 切换音频组
     };
 
@@ -53,7 +67,9 @@ const Shider = () => {
             const audios = audioRef.current.querySelectorAll('audio'); // 获取所有音频元素
             const randomIndex = Math.floor(Math.random() * audios.length); // 随机选择一个音频
             const selectedAudio = audios[randomIndex];
-            selectedAudio.play(); // 播放选中的音频
+            selectedAudio.play().then(r => {
+                console.log(r)
+            }); // 播放选中的音频
 
             // 音频播放完成后恢复背景
             selectedAudio.onended = () => {

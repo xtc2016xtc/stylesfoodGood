@@ -10,6 +10,7 @@ import "swiper/css/bundle"; // 导入 Swiper 的 CSS 文件*/
 
 // import SwiperCore from 'swiper';
 import Shider from "@/components/Character/shider.tsx";
+import {Details} from "@/types";
 // import Shider from "@/components/Character/shider.tsx";
 
 
@@ -51,6 +52,9 @@ const CharacterDetail = () => {
         return <div>城市数据未找到</div>;
     }
 
+
+    const cityDate: Details[] = cityDetail.Details;
+
     // const detailIndex = parseInt(cat || '0', 10);
     // const detail = cityDetail.details[detailIndex];
     //
@@ -85,7 +89,7 @@ const CharacterDetail = () => {
                 <li className="pointer-events-none w-full h-[54px] leading-[54px] text-[18px] text-[#fff] box-border pl-[56px] bg-[18px] select-none city_shider">敬请期待</li>
             </ul>
             <Shider
-
+                cityDetail={cityDate}
           />
         </div>
     );
