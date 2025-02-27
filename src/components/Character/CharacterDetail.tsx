@@ -1,14 +1,16 @@
 import {Link, useLocation, useParams} from 'react-router-dom';
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import { useActiveIndex } from "@/components/Nav/ActiveIndexContext.tsx";
 import { cityDateData } from "@/data/slidesData.ts";
 import Shider from "@/components/Character/shider.tsx";
 import {Details} from "@/types";
+import ProgressBar from "@/components/home/ProgressBar/ProgressBar.tsx";
 
 /*修改2*/
 const CharacterDetail = () => {
     const { setActiveIndex } = useActiveIndex(); /*使用上下文设置 activeIndex*/
     const { city } = useParams<{ city: string }>();
+    const [loading, setLoading] = useState(false); // 加载状态
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const cat = params.get('cat');
@@ -24,7 +26,11 @@ const CharacterDetail = () => {
     }, [setActiveIndex]);
 
     useEffect(() => {
+        setLoading(true); // 开始加载
         setActiveIndex(2);
+        setTimeout(() => {
+            setLoading(false); // 停止加载
+        }, 1000); // 模拟加载时间
     }, [location, setActiveIndex]);
 
     const cityDetail = cityDateData.find(c => c.id === city);
@@ -49,6 +55,7 @@ const CharacterDetail = () => {
                  style={{backgroundImage: `url(${cityDetail.bgImg})`}}/>
             {/*时间轴*/}
             <ul className="absolute z-[9] top-0 left-0 w-[370px] h-full box-border pt-[187px] character__sidebar">
+                {loading && <div className="loader"><ProgressBar/></div>} {/* 显示加载器 */}
                 {cityDateData.map((city, index) => (
                     <li key={index}
                         className={`w-full h-[54px] leading-[54px] text-[18px] text-[#fff] box-border pl-[56px] bg-[18px] select-none city_shider ${city.id === cityDetail.id ? 'character__city--active' : ''}`}>

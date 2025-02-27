@@ -21,13 +21,6 @@ const Shider = ({cityDetail}:ShiderProps) => {
     console.log("调试",cityDetail.map(detail => detail.cv.cvC))
     console.log("调试",cityDetail.map(detail => detail.cv.readonly))
 
-    const handleSlideChange = (swiper: SwiperCore) => {
-        const activeIndex = swiper.realIndex;
-        const activeDetail = cityDetail[activeIndex];
-        setCvName(isChinese ? activeDetail.cv.cvC : activeDetail.cv.readonly);
-    };
-
-
     const cnChinense = cityDetail.map(detail=>detail.cv.cvC)
     const rbCjom =cityDetail.map(detail=>detail.cv.readonly)
 
@@ -57,6 +50,11 @@ const Shider = ({cityDetail}:ShiderProps) => {
         setAudioGroup(newLanguage ? 'group00' : 'group01'); // 切换音频组
     };
 
+    const handleSlideChange = (swiper: SwiperCore) => {
+        const activeIndex = swiper.realIndex;
+        const activeDetail = cityDetail[activeIndex];
+        setCvName(isChinese ? activeDetail.cv.cvC : activeDetail.cv.readonly);
+    };
 
     const handleVoiceClick = () => {
         setIsVoiceActive(true);
