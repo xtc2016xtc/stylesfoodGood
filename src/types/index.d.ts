@@ -44,6 +44,7 @@ export interface Details{
         catUrl: string;
         catIcon: string;
         catNameUrl: string;
+        catBigUrl:string;
         cv: {
             cvC: string;
             readonly: string;

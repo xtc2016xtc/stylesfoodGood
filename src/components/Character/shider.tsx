@@ -7,7 +7,6 @@ import "swiper/css/bundle";
 // import characterData from "@/data/slidesData.ts";
 // import required modules
 import {FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
-import characterData from "@/data/slidesData.ts";
 import {useEffect, useRef, useState} from "react";
 import SwiperCore from "swiper";
 import {Details} from "@/types";
@@ -28,7 +27,6 @@ const Shider = ({cityDetail}:ShiderProps) => {
     console.log("日文",rbCjom)
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
-
     const [isChinese, setIsChinese] = useState(true); // 中/日切换
     const [isVoiceActive, setIsVoiceActive] = useState(false); // 判断是否播放
     const [cvName, setCvName] = useState(cityDetail[0].cv.cvC); // 姓名
@@ -55,32 +53,111 @@ const Shider = ({cityDetail}:ShiderProps) => {
         const activeDetail = cityDetail[activeIndex];
         setCvName(isChinese ? activeDetail.cv.cvC : activeDetail.cv.readonly);
     };
-
-    const handleVoiceClick = () => {
-        setIsVoiceActive(true);
-        const audioRef = audioGroup === 'group00' ? audioGroup00Ref : audioGroup01Ref; // 获取当前音频组的 ref
-
-        if (audioRef.current) {
-            const audios = audioRef.current.querySelectorAll('audio'); // 获取所有音频元素
-            const randomIndex = Math.floor(Math.random() * audios.length); // 随机选择一个音频
-            const selectedAudio = audios[randomIndex];
-            selectedAudio.play().then(r => {
-                console.log(r)
-            }); // 播放选中的音频
-
-            // 音频播放完成后恢复背景
-            selectedAudio.onended = () => {
-                setIsVoiceActive(false);
-            };
-        }
+    // 新增停止音频的通用方法
+    const stopAllAudios = () => {
+        [audioGroup00Ref, audioGroup01Ref].forEach(ref => {
+            const audios = ref.current?.querySelectorAll('audio') || [];
+            audios.forEach(audio => {
+                audio.pause();
+                audio.currentTime = 0;
+            });
+        });
     };
-    // 监听audioGroup变化，重新播放音频
-    useEffect(() => {
-        if (audioGroup === "group00" || audioGroup === "group01") {
-            // 重置音频状态
-            setIsVoiceActive(false);
+
+// 优化后的点击处理函数
+    const handleVoiceClick = () => {
+        // 先停止所有正在播放的音频
+        stopAllAudios();
+
+        const audioRef = audioGroup === 'group00' ? audioGroup00Ref : audioGroup01Ref;
+        const audios = audioRef.current?.querySelectorAll('audio');
+
+        if (!audios || audios.length === 0) {
+            console.error('未找到可用音频');
+            return;
         }
+
+        // 生成随机索引（带防重复机制）
+        let randomIndex = Math.floor(Math.random() * audios.length);
+        if (audios.length > 1) {
+            const currentAudio = Array.from(audios).find(a => !a.paused);
+            while (currentAudio && audios[randomIndex] === currentAudio) {
+                randomIndex = Math.floor(Math.random() * audios.length);
+            }
+        }
+
+        const selectedAudio = audios[randomIndex];
+
+        // 使用 async/await 处理播放
+        const playAudio = async () => {
+            try {
+                await selectedAudio.play();
+                setIsVoiceActive(true);
+
+                // 使用标准事件监听器（替代 onended）
+                const endHandler = () => {
+                    setIsVoiceActive(false);
+                    selectedAudio.removeEventListener('ended', endHandler);
+                };
+                selectedAudio.addEventListener('ended', endHandler);
+
+            } catch (error) {
+                console.error('音频播放失败:', error);
+                setIsVoiceActive(false);
+            }
+        };
+
+        playAudio().then(r => {
+            console.error(r)
+        })
+    };
+
+// 增强版的 useEffect 监听
+    useEffect(() => {
+        // 切换分组时停止所有音频
+        const cleanup = () => {
+            stopAllAudios();
+            setIsVoiceActive(false);
+        };
+
+        if (["group00", "group01"].includes(audioGroup)) {
+            cleanup();
+        }
+
+        return cleanup;
     }, [audioGroup]);
+
+// {// 停止按钮点击处理
+//     const handleStop = () => {
+//         stopAllAudios();
+//         setIsVoiceActive(false);
+//     };}
+
+    // const handleVoiceClick = () => {
+    //     setIsVoiceActive(true);
+    //     const audioRef = audioGroup === 'group00' ? audioGroup00Ref : audioGroup01Ref; // 获取当前音频组的 ref
+    //
+    //     if (audioRef.current) {
+    //         const audios = audioRef.current.querySelectorAll('audio'); // 获取所有音频元素
+    //         const randomIndex = Math.floor(Math.random() * audios.length); // 随机选择一个音频
+    //         const selectedAudio = audios[randomIndex];
+    //         selectedAudio.play().then(r => {
+    //             console.log(r)
+    //         }); // 播放选中的音频
+    //
+    //         // 音频播放完成后恢复背景
+    //         selectedAudio.onended = () => {
+    //             setIsVoiceActive(false);
+    //         };
+    //     }
+    // };
+    // // 监听audioGroup变化，重新播放音频
+    // useEffect(() => {
+    //     if (audioGroup === "group00" || audioGroup === "group01") {
+    //         // 重置音频状态
+    //         setIsVoiceActive(false);
+    //     }
+    // }, [audioGroup]);
 
     // 引用自定义按钮
     const nextButtonRef = useRef<HTMLDivElement>(null);
@@ -101,29 +178,27 @@ const Shider = ({cityDetail}:ShiderProps) => {
                     modules={[FreeMode, Navigation, Thumbs, Pagination]} // 启用各个模块
                     className="my-swiper swiper-wrapper" // 添加自定义类名
                 >
-                    {characterData.map((character) => (
-                        <SwiperSlide key={character.id} style={{width: 1681}}>
+                    {cityDetail.map((character) => (
+                        <SwiperSlide key={character.cat} style={{width: 1681}}>
                             {/* 角色图片 */}
                             <img
-                                src={character.imageUrl}
+                                src={character.catImage}
                                 draggable="false"
                                 className="character__person animated"
-                                alt={character.name}
+                                alt={character.catName}
                             />
                             <img
-                                src={character.iconUrl}
+                                src={character.catIcon}
                                 draggable="false"
                                 className="character__icon"
-                                alt={`${character.name} Icon`}
+                                alt={`${character.catName} Icon`}
                             />
                             <div className="character__content">
-                                <img src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png"
+                                <img src={character.catNameUrl}
                                      className="character__name" alt="qing"/>
                                 <div className="character__cv">
                                     <div className="relative overflow-hidden">
                                         <div className="flex whitespace-nowrap">
-                                            {/*<p>CV: 林簌</p>
-                                            <p>CV:斋藤千和</p>*/}
                                             <p>CV: {cvName}</p>
                                         </div>
                                     </div>
@@ -140,8 +215,6 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                         {/*    }}*/}
                                         {/*/>*/}
                                     </div>
-                                    {/*<div className="character__voice"/>*/}
-                                    {/*<div className="character__voice character__voice--active"/>*/}
                                     {/*中/日切换*/}
                                     <div className="character__switch--wrap">
                                         <div className="character__switch">
@@ -162,7 +235,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                 </div>
                                 {/*介绍*/}
                                 <div
-                                    className="touch-none character__intro mCustomScrollbar _mCS_73 mCS_no_scrollbar w-[550px] h-[150px]">
+                                    className="touch-none character__intro mCustomScrollbar _mCS_73 mCS_no_scrollbar">
                                     <div id="mCSB_73"
                                          className="mCustomScrollBox mCS-light-thick mCSB_vertical mCSB_inside"
                                     >
@@ -170,12 +243,12 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                              className="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
                                              dir="ltr">
                                             <div className="character__intro-content">
-                                                <p>
-                                                    身为西风骑士团的代理团长，琴一直忠于职守，为人们带来安宁。虽然并非天赋异禀，但通过刻苦训练，如今的她已然能够独当一面。
-                                                    <br/>
-
-                                                    当风魔龙的威胁开始临近，这位可靠的代理团长早已做好了准备，誓要守护蒙德。
-                                                </p>
+                                                {character.intro?.split('\n').map((paragraph, index, arr) => (
+                                                    <p key={index}>
+                                                        {paragraph}
+                                                        {index !== arr.length - 1 && <br/>}
+                                                    </p>
+                                                ))}
                                             </div>
                                         </div>
                                         <div id="mCSB_73_scrollbar_vertical"
@@ -192,34 +265,33 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                     </div>
                                 </div>
                             </div>
-                            <img src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620144979413.png"
+                            <img src={character.catBigUrl}
                                  draggable="false" className="character__sen" alt=""/>
                             <div ref={audioGroup00Ref}
                                  style={{
                                      display: audioGroup === 'group00' ? 'block' : 'none',
                                      transition: 'opacity 0.3s ease-in-out'
                                  }}>
-                                <audio
-                                    src="https://webstatic.mihayo.com/upload/op-public/2019/12/11/209a68a166b14b27e11a8b64c466ea7c_7021182076965695539.mp3"
-                                    className="character__audio"></audio>
-                                <audio
-                                    src="https://webstatic.mihayo.com/upload/op-public/2019/12/11/806fad7c524efcebd55abc2ce4f8ce6a_5745385847854898057.mp3"
-                                    className="character__audio"></audio>
-                                <audio
-                                    src="https://webstatic.mihayo.com/upload/op-public/2019/12/11/74c81976dc6f3868ecc264bbd143e571_4077467239236738470.mp3"
-                                    className="character__audio"></audio>
+                                {character.voice[0]?.cn?.map((url, index) => (
+                                    <audio
+                                        key={`cn-${index}`}
+                                        src={url}
+                                        className="character__audio"
+                                    />
+                                ))}
                             </div>
                             <div ref={audioGroup01Ref}
                                  style={{
                                      display: audioGroup === 'group01' ? 'block' : 'none',
                                      transition: 'opacity 0.3s ease-in-out'
                                  }}>
-                                <audio src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3"
-                                       className="character__audio"></audio>
-                                <audio src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145562610.mp3"
-                                       className="character__audio"></audio>
-                                <audio src="https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145849323.mp3"
-                                       className="character__audio"></audio>
+                                {character.voice[0]?.rb?.map((url, index) => (
+                                    <audio
+                                        key={`rb-${index}`}
+                                        src={url}
+                                        className="character__audio"
+                                    />
+                                ))}
                             </div>
                         </SwiperSlide>
                     ))}
@@ -243,8 +315,8 @@ const Shider = ({cityDetail}:ShiderProps) => {
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="character__swiper--page swiper-container"
                     >
-                        {characterData.map((character) => (
-                            <SwiperSlide key={character.id} style={{width: 110}}
+                        {cityDetail.map((character) => (
+                            <SwiperSlide key={character.cat} style={{width: 110}}
                                          className="swiper-slide swiper-slide-visible">
                                 <img
                                     src={character.pageThumb.imageUrl}
