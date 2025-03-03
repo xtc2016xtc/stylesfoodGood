@@ -10,9 +10,13 @@ import {FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
 import {useEffect, useRef, useState} from "react";
 import SwiperCore from "swiper";
 import {Details} from "@/types";
+import {useLocation} from "react-router-dom";
+import {Loader} from "lucide-react";
+
 
 interface ShiderProps {
-    cityDetail:Details[]
+    cityDetail:Details[],
+
 }
 
 /*初版*/
@@ -22,9 +26,12 @@ const Shider = ({cityDetail}:ShiderProps) => {
 
     const cnChinense = cityDetail.map(detail=>detail.cv.cvC)
     const rbCjom =cityDetail.map(detail=>detail.cv.readonly)
+    const location = useLocation();
+    const params = new URLSearchParams(location.search);
+    const catParam = parseInt(params.get("cat")|| '0' ,10);
 
-    console.log("中文",cnChinense)
-    console.log("日文",rbCjom)
+    console.log(catParam)
+
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
     const [isChinese, setIsChinese] = useState(true); // 中/日切换
@@ -34,12 +41,17 @@ const Shider = ({cityDetail}:ShiderProps) => {
     const audioGroup00Ref = useRef<HTMLDivElement | null>(null); // 音频组 0 (中文)
     const audioGroup01Ref = useRef<HTMLDivElement | null>(null); // 音频组 1 (日文)
 
+
+
+
+
     // 监听 audioGroup 变化，重置音频状态
     useEffect(() => {
         if (audioGroup === 'group00' || audioGroup === 'group01') {
             setIsVoiceActive(false); // 重置播放状态
         }
     }, [audioGroup]);
+
 
     const toggleLanguage = () => {
         const newLanguage = !isChinese;
@@ -50,9 +62,11 @@ const Shider = ({cityDetail}:ShiderProps) => {
 
     const handleSlideChange = (swiper: SwiperCore) => {
         const activeIndex = swiper.realIndex;
+        console.log("当前索引",activeIndex);
         const activeDetail = cityDetail[activeIndex];
         setCvName(isChinese ? activeDetail.cv.cvC : activeDetail.cv.readonly);
     };
+
     // 新增停止音频的通用方法
     const stopAllAudios = () => {
         [audioGroup00Ref, audioGroup01Ref].forEach(ref => {
@@ -63,6 +77,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
             });
         });
     };
+
 
 // 优化后的点击处理函数
     const handleVoiceClick = () => {
@@ -127,6 +142,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
         return cleanup;
     }, [audioGroup]);
 
+
 // {// 停止按钮点击处理
 //     const handleStop = () => {
 //         stopAllAudios();
@@ -162,6 +178,10 @@ const Shider = ({cityDetail}:ShiderProps) => {
     // 引用自定义按钮
     const nextButtonRef = useRef<HTMLDivElement>(null);
     const prevButtonRef = useRef<HTMLDivElement>(null);
+
+    // 确保cityDetail数据已加载完成
+    if (cityDetail.length === 0) return <Loader />;
+
     return (
         <div className="city_shider_img relative w-full h-full">
             <div className="character__swiper--con swiper-container">
@@ -171,7 +191,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
                         nextEl: nextButtonRef.current,
                         prevEl: prevButtonRef.current,
                     }}
-                    loop={true} // 启用主图循环模式
+                    loop={false} // 启用主图循环模式
                     allowTouchMove={false}
                     onSlideChange={handleSlideChange} // 监听滑动事件
                     thumbs={{swiper: thumbsSwiper}} // 使用缩略图同步
@@ -310,7 +330,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
                             prevEl: prevButtonRef.current,
                         }}
                         freeMode={true}
-                        loop={true} // 启用缩略图循环模式
+                        loop={false} // 启用缩略图循环模式
                         watchSlidesProgress={true}
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="character__swiper--page swiper-container"

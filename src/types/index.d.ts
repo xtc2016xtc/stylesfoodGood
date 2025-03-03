@@ -38,7 +38,7 @@ export interface cityDate {
 }
 
 export interface Details{
-        cat: string;
+        cat: number;
         catName: string;
         catImage: string;
         catUrl: string;

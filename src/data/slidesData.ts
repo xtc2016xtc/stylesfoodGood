@@ -558,7 +558,7 @@ export const cityDateData: cityDate[] = [
                 voice: [
                     {
                         cn:[
-                            'https://webstatic.mihoyo.com/upload/op-public/2021/04/02/d97330fd3081686b800fd6edee83040e_6685284990602076505.mp3',
+                            '/music/04.mp3',
                             'https://webstatic.mihoyo.com/upload/op-public/2021/04/02/8046338f56206a7c543b2b8162d43544_8645357328015327246.mp3',
                             'https://webstatic.mihoyo.com/upload/op-public/2021/04/02/f64b73144cdac331d407e28906252f2e_6420285054895646235.mp3',
                         ],

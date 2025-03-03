@@ -15,6 +15,7 @@ const CharacterDetail = () => {
     const params = new URLSearchParams(location.search);
     const cat = params.get('cat');
 
+
     useEffect(() => {
         const storedActiveIndex = sessionStorage.getItem('activeIndex');
         if (storedActiveIndex) {
