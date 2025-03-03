@@ -508,7 +508,7 @@ export const cityDateData: cityDate[] = [
         characterImage: "/CharacterDetail/CharacterDetail/001.png",
         Details: [
             {
-                cat: "0",
+                cat: 0,
                 catName: "琴",
                 catImage: "/CharacterDetail/cat/10001.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -541,7 +541,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "1",
+                cat: 1,
                 catName: "安柏",
                 catImage: "/CharacterDetail/cat/10008.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -575,7 +575,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "2",
+                cat: 2,
                 catName: "详情1",
                 catImage: "/CharacterDetail/cat/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -608,7 +608,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "3",
+                cat: 3,
                 catName: "详情1",
                 catImage: "/CharacterDetail/cat/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -641,7 +641,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "4",
+                cat: 4,
                 catName: "详情1",
                 catImage: "/CharacterDetail/cat/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -674,7 +674,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "5",
+                cat: 5,
                 catName: "详情1",
                 catImage: "/CharacterDetail/cat/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -707,7 +707,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "6",
+                cat: 6,
                 catName: "详情1",
                 catImage: "/CharacterDetail/cat/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -751,7 +751,7 @@ export const cityDateData: cityDate[] = [
         characterImage: "/CharacterDetail/CharacterDetail/002.png",
         Details: [
             {
-                cat: "0",
+                cat: 0,
                 catName: "liy",
                 catImage: "/CharacterDetail/CharacterDetail/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
@@ -781,7 +781,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "1",
+                cat: 1,
                 catName: "详情2",
                 catImage: "/CharacterDetail/CharacterDetail/001.png",
                 catUrl: "/main/about/mondstadt?cat=1",
@@ -811,7 +811,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "2",
+                cat: 2,
                 catName: "详情3",
                 catImage: "/CharacterDetail/CharacterDetail/001.png",
                 catUrl: "/main/about/mondstadt?cat=2",
@@ -841,7 +841,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "3",
+                cat: 3,
                 catName: "详情4",
                 catImage: "/CharacterDetail/CharacterDetail/001.png",
                 catUrl: "/main/about/mondstadt?cat=3",
@@ -871,7 +871,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "4",
+                cat: 4,
                 catName: "详情5",
                 catImage: "/CharacterDetail/CharacterDetail/001.png",
                 catUrl: "/main/about/mondstadt?cat=4",
@@ -901,7 +901,7 @@ export const cityDateData: cityDate[] = [
                 }
             },
             {
-                cat: "5",
+                cat: 5,
                 catName: "详情6",
                 catImage: "/CharacterDetail/CharacterDetail/001.png",
                 catUrl: "/main/about/mondstadt?cat=5",

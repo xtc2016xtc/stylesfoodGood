@@ -7,12 +7,19 @@ import "swiper/css/bundle";
 // import characterData from "@/data/slidesData.ts";
 // import required modules
 import {FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
-import {useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import SwiperCore from "swiper";
 import {Details} from "@/types";
 import {useLocation} from "react-router-dom";
 import {Loader} from "lucide-react";
+import {debounce} from 'lodash'
 
+// 在全局声明文件或组件顶部添加
+declare module 'lodash' {
+    interface DebouncedFunc<T extends (...args: any[]) => any> {
+        cancel: () => void;
+    }
+}
 
 interface ShiderProps {
     cityDetail:Details[],
@@ -21,19 +28,35 @@ interface ShiderProps {
 
 /*初版*/
 const Shider = ({cityDetail}:ShiderProps) => {
-    console.log("调试",cityDetail.map(detail => detail.cv.cvC))
-    console.log("调试",cityDetail.map(detail => detail.cv.readonly))
-
     const cnChinense = cityDetail.map(detail=>detail.cv.cvC)
     const rbCjom =cityDetail.map(detail=>detail.cv.readonly)
     const location = useLocation();
-    const params = new URLSearchParams(location.search);
-    const catParam = parseInt(params.get("cat")|| '0' ,10);
 
-    console.log(catParam)
+    /*改进1：增强获取参数逻辑*/
+    const getBalidCat = useCallback(()=>{
+        const params = new URLSearchParams(location.search);
+        const rawCat = parseInt(params.get("cat")|| '0' ,10);
+        return Math.min(Math.max(0,rawCat),cityDetail.length - 1)
+    },[cityDetail.length, location.search])
+
+    const debouncedSlideTo = useMemo(
+        () => debounce((index: number) => {
+            requestAnimationFrame(() => {
+                if (swiperRef.current && !swiperRef.current.destroyed) {
+                    console.log("执行防抖跳转至",index)
+                    swiperRef.current.slideTo(index, 500);
+                }
+            })
+        }, 300,{leading: true, trailing: false}),
+        []
+    );
+
+
 
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
+    const [targetCat, setTargetCat] = useState(()=> getBalidCat())
+    const swiperRef = useRef<SwiperCore | null>(null);
     const [isChinese, setIsChinese] = useState(true); // 中/日切换
     const [isVoiceActive, setIsVoiceActive] = useState(false); // 判断是否播放
     const [cvName, setCvName] = useState(cityDetail[0].cv.cvC); // 姓名
@@ -43,7 +66,64 @@ const Shider = ({cityDetail}:ShiderProps) => {
 
 
 
+    /*改进2：智能路由监听*/
+    useEffect(() => {
+        const newCat = getBalidCat();
+        if(newCat !== targetCat){
+            console.log("路由参数发生变化",newCat)
+            setTargetCat(newCat)
 
+            //如果swiper已初始化则直接跳转
+            if(swiperRef.current && !swiperRef.current.destroyed){
+                console.log("执行参数跳转")
+                swiperRef.current.slideTo(newCat,500);
+            }
+        }
+        debouncedSlideTo(newCat)
+    }, [location.pathname, cityDetail, getBalidCat, targetCat,debouncedSlideTo]);
+
+    //防止内存泄露
+    useEffect(() => {
+        return () => {
+            debouncedSlideTo.cancel();
+        }
+    }, [debouncedSlideTo]);
+
+    /*改进3：Swiper初始化逻辑*/
+    const HandleSwiperInit = (swiper:SwiperCore) =>{
+        console.log("Swiper初始化,当前索引",swiper.activeIndex);
+        swiperRef.current = swiper;
+        setThumbsSwiper(swiper)
+
+        /*检测是否纠正初始位置*/
+        if(swiper.activeIndex !== targetCat){
+            console.log("初始位置纠正")
+            swiper.slideTo(targetCat,0)
+        }
+    }
+
+    /*改进4：同步主副swiper*/
+    const syncSwipers = (index:number) => {
+        if(thumbsSwiper && thumbsSwiper.activeIndex !== index){
+            thumbsSwiper.slideTo(index,300)
+        }
+    }
+
+    /*改进5：增强滑动逻辑*/
+    const enhancedSlideChange = (swiper:SwiperCore) => {
+        const realIndex = swiper.realIndex;
+        handleSlideChange(swiper)//保留
+
+        //同步url
+        if(realIndex !== targetCat){
+            const newSearch = new URLSearchParams(location.search);
+            newSearch.set('cat',realIndex.toString())
+            // 避免历史记录堆积
+            window.history.replaceState(null,'',`?${newSearch}`)
+        }
+
+        syncSwipers(realIndex)
+    }
 
     // 监听 audioGroup 变化，重置音频状态
     useEffect(() => {
@@ -193,7 +273,9 @@ const Shider = ({cityDetail}:ShiderProps) => {
                     }}
                     loop={false} // 启用主图循环模式
                     allowTouchMove={false}
-                    onSlideChange={handleSlideChange} // 监听滑动事件
+                    initialSlide={targetCat}
+                    onSwiper={HandleSwiperInit}
+                    onSlideChange={enhancedSlideChange} // 监听滑动事件
                     thumbs={{swiper: thumbsSwiper}} // 使用缩略图同步
                     modules={[FreeMode, Navigation, Thumbs, Pagination]} // 启用各个模块
                     className="my-swiper swiper-wrapper" // 添加自定义类名

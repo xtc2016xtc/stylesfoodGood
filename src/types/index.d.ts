@@ -26,6 +26,8 @@ export interface NavItem {
 }
 
 
+
+
 export interface cityDate {
     id: string;
     name: string;
