@@ -511,7 +511,7 @@ export const cityDateData: cityDate[] = [
                 cat: 0,
                 catName: "琴",
                 catImage: "/CharacterDetail/cat/10001.png",
-                catUrl: "/main/about/mondstadt?cat=0",
+                catUrl: "/main/about/mondstadt",
                 catIcon: "/CharacterDetail/cat/10043.png",
                 catNameUrl: "/CharacterDetail/cat/10006.png",
                 catBigUrl:'/CharacterDetail/cat/10007.png',
@@ -524,9 +524,9 @@ export const cityDateData: cityDate[] = [
                 voice: [
                     {
                         cn:[
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/209a68a166b14b27e11a8b64c466ea7c_7021182076965695539.mp3',
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/806fad7c524efcebd55abc2ce4f8ce6a_5745385847854898057.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2019/12/11/74c81976dc6f3868ecc264bbd143e571_4077467239236738470.mp3',
+                            '/music/05.mp3',
+                            '/music/06.mp3',
+                            '/music/07.mp3',
                         ],
                         rb:[
                             'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3',
@@ -558,9 +558,7 @@ export const cityDateData: cityDate[] = [
                 voice: [
                     {
                         cn:[
-                            '/music/04.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2021/04/02/8046338f56206a7c543b2b8162d43544_8645357328015327246.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2021/04/02/f64b73144cdac331d407e28906252f2e_6420285054895646235.mp3',
+                            '/music/04.mp3'
                         ],
                         rb:[
                             'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620180054376.mp3',
@@ -753,13 +751,13 @@ export const cityDateData: cityDate[] = [
             {
                 cat: 0,
                 catName: "liy",
-                catImage: "/CharacterDetail/CharacterDetail/002.png",
+                catImage: "/CharacterDetail/cat/002.png",
                 catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "/CharacterDetail/CharacterDetail/002.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/002.png",
+                catIcon: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png",
+                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png",
                 catBigUrl:'/CharacterDetail/cat/10007.png',
                 cv: {
-                    cvC: "林簌",
+                    cvC: "name1",
                     readonly: "CV信息1"
                 },
                 intro: "这是 mondstadt 的第 1 条详细信息。",

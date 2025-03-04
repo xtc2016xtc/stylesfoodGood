@@ -28,31 +28,17 @@ interface ShiderProps {
 
 /*初版*/
 const Shider = ({cityDetail}:ShiderProps) => {
-    const cnChinense = cityDetail.map(detail=>detail.cv.cvC)
-    const rbCjom =cityDetail.map(detail=>detail.cv.readonly)
     const location = useLocation();
 
     /*改进1：增强获取参数逻辑*/
     const getBalidCat = useCallback(()=>{
         const params = new URLSearchParams(location.search);
         const rawCat = parseInt(params.get("cat")|| '0' ,10);
-        return Math.min(Math.max(0,rawCat),cityDetail.length - 1)
+        return Math.min(
+            Math.max(0,rawCat),
+            Math.max(cityDetail.length - 1),
+        )
     },[cityDetail.length, location.search])
-
-    const debouncedSlideTo = useMemo(
-        () => debounce((index: number) => {
-            requestAnimationFrame(() => {
-                if (swiperRef.current && !swiperRef.current.destroyed) {
-                    console.log("执行防抖跳转至",index)
-                    swiperRef.current.slideTo(index, 500);
-                }
-            })
-        }, 300,{leading: true, trailing: false}),
-        []
-    );
-
-
-
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
     const [targetCat, setTargetCat] = useState(()=> getBalidCat())
@@ -66,6 +52,19 @@ const Shider = ({cityDetail}:ShiderProps) => {
 
 
 
+
+    const debouncedSlideTo = useMemo(
+        () => debounce((index: number) => {
+            requestAnimationFrame(() => {
+                if (swiperRef.current && !swiperRef.current.destroyed) {
+                    console.log("执行防抖跳转至",index)
+                    swiperRef.current.slideTo(index, 500);
+                }
+            })
+        }, 300,{leading: true, trailing: false}),
+        []
+    );
+
     /*改进2：智能路由监听*/
     useEffect(() => {
         const newCat = getBalidCat();
@@ -74,13 +73,15 @@ const Shider = ({cityDetail}:ShiderProps) => {
             setTargetCat(newCat)
 
             //如果swiper已初始化则直接跳转
-            if(swiperRef.current && !swiperRef.current.destroyed){
-                console.log("执行参数跳转")
-                swiperRef.current.slideTo(newCat,500);
-            }
+            requestAnimationFrame(()=>{
+                if(swiperRef.current && !swiperRef.current.destroyed){
+                    console.log("执行参数跳转")
+                    swiperRef.current.slideTo(newCat,500);
+                }
+            })
         }
         debouncedSlideTo(newCat)
-    }, [location.pathname, cityDetail, getBalidCat, targetCat,debouncedSlideTo]);
+    }, [location.search,debouncedSlideTo]);
 
     //防止内存泄露
     useEffect(() => {
@@ -112,7 +113,14 @@ const Shider = ({cityDetail}:ShiderProps) => {
     /*改进5：增强滑动逻辑*/
     const enhancedSlideChange = (swiper:SwiperCore) => {
         const realIndex = swiper.realIndex;
+        console.log("当前真实索引",realIndex)
         handleSlideChange(swiper)//保留
+
+        if(!cityDetail[realIndex]){
+            console.error("找不到",realIndex)
+            return
+        }
+        setTargetCat(realIndex)
 
         //同步url
         if(realIndex !== targetCat){
@@ -123,6 +131,12 @@ const Shider = ({cityDetail}:ShiderProps) => {
         }
 
         syncSwipers(realIndex)
+
+        //更新姓名
+        const currentCV = cityDetail[realIndex]?.cv || { cvC:'', readonly:'' };
+        setCvName(isChinese ? currentCV.cvC : currentCV.readonly);
+
+
     }
 
     // 监听 audioGroup 变化，重置音频状态
@@ -133,18 +147,26 @@ const Shider = ({cityDetail}:ShiderProps) => {
     }, [audioGroup]);
 
 
+
     const toggleLanguage = () => {
         const newLanguage = !isChinese;
         setIsChinese(newLanguage); // 切换语言
-        setCvName(newLanguage ? cnChinense[0] : rbCjom[0]); // 切换CV名字
+
+        /*获取当前索引*/
+        const currentIndex = swiperRef.current?.realIndex || 0;
+        const currentCV = cityDetail[currentIndex]?.cv || { cvC:'', readonly:'' };
+        setCvName(newLanguage ? currentCV.cvC : currentCV.readonly);
         setAudioGroup(newLanguage ? 'group00' : 'group01'); // 切换音频组
     };
 
+    // @ts-ignore
+    const [activeIndex, setActiveIndex] = useState(targetCat)
+
     const handleSlideChange = (swiper: SwiperCore) => {
         const activeIndex = swiper.realIndex;
-        console.log("当前索引",activeIndex);
-        const activeDetail = cityDetail[activeIndex];
-        setCvName(isChinese ? activeDetail.cv.cvC : activeDetail.cv.readonly);
+        setActiveIndex(activeIndex)
+        const currentCV = cityDetail[activeIndex]?.cv || { cvC:'', readonly:'' };
+        setCvName(isChinese ? currentCV.cvC : currentCV.readonly);
     };
 
     // 新增停止音频的通用方法
@@ -164,13 +186,17 @@ const Shider = ({cityDetail}:ShiderProps) => {
         // 先停止所有正在播放的音频
         stopAllAudios();
 
-        const audioRef = audioGroup === 'group00' ? audioGroup00Ref : audioGroup01Ref;
-        const audios = audioRef.current?.querySelectorAll('audio');
+        const activeSlie = document.querySelector('.swiper-slide-active');
+        if (!activeSlie) return;
 
-        if (!audios || audios.length === 0) {
-            console.error('未找到可用音频');
-            return;
-        }
+       const audioContainer = activeSlie.querySelector(`[data-audio-group="${audioGroup}"]`);
+
+       const audios = audioContainer?.querySelectorAll('audio') || [];
+
+       if (audios.length === 0) {
+           console.error("当前未找到音频")
+           return;
+       };
 
         // 生成随机索引（带防重复机制）
         let randomIndex = Math.floor(Math.random() * audios.length);
@@ -186,12 +212,16 @@ const Shider = ({cityDetail}:ShiderProps) => {
         // 使用 async/await 处理播放
         const playAudio = async () => {
             try {
+
                 await selectedAudio.play();
                 setIsVoiceActive(true);
+
+                console.log("播放开始",selectedAudio.src)
 
                 // 使用标准事件监听器（替代 onended）
                 const endHandler = () => {
                     setIsVoiceActive(false);
+                    console.log("播放结束",selectedAudio.src)
                     selectedAudio.removeEventListener('ended', endHandler);
                 };
                 selectedAudio.addEventListener('ended', endHandler);
@@ -202,8 +232,8 @@ const Shider = ({cityDetail}:ShiderProps) => {
             }
         };
 
-        playAudio().then(r => {
-            console.error(r)
+        playAudio().catch(r => {
+            console.error("播放音频出现错误",r)
         })
     };
 
@@ -229,31 +259,6 @@ const Shider = ({cityDetail}:ShiderProps) => {
 //         setIsVoiceActive(false);
 //     };}
 
-    // const handleVoiceClick = () => {
-    //     setIsVoiceActive(true);
-    //     const audioRef = audioGroup === 'group00' ? audioGroup00Ref : audioGroup01Ref; // 获取当前音频组的 ref
-    //
-    //     if (audioRef.current) {
-    //         const audios = audioRef.current.querySelectorAll('audio'); // 获取所有音频元素
-    //         const randomIndex = Math.floor(Math.random() * audios.length); // 随机选择一个音频
-    //         const selectedAudio = audios[randomIndex];
-    //         selectedAudio.play().then(r => {
-    //             console.log(r)
-    //         }); // 播放选中的音频
-    //
-    //         // 音频播放完成后恢复背景
-    //         selectedAudio.onended = () => {
-    //             setIsVoiceActive(false);
-    //         };
-    //     }
-    // };
-    // // 监听audioGroup变化，重新播放音频
-    // useEffect(() => {
-    //     if (audioGroup === "group00" || audioGroup === "group01") {
-    //         // 重置音频状态
-    //         setIsVoiceActive(false);
-    //     }
-    // }, [audioGroup]);
 
     // 引用自定义按钮
     const nextButtonRef = useRef<HTMLDivElement>(null);
@@ -307,16 +312,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                     <div
                                         className={`character__voice ${isVoiceActive ? 'character__voice--active' : ''}`}
                                         onClick={handleVoiceClick}
-                                    >
-                                        {/*/!* 点击后，改变背景图像 *!/*/}
-                                        {/*<div*/}
-                                        {/*    className={`character__voice--active ${isVoiceActive ? 'character__voice--playing' : ''}`}*/}
-                                        {/*    style={{*/}
-                                        {/*        cursor: 'auto',*/}
-                                        {/*        backgroundImage: `url(${isVoiceActive ? '/src/assets/CharacterDetail/01.gif' : '/src/assets/CharacterDetail/bf.png'})`,*/}
-                                        {/*    }}*/}
-                                        {/*/>*/}
-                                    </div>
+                                   />
                                     {/*中/日切换*/}
                                     <div className="character__switch--wrap">
                                         <div className="character__switch">
@@ -370,27 +366,31 @@ const Shider = ({cityDetail}:ShiderProps) => {
                             <img src={character.catBigUrl}
                                  draggable="false" className="character__sen" alt=""/>
                             <div ref={audioGroup00Ref}
+                                 data-audio-group="group00"
                                  style={{
-                                     display: audioGroup === 'group00' ? 'block' : 'none',
-                                     transition: 'opacity 0.3s ease-in-out'
+                                     display: audioGroup === 'group00' ? 'block' : 'none'
                                  }}>
                                 {character.voice[0]?.cn?.map((url, index) => (
                                     <audio
                                         key={`cn-${index}`}
                                         src={url}
+                                        preload={"auto"}
+                                        crossOrigin={"anonymous"}
                                         className="character__audio"
                                     />
                                 ))}
                             </div>
                             <div ref={audioGroup01Ref}
+                                 data-audio-group="group01"
                                  style={{
-                                     display: audioGroup === 'group01' ? 'block' : 'none',
-                                     transition: 'opacity 0.3s ease-in-out'
+                                     display: audioGroup === 'group01' ? 'block' : 'none'
                                  }}>
                                 {character.voice[0]?.rb?.map((url, index) => (
                                     <audio
                                         key={`rb-${index}`}
                                         src={url}
+                                        preload={"auto"}
+                                        crossOrigin={"anonymous"}
                                         className="character__audio"
                                     />
                                 ))}
@@ -439,65 +439,9 @@ const Shider = ({cityDetail}:ShiderProps) => {
                         ref={prevButtonRef}
                         className="swiper-button-pre1v"
                     />
-
-
                 </div>
-
             </div>
         </div>
-        /*<>
-            {/!* 主体 Swiper *!/}
-            <Swiper
-                spaceBetween={10}
-                navigation={true}
-                modules={[FreeMode, Navigation, Thumbs, Pagination]}
-                pagination={pagination}
-                className="swiper-shier select-none"
-            >
-                {characterData.map((character) => (
-                    <SwiperSlide key={character.id}>
-                        <div className="">
-                            <img
-                                src={character.imageUrl}
-                                draggable="false"
-                                className=""
-                                alt={character.name}
-                            />
-                            {/!*<img*!/}
-                            {/!*    src={character.iconUrl}*!/}
-                            {/!*    draggable="false"*!/}
-                            {/!*    className="character__icon"*!/}
-                            {/!*    alt={`${character.name} Icon`}*!/}
-                            {/!*!/>*!/}
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-
-            {/!* 分页器 Swiper
-            <Swiper
-                spaceBetween={10}
-                slidesPerView={4}
-                freeMode={true}
-                wrapperClass="list-none"
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className=""
-            >
-                {characterData.map((character) => (
-                    <SwiperSlide key={character.id} className="">
-                        <div className="">
-                            <img
-                                src={character.pageThumb.imageUrl}
-                                alt={character.pageThumb.name}
-                                className=""
-                            />
-                            <p className="">{character.pageThumb.name}</p>
-                        </div>
-                    </SwiperSlide>
-                ))}
-            </Swiper>*!/}
-        </>*/
     );
 }
 

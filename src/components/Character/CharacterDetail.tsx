@@ -12,9 +12,6 @@ const CharacterDetail = () => {
     const { city } = useParams<{ city: string }>();
     const [loading, setLoading] = useState(false); // 加载状态
     const location = useLocation();
-    const params = new URLSearchParams(location.search);
-    const cat = params.get('cat');
-
 
     useEffect(() => {
         const storedActiveIndex = sessionStorage.getItem('activeIndex');
@@ -38,7 +35,7 @@ const CharacterDetail = () => {
 
     useEffect(() => {
 
-    }, [cat, cityDetail]);
+    }, [cityDetail]);
 
 
     if (!cityDetail) {
