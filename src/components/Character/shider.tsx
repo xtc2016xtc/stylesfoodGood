@@ -189,14 +189,14 @@ const Shider = ({cityDetail}:ShiderProps) => {
         const activeSlie = document.querySelector('.swiper-slide-active');
         if (!activeSlie) return;
 
-       const audioContainer = activeSlie.querySelector(`[data-audio-group="${audioGroup}"]`);
+        const audioContainer = activeSlie.querySelector(`[data-audio-group="${audioGroup}"]`);
 
-       const audios = audioContainer?.querySelectorAll('audio') || [];
+        const audios = audioContainer?.querySelectorAll('audio') || [];
 
-       if (audios.length === 0) {
-           console.error("当前未找到音频")
-           return;
-       };
+        if (audios.length === 0) {
+            console.error("当前未找到音频")
+            return;
+        };
 
         // 生成随机索引（带防重复机制）
         let randomIndex = Math.floor(Math.random() * audios.length);
@@ -312,7 +312,7 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                     <div
                                         className={`character__voice ${isVoiceActive ? 'character__voice--active' : ''}`}
                                         onClick={handleVoiceClick}
-                                   />
+                                    />
                                     {/*中/日切换*/}
                                     <div className="character__switch--wrap">
                                         <div className="character__switch">
