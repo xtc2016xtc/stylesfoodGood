@@ -4,8 +4,6 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import "swiper/css/bundle";
-// import characterData from "@/data/slidesData.ts";
-// import required modules
 import {FreeMode, Navigation, Pagination, Thumbs} from 'swiper/modules';
 import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import SwiperCore from "swiper";
@@ -13,6 +11,8 @@ import {Details} from "@/types";
 import {useLocation} from "react-router-dom";
 import {Loader} from "lucide-react";
 import {debounce} from 'lodash'
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 
 // 在全局声明文件或组件顶部添加
 declare module 'lodash' {
@@ -20,6 +20,8 @@ declare module 'lodash' {
         cancel: () => void;
     }
 }
+
+
 
 interface ShiderProps {
     cityDetail:Details[],
@@ -260,6 +262,37 @@ const Shider = ({cityDetail}:ShiderProps) => {
 //     };}
 
 
+
+    useEffect(() => {
+        const resetComponentState = () => {
+            const validCat = getBalidCat();
+
+            setTargetCat(validCat);
+            setIsChinese(true);
+            setIsVoiceActive(false);
+
+            if (cityDetail.length > 0) {
+                setCvName(cityDetail[0].cv.cvC);
+            }
+
+            setAudioGroup('group00');
+
+            // 确保 Swiper 已经初始化，并且 validCat 是合法索引
+            if (swiperRef.current && swiperRef.current && typeof validCat === 'number') {
+                swiperRef.current.slideTo(validCat, 0);
+            }
+        };
+
+        // 确保 Swiper 初始化后再重置状态
+        if (swiperRef.current && swiperRef.current) {
+            resetComponentState();
+        } else {
+            setTimeout(resetComponentState, 100); // 延迟执行，确保 swiper 加载完
+        }
+    }, [location.pathname, cityDetail]);
+
+
+
     // 引用自定义按钮
     const nextButtonRef = useRef<HTMLDivElement>(null);
     const prevButtonRef = useRef<HTMLDivElement>(null);
@@ -331,72 +364,51 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                         </div>
                                     </div>
                                 </div>
-                                {/*介绍*/}
-                                <div
-                                    className="touch-none character__intro mCustomScrollbar _mCS_73 mCS_no_scrollbar">
-                                    <div id="mCSB_73"
-                                         className="mCustomScrollBox mCS-light-thick mCSB_vertical mCSB_inside"
-                                    >
-                                        <div id="mCSB_73_container"
-                                             className="mCSB_container mCS_y_hidden mCS_no_scrollbar_y"
-                                             dir="ltr">
-                                            <div className="character__intro-content">
-                                                {character.intro?.split('\n').map((paragraph, index, arr) => (
+                                <div className="touch-none character__intro mCustomScrollbar _mCS_73 mCS_no_scrollbar">
+                                    <ScrollArea className="character__intro-content" key={character.cat}>
+                                            {character.intro?.split('\n').map((paragraph, index, arr) => (
                                                     <p key={index}>
                                                         {paragraph}
                                                         {index !== arr.length - 1 && <br/>}
                                                     </p>
-                                                ))}
-                                            </div>
-                                        </div>
-                                        <div id="mCSB_73_scrollbar_vertical"
-                                             className="mCSB_scrollTools mCSB_73_scrollbar mCS-light-thick mCSB_scrollTools_vertica hidden"
-                                        >
-                                            <div className="mCSB_draggerContainer">
-                                                <div id="mCSB_73_dragger_vertical" className="mCSB_dragger"
-                                                >
-                                                    <div className="mCSB_dragger_bar"></div>
-                                                </div>
-                                                <div className="mCSB_draggerRail"></div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            ))}
+                                    </ScrollArea>
                                 </div>
-                            </div>
-                            <img src={character.catBigUrl}
-                                 draggable="false" className="character__sen" alt=""/>
-                            <div ref={audioGroup00Ref}
-                                 data-audio-group="group00"
-                                 style={{
-                                     display: audioGroup === 'group00' ? 'block' : 'none'
-                                 }}>
-                                {character.voice[0]?.cn?.map((url, index) => (
-                                    <audio
-                                        key={`cn-${index}`}
-                                        src={url}
-                                        preload={"auto"}
-                                        crossOrigin={"anonymous"}
-                                        className="character__audio"
-                                    />
-                                ))}
-                            </div>
-                            <div ref={audioGroup01Ref}
-                                 data-audio-group="group01"
-                                 style={{
-                                     display: audioGroup === 'group01' ? 'block' : 'none'
-                                 }}>
-                                {character.voice[0]?.rb?.map((url, index) => (
-                                    <audio
-                                        key={`rb-${index}`}
-                                        src={url}
-                                        preload={"auto"}
-                                        crossOrigin={"anonymous"}
-                                        className="character__audio"
-                                    />
-                                ))}
-                            </div>
+                                </div>
+                                <img src={character.catBigUrl}
+                                     draggable="false" className="character__sen" alt=""/>
+                                <div ref={audioGroup00Ref}
+                                     data-audio-group="group00"
+                                     style={{
+                                         display: audioGroup === 'group00' ? 'block' : 'none'
+                                     }}>
+                                    {character.voice[0]?.cn?.map((url, index) => (
+                                        <audio
+                                            key={`cn-${index}`}
+                                            src={url}
+                                            preload={"auto"}
+                                            crossOrigin={"anonymous"}
+                                            className="character__audio"
+                                        />
+                                    ))}
+                                </div>
+                                <div ref={audioGroup01Ref}
+                                     data-audio-group="group01"
+                                     style={{
+                                         display: audioGroup === 'group01' ? 'block' : 'none'
+                                     }}>
+                                    {character.voice[0]?.rb?.map((url, index) => (
+                                        <audio
+                                            key={`rb-${index}`}
+                                            src={url}
+                                            preload={"auto"}
+                                            crossOrigin={"anonymous"}
+                                            className="character__audio"
+                                        />
+                                    ))}
+                                </div>
                         </SwiperSlide>
-                    ))}
+                        ))}
                     <span className="swiper-notification"/>
                 </Swiper>
                 {/*分页*/}

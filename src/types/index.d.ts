@@ -1,4 +1,5 @@
 
+
 export interface SlideData {
     id: string;
     url: string;

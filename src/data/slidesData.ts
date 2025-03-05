@@ -544,7 +544,7 @@ export const cityDateData: cityDate[] = [
                 cat: 1,
                 catName: "安柏",
                 catImage: "/CharacterDetail/cat/10008.png",
-                catUrl: "/main/about/mondstadt?cat=0",
+                catUrl: "/main/about/mondstadt?cat=1",
                 catIcon: "/CharacterDetail/cat/10032.png",
                 catNameUrl: "/CharacterDetail/cat/10009.png",
                 catBigUrl:'/CharacterDetail/cat/100090.png',
@@ -574,167 +574,69 @@ export const cityDateData: cityDate[] = [
             },
             {
                 cat: 2,
-                catName: "详情1",
-                catImage: "/CharacterDetail/cat/002.png",
-                catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png",
-                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
+                catName: "丽莎",
+                catImage: "/CharacterDetail/cat/10010.png",
+                catUrl: "/main/about/mondstadt?cat=2",
+                catIcon: "/CharacterDetail/cat/10039.png",
+                catNameUrl: "/CharacterDetail/cat/10011.png",
+                catBigUrl:'/CharacterDetail/cat/10012.png',
                 cv: {
-                    cvC: "林簌1",
-                    readonly: "日本1"
+                    cvC: "钟可",
+                    readonly: "田中理惠"
                 },
-                intro: `身为西风骑士团的代理团长，琴一直忠于职守，为人们带来安宁。虽然并非天赋异禀，但通过刻苦训练，如今的她已然能够独当一面。
-            当风魔龙的威胁开始临近，这位可靠的代理团长早已做好了准备，誓要守护蒙德。`,
+                intro: `她是钟情于睡眠的知性魔女。
+                    作为西风骑士团图书馆的管理员，聪明的丽莎总能以最有效的方式将遇到的问题统统解决。
+                    虽然看似慵懒，但处变不惊的她似乎早已将一切尽数掌控。`,
                 voice: [
                     {
                         cn:[
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/209a68a166b14b27e11a8b64c466ea7c_7021182076965695539.mp3',
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/806fad7c524efcebd55abc2ce4f8ce6a_5745385847854898057.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2019/12/11/74c81976dc6f3868ecc264bbd143e571_4077467239236738470.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/d017d4608057339f5cb81ffad3c7930a_1302892689242225251.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/06999cc08da32d411a46768533ac247f_7094895583427204560.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/a5ad5794b640166f5492de8bf5a5ad1a_2303225662045183124.mp3',
                         ],
                         rb:[
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145562610.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145849323.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620190991206.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620191379691.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620191662258.mp3',
                         ]
                     }
                 ],
                 pageThumb: {
-                    imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-                    name: '琴',
+                    imageUrl: '/CharacterDetail/cat/10072.png',
+                    name: '丽莎',
                 }
             },
             {
                 cat: 3,
-                catName: "详情1",
-                catImage: "/CharacterDetail/cat/002.png",
-                catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png",
-                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
+                catName: "凯亚",
+                catImage: "/CharacterDetail/cat/10013.png",
+                catUrl: "/main/about/mondstadt?cat=3",
+                catIcon: "/CharacterDetail/cat/10064.png",
+                catNameUrl: "/CharacterDetail/cat/10014.png",
+                catBigUrl:'/CharacterDetail/cat/10015.png',
                 cv: {
-                    cvC: "林簌1",
-                    readonly: "日本1"
+                    cvC: "孙晔",
+                    readonly: "鸟海浩辅"
                 },
-                intro: `身为西风骑士团的代理团长，琴一直忠于职守，为人们带来安宁。虽然并非天赋异禀，但通过刻苦训练，如今的她已然能够独当一面。
-            当风魔龙的威胁开始临近，这位可靠的代理团长早已做好了准备，誓要守护蒙德。`,
+                intro: `在西风骑士团里，凯亚是代理团长最信任的副手。凡是交托于他的任务，总能得到解决。
+                在蒙德城中，风趣幽默的他同样深受人们的喜爱，然而这位谈吐不凡的骑士隐约有着什么不为人知的秘密。`,
                 voice: [
                     {
                         cn:[
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/209a68a166b14b27e11a8b64c466ea7c_7021182076965695539.mp3',
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/806fad7c524efcebd55abc2ce4f8ce6a_5745385847854898057.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2019/12/11/74c81976dc6f3868ecc264bbd143e571_4077467239236738470.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/bc954bcc4f0e3aa17c3a04c9272487a6_2445140716618685045.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/e5d8c42572ba9bcf2d1720c2ae405f2c_1593432168946625084.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/e6ea0f9780270524a8b5170641e46996_1739447643517442668.mp3',
                         ],
                         rb:[
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145562610.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145849323.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620201674738.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620202166396.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620202419142.mp3',
                         ]
                     }
                 ],
                 pageThumb: {
-                    imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-                    name: '琴',
-                }
-            },
-            {
-                cat: 4,
-                catName: "详情1",
-                catImage: "/CharacterDetail/cat/002.png",
-                catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png",
-                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
-                cv: {
-                    cvC: "林簌1",
-                    readonly: "日本1"
-                },
-                intro: `身为西风骑士团的代理团长，琴一直忠于职守，为人们带来安宁。虽然并非天赋异禀，但通过刻苦训练，如今的她已然能够独当一面。
-            当风魔龙的威胁开始临近，这位可靠的代理团长早已做好了准备，誓要守护蒙德。`,
-                voice: [
-                    {
-                        cn:[
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/209a68a166b14b27e11a8b64c466ea7c_7021182076965695539.mp3',
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/806fad7c524efcebd55abc2ce4f8ce6a_5745385847854898057.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2019/12/11/74c81976dc6f3868ecc264bbd143e571_4077467239236738470.mp3',
-                        ],
-                        rb:[
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145562610.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145849323.mp3',
-                        ]
-                    }
-                ],
-                pageThumb: {
-                    imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-                    name: '琴',
-                }
-            },
-            {
-                cat: 5,
-                catName: "详情1",
-                catImage: "/CharacterDetail/cat/002.png",
-                catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png",
-                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
-                cv: {
-                    cvC: "林簌1",
-                    readonly: "日本1"
-                },
-                intro: `身为西风骑士团的代理团长，琴一直忠于职守，为人们带来安宁。虽然并非天赋异禀，但通过刻苦训练，如今的她已然能够独当一面。
-            当风魔龙的威胁开始临近，这位可靠的代理团长早已做好了准备，誓要守护蒙德。`,
-                voice: [
-                    {
-                        cn:[
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/209a68a166b14b27e11a8b64c466ea7c_7021182076965695539.mp3',
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/806fad7c524efcebd55abc2ce4f8ce6a_5745385847854898057.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2019/12/11/74c81976dc6f3868ecc264bbd143e571_4077467239236738470.mp3',
-                        ],
-                        rb:[
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145562610.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145849323.mp3',
-                        ]
-                    }
-                ],
-                pageThumb: {
-                    imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-                    name: '琴',
-                }
-            },
-            {
-                cat: 6,
-                catName: "详情1",
-                catImage: "/CharacterDetail/cat/002.png",
-                catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png",
-                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
-                cv: {
-                    cvC: "林簌1",
-                    readonly: "日本1"
-                },
-                intro: `身为西风骑士团的代理团长，琴一直忠于职守，为人们带来安宁。虽然并非天赋异禀，但通过刻苦训练，如今的她已然能够独当一面。
-            当风魔龙的威胁开始临近，这位可靠的代理团长早已做好了准备，誓要守护蒙德。`,
-                voice: [
-                    {
-                        cn:[
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/209a68a166b14b27e11a8b64c466ea7c_7021182076965695539.mp3',
-                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/806fad7c524efcebd55abc2ce4f8ce6a_5745385847854898057.mp3',
-                            'https://webstatic.mihoyo.com/upload/op-public/2019/12/11/74c81976dc6f3868ecc264bbd143e571_4077467239236738470.mp3',
-                        ],
-                        rb:[
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145220378.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145562610.mp3',
-                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620145849323.mp3',
-                        ]
-                    }
-                ],
-                pageThumb: {
-                    imageUrl: 'https://uploadstatic.mihoyo.com/contentweb/20220127/2022012718344593599.png',
-                    name: '琴',
+                    imageUrl: '/CharacterDetail/cat/10073.png',
+                    name: '凯亚',
                 }
             },
         ]
@@ -750,184 +652,143 @@ export const cityDateData: cityDate[] = [
         Details: [
             {
                 cat: 0,
-                catName: "liy",
+                catName: "魈",
                 catImage: "/CharacterDetail/cat/002.png",
-                catUrl: "/main/about/mondstadt?cat=0",
-                catIcon: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142687125.png",
-                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620142281505.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
+                catUrl: "/main/about/mondstadt?liyue=0",
+                catIcon: "/CharacterDetail/cat/10043.png",
+                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20200220/2020022016332869699.png",
+                catBigUrl:'https://uploadstatic.mihoyo.com/contentweb/20200220/2020022016340661411.png',
                 cv: {
-                    cvC: "name1",
-                    readonly: "CV信息1"
+                    cvC: "kinsen",
+                    readonly: "松冈祯丞"
                 },
-                intro: "这是 mondstadt 的第 1 条详细信息。",
+                intro: "守护璃月港的「三眼五显仙人」之一，妙称「护法夜叉大将」。" +
+                    "\n" +
+                    "虽然外表看起来是一个少年人，但一些有关他的传说，已在古卷中流传千年。\n" +
+                    "对望舒客栈中一道名为「杏仁豆腐」的菜颇为喜爱。\n" +
+                    "究其原因，是因为「杏仁豆腐」的味道，与他曾经吞噬过的「美梦」十分相似。",
                 voice: [
                     {
                         cn:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/20/987e7000667c567a29f9abc3d14bb0d5_2911413560906889269.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/20/5da4d36bbe53fe5fcd3ce14782cc84ab_5501045953849136389.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/20/5a7100c2fbc68452006afa4dbd7f757a_4139067739853698717.mp3"
                         ],
                         rb:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/20/402c89fffc5886be0ecf3e5200b3f999_2355186733651359703.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/20/9eacc534d687e3f7f26a470b5145783f_38915976500974336.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/20/b2ecb0debf8954bb35925e6bacc06e6c_4187366727687115513.mp3"
                         ]
                     }
                 ],
                 pageThumb: {
-                    imageUrl: "/CharacterDetail/CharacterDetail/002.png",
-                    name: "详情1"
+                    imageUrl: "https://uploadstatic.mihoyo.com/contentweb/20200306/2020030617035787693.png",
+                    name: "魈"
                 }
             },
             {
                 cat: 1,
-                catName: "详情2",
-                catImage: "/CharacterDetail/CharacterDetail/001.png",
-                catUrl: "/main/about/mondstadt?cat=1",
-                catIcon: "/CharacterDetail/CharacterDetail/001.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
+                catName: "北斗",
+                catImage: "https://webstatic.mihoyo.com/upload/contentweb/2022/06/30/01d9b164e0de2611c84ccdec5b84ced8_4841535305526345122.png",
+                catUrl: "/main/about/mondstadt?liyue=1",
+                catIcon: "/CharacterDetail/cat/10039.png",
+                catNameUrl: "https://uploadstatic.mihoyo.com/contentweb/20200227/2020022718432810701.png",
+                catBigUrl:'https://uploadstatic.mihoyo.com/contentweb/20200227/2020022718443769599.png',
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "唐雅菁",
+                    readonly: "小清水亚美"
                 },
-                intro: "这是 mondstadt 的第 2 条详细信息。",
+                intro: "「南十字」船队头领，在璃月有着相当的声望。" +
+                    "\n" +
+                    "有人说她能开山劈海，有人说她善举剑引雷，还有人说，连可怖的冥海巨兽都不是北斗的一合之敌。\n" +
+                    "外人也许会把这些话当做夸张的玩笑，但那些曾与北斗同航的人却会说——。\n" +
+                    "「世上若真有什么冥海巨兽，那北斗一定能将它劈作两截。」",
                 voice: [
                     {
                         cn:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/27/c3b2d92f225d8c9cd9004b194b0335e2_1126202425186451515.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/27/6b350631c4b7c103206e9d370f09ca63_1970141097526196358.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/27/3fa5d49b2ca0d8c05481e8fa8bcd0c4e_5610526902264312821.mp3"
                         ],
                         rb:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/27/8147fa13c0dcfb6e402967c55c2b9ecc_2195266630814862175.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/27/59635d21d46f8e3f298683ed6ee49e46_3314343057873463234.mp3",
+                            "https://webstatic.mihoyo.com/upload/op-public/2020/02/27/8d94fe27eca0b6c90b3a807f2b9749fd_4128533521969035256.mp3"
                         ]
                     }
                 ],
                 pageThumb: {
-                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
-                    name: "详情2"
+                    imageUrl: "https://uploadstatic.mihoyo.com/contentweb/20200306/2020030617043374251.png",
+                    name: "北斗"
                 }
             },
             {
                 cat: 2,
-                catName: "详情3",
-                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catName: "丽莎",
+                catImage: "/CharacterDetail/cat/10010.png",
                 catUrl: "/main/about/mondstadt?cat=2",
-                catIcon: "/CharacterDetail/CharacterDetail/001.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
+                catIcon: "/CharacterDetail/cat/10039.png",
+                catNameUrl: "/CharacterDetail/cat/10011.png",
+                catBigUrl:'/CharacterDetail/cat/10012.png',
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "钟可",
+                    readonly: "田中理惠"
                 },
-                intro: "这是 mondstadt 的第 3 条详细信息。",
+                intro: `她是钟情于睡眠的知性魔女。
+                    作为西风骑士团图书馆的管理员，聪明的丽莎总能以最有效的方式将遇到的问题统统解决。
+                    虽然看似慵懒，但处变不惊的她似乎早已将一切尽数掌控。`,
                 voice: [
                     {
                         cn:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/d017d4608057339f5cb81ffad3c7930a_1302892689242225251.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/06999cc08da32d411a46768533ac247f_7094895583427204560.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/a5ad5794b640166f5492de8bf5a5ad1a_2303225662045183124.mp3',
                         ],
                         rb:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620190991206.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620191379691.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620191662258.mp3',
                         ]
                     }
                 ],
                 pageThumb: {
-                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
-                    name: "详情3"
+                    imageUrl: '/CharacterDetail/cat/10072.png',
+                    name: '丽莎',
                 }
             },
             {
                 cat: 3,
-                catName: "详情4",
-                catImage: "/CharacterDetail/CharacterDetail/001.png",
+                catName: "凯亚",
+                catImage: "/CharacterDetail/cat/10013.png",
                 catUrl: "/main/about/mondstadt?cat=3",
-                catIcon: "/CharacterDetail/CharacterDetail/001.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
+                catIcon: "/CharacterDetail/cat/10064.png",
+                catNameUrl: "/CharacterDetail/cat/10014.png",
+                catBigUrl:'/CharacterDetail/cat/10015.png',
                 cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
+                    cvC: "孙晔",
+                    readonly: "鸟海浩辅"
                 },
-                intro: "这是 mondstadt 的第 4 条详细信息。",
+                intro: `在西风骑士团里，凯亚是代理团长最信任的副手。凡是交托于他的任务，总能得到解决。
+                在蒙德城中，风趣幽默的他同样深受人们的喜爱，然而这位谈吐不凡的骑士隐约有着什么不为人知的秘密。`,
                 voice: [
                     {
                         cn:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/bc954bcc4f0e3aa17c3a04c9272487a6_2445140716618685045.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/e5d8c42572ba9bcf2d1720c2ae405f2c_1593432168946625084.mp3',
+                            'https://webstatic.mihayo.com/upload/op-public/2019/12/11/e6ea0f9780270524a8b5170641e46996_1739447643517442668.mp3',
                         ],
                         rb:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620201674738.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620202166396.mp3',
+                            'https://uploadstatic.mihoyo.com/contentweb/20190926/2019092620202419142.mp3',
                         ]
                     }
                 ],
                 pageThumb: {
-                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
-                    name: "详情4"
+                    imageUrl: '/CharacterDetail/cat/10073.png',
+                    name: '凯亚',
                 }
             },
-            {
-                cat: 4,
-                catName: "详情5",
-                catImage: "/CharacterDetail/CharacterDetail/001.png",
-                catUrl: "/main/about/mondstadt?cat=4",
-                catIcon: "/CharacterDetail/CharacterDetail/001.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
-                cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
-                },
-                intro: "这是 mondstadt 的第 5 条详细信息。",
-                voice: [
-                    {
-                        cn:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                        ],
-                        rb:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                        ]
-                    }
-                ],
-                pageThumb: {
-                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
-                    name: "详情5"
-                }
-            },
-            {
-                cat: 5,
-                catName: "详情6",
-                catImage: "/CharacterDetail/CharacterDetail/001.png",
-                catUrl: "/main/about/mondstadt?cat=5",
-                catIcon: "/CharacterDetail/CharacterDetail/001.png",
-                catNameUrl: "/CharacterDetail/CharacterDetail/001.png",
-                catBigUrl:'/CharacterDetail/cat/10007.png',
-                cv: {
-                    cvC: "林簌",
-                    readonly: "CV信息1"
-                },
-                intro: "这是 mondstadt 的第 6 条详细信息。",
-                voice: [
-                    {
-                        cn:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                        ],
-                        rb:[
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                            "https://webstatic.mihoyo.com/upload/op-public/voice2.mp3",
-                        ]
-                    }
-                ],
-                pageThumb: {
-                    imageUrl: "/CharacterDetail/CharacterDetail/001.png",
-                    name: "详情6"
-                }
-            }
         ]
     },
 ];
