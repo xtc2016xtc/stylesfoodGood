@@ -6,6 +6,8 @@ import Shider from "@/components/Character/shider.tsx";
 import {Details} from "@/types";
 import ProgressBar from "@/components/home/ProgressBar/ProgressBar.tsx";
 
+
+
 /*修改2*/
 const CharacterDetail = () => {
     const { setActiveIndex } = useActiveIndex(); /*使用上下文设置 activeIndex*/

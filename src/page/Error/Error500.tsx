@@ -1,19 +1,8 @@
-import {useActiveIndex} from "@/components/Nav/ActiveIndexContext.tsx";
-import {useEffect} from "react";
-import {Link} from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const About = () => {
-
-    const { setActiveIndex } = useActiveIndex(); // 使用上下文设置 activeIndex
-
-    useEffect(() => {
-        setActiveIndex(2); // 手动设置 activeIndex 为 2
-    }, [setActiveIndex]);
-
-
-
+const Error500 = () => {
     return (
-       <div className="bg-[#393b40] p-[8px]">
+        <div className="bg-[#393b40] p-[8px]">
             <div className="error">
                 <div className="min-w-[50vh] max-h-[90%] mt-[10vh] error-500">
                     <div className="relative w-full text-center">
@@ -35,8 +24,8 @@ const About = () => {
                     </div>
                 </div>
             </div>
-       </div>
-    )
-}
+        </div>
+    );
+};
 
-export default About
+export default Error500;

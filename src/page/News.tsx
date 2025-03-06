@@ -10,8 +10,10 @@ const News = () => {
     }, [setActiveIndex]);
 
     return (
-        <div>
-            News
+        <div className="bg-pos-y-0 News relative w-full bg-[#f0f0f0] overflow-hidden">
+            <div className="relative z-[2] w-[1280px] left-[50%] ml-[-640px] min-h-[1240px] pb-[208px]">
+
+            </div>
         </div>
     )
 }

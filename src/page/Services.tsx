@@ -9,7 +9,7 @@ const Services = () => {
         setActiveIndex(3); // 手动设置 activeIndex 为 2
     }, [setActiveIndex]);
     return (
-        <div>
+        <div className="bg-pos-y-0">
             Services
         </div>
     )

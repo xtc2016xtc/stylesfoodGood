@@ -12,7 +12,7 @@ import MusicMediaido from "@/components/Root/Music/MusicMediaido.tsx";
 const navItems: NavItem[] = [
     { label: '首 页', path: '/main' },
     { label: '新 闻', path: '/main/news' },
-    { label: '关 于', path: '/main/about' },
+    { label: '关 于', path: '/main/about/mondstadt?cat=0' },
     { label: '服 务', path: '/main/services' },
     { label: '产 品', path: '/main/products' },
     { label: '联系我们', path: '/main/contact' },

@@ -6,7 +6,6 @@ import City from "@/components/City/City.tsx";
 const Main = () => {
     return (
         <div className="Home bg-pos-y-0">
-
             <Poster/>
             <News/>
             <City/>

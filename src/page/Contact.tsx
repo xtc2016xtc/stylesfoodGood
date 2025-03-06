@@ -10,7 +10,7 @@ const Contact = () => {
     }, [setActiveIndex]);
 
     return (
-        <div>
+        <div className="bg-pos-y-0">
             Contact
         </div>
     )
