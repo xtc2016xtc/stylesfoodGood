@@ -11,6 +11,7 @@ import Detail from "@/components/News/detail/Detail.tsx";
 import { ActiveIndexProvider } from './components/Nav/ActiveIndexContext';
 import CharacterDetail from "@/components/Character/CharacterDetail.tsx";
 import Error500 from "@/page/Error/Error500.tsx";
+import NewsNext from "@/components/NewsProps/NewsNext.tsx";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/main" element={<RootLayout />}>
                         <Route index element={<Main />} />
                         <Route path="news" element={<News />} />
+                        <Route path="news/:id" element={<NewsNext />} />
                         <Route path="news/detail/:id" element={<Detail />} />
                         <Route path="about/:city" element={<CharacterDetail />} />
                         <Route path="services" element={<Services />} />
