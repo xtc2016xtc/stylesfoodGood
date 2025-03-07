@@ -882,6 +882,10 @@
   background-size: cover;
 }
 
+.transition-allProps{
+  transition: all .5s 0s ease;
+}
+
 @keyframes breath {
   0%{
     transform: scale(1);

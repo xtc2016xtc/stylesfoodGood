@@ -13,12 +13,10 @@ const News = () => {
             const scrollPosition = window.scrollY;
             const documentHeight = document.documentElement.scrollHeight;
 
-            if (scrollPosition > documentHeight / 3) {
+            if (scrollPosition > documentHeight / 5) {
                 setShowBackToTop(true);
-                console.log("显示");
             } else {
                 setShowBackToTop(false);
-                console.log("隐藏");
             }
         };
 
@@ -33,12 +31,13 @@ const News = () => {
     };
 
 
+
     return (
         <div className="bg-pos-y-0 News relative w-full bg-[#f0f0f0] overflow-hidden">
             <div className="relative z-[2] w-[1280px] left-[50%] ml-[-640px] min-h-[1240px] pb-[208px]">
-                <ul></ul>
-                <ul></ul>
-                <ul></ul>
+                <ul className="flex justify-between pt-[146px] w-full h-[700px] list-none"></ul>
+                <ul className="mt-[38px] list-none"></ul>
+                <ul className="mt-[38px] list-none h-auto transition-allProps"></ul>
             </div>
             {showBackToTop && (
                 <button
