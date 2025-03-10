@@ -1059,3 +1059,4 @@ export const newsData = generateSlidesData(6, 'news'); // 新闻模块数据
 export const announcementData = generateSlidesData(6, 'announcement'); // 公告模块数据
 export const eventData = generateSlidesData(6, 'event');
 
+export const latestDate = generateSlidesData(3,"771"); // 模拟

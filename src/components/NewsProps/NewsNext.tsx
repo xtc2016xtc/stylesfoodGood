@@ -1,6 +1,7 @@
 import {useActiveIndex} from "@/components/Nav/ActiveIndexContext.tsx";
 import {useEffect} from "react";
 import {useParams} from "react-router-dom";
+import {latestData} from "@/data/slidesData.ts";
 
 const NewsNext = () => {
 
@@ -11,8 +12,9 @@ const NewsNext = () => {
     }, [setActiveIndex]);
 
     const { id } = useParams<{ id: string }>();
+    const slide = latestData.find((slide) => slide.id === id); // 根据 URL 参数查找相应的详情数据
 
-    console.log("参数",id);
+    console.log("参数",slide);
 
 
     return (

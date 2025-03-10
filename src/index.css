@@ -886,6 +886,122 @@
   transition: all .5s 0s ease;
 }
 
+.rec_item{
+  background-color: rgba(18, 18, 18, .8);
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, .35);
+  border-radius: 4px;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.recommend__item——img {
+  transition: all .5s 0s ease;
+}
+
+.font-text_items{
+  font-weight: normal;
+  font-stretch: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  margin: 10px 0;
+}
+
+/*站位*/
+.font-text_item{
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 22px;
+  color: #fff;
+  padding: 0 17px;
+  max-height: 88px;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+
+.category__item{
+  display: inline-block;
+  min-width: 155px;
+  height: 36px;
+  line-height: 36px;
+  background-color: rgba(57, 59, 64, .18);
+  color: #393b40;
+  border-radius: 4px;
+  text-align: center;
+  margin-right: 20px;
+  cursor: pointer;
+  transition: all .2s 0s ease;
+}
+.category__item-active{
+  background-color: #393b40;
+  color: #f4d8a8;
+}
+
+
+.category__link{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.news__itemsRR:hover{
+  background: #fff;
+}
+.news__itemsRR:hover::before{
+  opacity: 1;
+}
+.news__itemsRR::before{
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -3px;
+  bottom: -3px;
+  left: -3px;
+  right: -3px;
+  border: 3px solid rgba(57, 59, 64, .15);
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity .2s linear;
+}
+
+.font-text_item1{
+  position: relative;
+  margin-top: 11px;
+  font-size: 16px;
+  line-height: 22px;
+  color: #7d7d7d;
+  overflow: hidden;
+  word-wrap: break-word;
+  white-space: normal;
+  margin-bottom: 20px;
+}
+
+.news__more{
+  height: 40px;
+  line-height: 40px;
+  background-color: #393b40;
+  border-radius: 4px;
+  opacity: .8;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity .2s linear;
+  margin-top: 40px;
+}
+
 @keyframes breath {
   0%{
     transform: scale(1);
