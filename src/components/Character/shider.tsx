@@ -33,14 +33,14 @@ const Shider = ({cityDetail}:ShiderProps) => {
     const location = useLocation();
 
     /*改进1：增强获取参数逻辑*/
-    const getBalidCat = useCallback(()=>{
+    const getBalidCat = useCallback(() => {
         const params = new URLSearchParams(location.search);
-        const rawCat = parseInt(params.get("cat")|| '0' ,10);
-        return Math.min(
-            Math.max(0,rawCat),
-            Math.max(cityDetail.length - 1),
-        )
-    },[cityDetail.length, location.search])
+        const rawCat = parseInt(params.get("cat") || '0', 10);
+        if (isNaN(rawCat) || rawCat < 0 || rawCat >= cityDetail.length) {
+            return 0; // 默认值或其他处理方式
+        }
+        return rawCat;
+    }, [cityDetail.length, location.search]);
 
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null); // 存储缩略图Swiper实例
     const [targetCat, setTargetCat] = useState(()=> getBalidCat())
@@ -59,11 +59,10 @@ const Shider = ({cityDetail}:ShiderProps) => {
         () => debounce((index: number) => {
             requestAnimationFrame(() => {
                 if (swiperRef.current && !swiperRef.current.destroyed) {
-                    console.log("执行防抖跳转至",index)
                     swiperRef.current.slideTo(index, 500);
                 }
-            })
-        }, 300,{leading: true, trailing: false}),
+            });
+        }, 300, { leading: false, trailing: true }),
         []
     );
 
@@ -113,33 +112,30 @@ const Shider = ({cityDetail}:ShiderProps) => {
     }
 
     /*改进5：增强滑动逻辑*/
-    const enhancedSlideChange = (swiper:SwiperCore) => {
+    const enhancedSlideChange = (swiper: SwiperCore) => {
         const realIndex = swiper.realIndex;
-        console.log("当前真实索引",realIndex)
-        handleSlideChange(swiper)//保留
+        handleSlideChange(swiper);
 
-        if(!cityDetail[realIndex]){
-            console.error("找不到",realIndex)
-            return
+        if (!cityDetail[realIndex]) {
+            console.error("找不到", realIndex);
+            return;
         }
-        setTargetCat(realIndex)
+        setTargetCat(realIndex);
+        updateURL(realIndex);
+        syncSwipers(realIndex);
+        updateCvName(realIndex);
+    };
 
-        //同步url
-        if(realIndex !== targetCat){
-            const newSearch = new URLSearchParams(location.search);
-            newSearch.set('cat',realIndex.toString())
-            // 避免历史记录堆积
-            window.history.replaceState(null,'',`?${newSearch}`)
-        }
+    const updateURL = (index: number) => {
+        const newSearch = new URLSearchParams(location.search);
+        newSearch.set('cat', index.toString());
+        window.history.replaceState(null, '', `?${newSearch}`);
+    };
 
-        syncSwipers(realIndex)
-
-        //更新姓名
-        const currentCV = cityDetail[realIndex]?.cv || { cvC:'', readonly:'' };
+    const updateCvName = (index: number) => {
+        const currentCV = cityDetail[index]?.cv || { cvC: '', readonly: '' };
         setCvName(isChinese ? currentCV.cvC : currentCV.readonly);
-
-
-    }
+    };
 
     // 监听 audioGroup 变化，重置音频状态
     useEffect(() => {
@@ -165,9 +161,9 @@ const Shider = ({cityDetail}:ShiderProps) => {
     const [activeIndex, setActiveIndex] = useState(targetCat)
 
     const handleSlideChange = (swiper: SwiperCore) => {
-        const activeIndex = swiper.realIndex;
-        setActiveIndex(activeIndex)
-        const currentCV = cityDetail[activeIndex]?.cv || { cvC:'', readonly:'' };
+        const realIndex = swiper.realIndex;
+        setActiveIndex(realIndex);
+        const currentCV = cityDetail[realIndex]?.cv || { cvC: '', readonly: '' };
         setCvName(isChinese ? currentCV.cvC : currentCV.readonly);
     };
 
@@ -188,12 +184,12 @@ const Shider = ({cityDetail}:ShiderProps) => {
         // 先停止所有正在播放的音频
         stopAllAudios();
 
-        const activeSlie = document.querySelector('.swiper-slide-active');
-        if (!activeSlie) return;
+        const activeSlide = swiperRef.current?.slides[swiperRef.current.activeIndex];
+        if (!activeSlide) return;
 
-        const audioContainer = activeSlie.querySelector(`[data-audio-group="${audioGroup}"]`);
-
+        const audioContainer = activeSlide.querySelector(`[data-audio-group="${audioGroup}"]`);
         const audios = audioContainer?.querySelectorAll('audio') || [];
+
 
         if (audios.length === 0) {
             console.error("当前未找到音频")
