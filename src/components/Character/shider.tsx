@@ -366,49 +366,49 @@ const Shider = ({cityDetail}:ShiderProps) => {
                                 </div>
                                 <div className="touch-none character__intro mCustomScrollbar _mCS_73 mCS_no_scrollbar">
                                     <ScrollArea className="character__intro-content" key={character.cat}>
-                                            {character.intro?.split('\n').map((paragraph, index, arr) => (
-                                                    <p key={index}>
-                                                        {paragraph}
-                                                        {index !== arr.length - 1 && <br/>}
-                                                    </p>
-                                            ))}
+                                        {character.intro?.split('\n').map((paragraph, index, arr) => (
+                                            <p key={index}>
+                                                {paragraph}
+                                                {index !== arr.length - 1 && <br/>}
+                                            </p>
+                                        ))}
                                     </ScrollArea>
                                 </div>
-                                </div>
-                                <img src={character.catBigUrl}
-                                     draggable="false" className="character__sen" alt=""/>
-                                <div ref={audioGroup00Ref}
-                                     data-audio-group="group00"
-                                     style={{
-                                         display: audioGroup === 'group00' ? 'block' : 'none'
-                                     }}>
-                                    {character.voice[0]?.cn?.map((url, index) => (
-                                        <audio
-                                            key={`cn-${index}`}
-                                            src={url}
-                                            preload={"auto"}
-                                            crossOrigin={"anonymous"}
-                                            className="character__audio"
-                                        />
-                                    ))}
-                                </div>
-                                <div ref={audioGroup01Ref}
-                                     data-audio-group="group01"
-                                     style={{
-                                         display: audioGroup === 'group01' ? 'block' : 'none'
-                                     }}>
-                                    {character.voice[0]?.rb?.map((url, index) => (
-                                        <audio
-                                            key={`rb-${index}`}
-                                            src={url}
-                                            preload={"auto"}
-                                            crossOrigin={"anonymous"}
-                                            className="character__audio"
-                                        />
-                                    ))}
-                                </div>
+                            </div>
+                            <img src={character.catBigUrl}
+                                 draggable="false" className="character__sen" alt=""/>
+                            <div ref={audioGroup00Ref}
+                                 data-audio-group="group00"
+                                 style={{
+                                     display: audioGroup === 'group00' ? 'block' : 'none'
+                                 }}>
+                                {character.voice[0]?.cn?.map((url, index) => (
+                                    <audio
+                                        key={`cn-${index}`}
+                                        src={url}
+                                        preload={"auto"}
+                                        crossOrigin={"anonymous"}
+                                        className="character__audio"
+                                    />
+                                ))}
+                            </div>
+                            <div ref={audioGroup01Ref}
+                                 data-audio-group="group01"
+                                 style={{
+                                     display: audioGroup === 'group01' ? 'block' : 'none'
+                                 }}>
+                                {character.voice[0]?.rb?.map((url, index) => (
+                                    <audio
+                                        key={`rb-${index}`}
+                                        src={url}
+                                        preload={"auto"}
+                                        crossOrigin={"anonymous"}
+                                        className="character__audio"
+                                    />
+                                ))}
+                            </div>
                         </SwiperSlide>
-                        ))}
+                    ))}
                     <span className="swiper-notification"/>
                 </Swiper>
                 {/*分页*/}
@@ -458,4 +458,3 @@ const Shider = ({cityDetail}:ShiderProps) => {
 }
 
 export default Shider
-

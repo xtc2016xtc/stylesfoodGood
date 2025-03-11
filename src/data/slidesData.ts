@@ -157,7 +157,7 @@ const slidesData: SlideData[] = [
 ];*/
 
 
-import { cityDate, SlideData} from "@/types";
+import { cityDate, SlideData } from "@/types";
 
 
 // 定义虚拟城市数据

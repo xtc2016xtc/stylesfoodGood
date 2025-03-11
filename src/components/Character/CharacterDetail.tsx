@@ -69,13 +69,9 @@ const CharacterDetail = () => {
             </ul>
             <Shider
                 cityDetail={cityDate}
-          />
+            />
         </div>
     );
 };
 
 export default CharacterDetail;
-
-
-
-
