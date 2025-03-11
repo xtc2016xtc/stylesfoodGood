@@ -30,7 +30,7 @@ const News = () => {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [setActiveIndex]);
+    }, [setActiveIndex,id]);
 
     useEffect(() => {
         if(id) {
