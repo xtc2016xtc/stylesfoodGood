@@ -321,3 +321,82 @@ return (
 ```tsx
 export default Shider;
 ```
+# `CharacterDetail` 组件文档
+## 文件路径
+CharacterDetail.tsx
+
+## 组件概述
+`CharacterDetail` 组件用于展示特定城市的角色详细信息，包括背景图片、时间轴、角色滑动展示等功能。组件使用了 `Shider` 组件来展示角色的详细信息。
+
+## 导入的模块
+```tsx
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useActiveIndex } from "@/components/Nav/ActiveIndexContext.tsx";
+import { cityDateData } from "@/data/slidesData.ts";
+import Shider from "@/components/Character/shider.tsx";
+import { Details } from "@/types";
+import ProgressBar from "@/components/home/ProgressBar/ProgressBar.tsx";
+```
+
+## 组件状态
+- `loading: boolean` - 加载状态，用于控制加载动画的显示。
+- `location: ReturnType<typeof useLocation>` - 当前路由位置。
+- `cityDetail: Details | undefined` - 当前城市的详细信息。
+
+## 主要功能
+### 获取当前城市的详细信息
+```tsx
+const cityDetail = cityDateData.find(c => c.id === city);
+```
+
+### 设置和获取 `activeIndex`
+```tsx
+useEffect(() => {
+    const storedActiveIndex = sessionStorage.getItem('activeIndex');
+    if (storedActiveIndex) {
+        setActiveIndex(parseInt(storedActiveIndex, 10));
+    } else {
+        setActiveIndex(2);
+        sessionStorage.setItem('activeIndex', '2');
+    }
+}, [setActiveIndex]);
+```
+
+### 控制加载状态
+```tsx
+useEffect(() => {
+    setLoading(true); // 开始加载
+    setActiveIndex(2);
+    setTimeout(() => {
+        setLoading(false); // 停止加载
+    }, 1000); // 模拟加载时间
+}, [location, setActiveIndex]);
+```
+
+### 渲染时间轴
+```tsx
+<ul className="absolute z-[9] top-0 left-0 w-[370px] h-full box-border pt-[187px] character__sidebar">
+    {loading && <div className="loader"><ProgressBar/></div>} {/* 显示加载器 */}
+    {cityDateData.map((city, index) => (
+        <li key={index}
+            className={`w-full h-[54px] leading-[54px] text-[18px] text-[#fff] box-border pl-[56px] bg-[18px] select-none city_shider ${city.id === cityDetail.id ? 'character__city--active' : ''}`}>
+            <Link to={`${city.url}?cat=0`}
+                  className="inline-block w-[40%] h-full text-[#fff] cursor-pointer">
+                {city.name}
+            </Link>
+        </li>
+    ))}
+    <li className="pointer-events-none w-full h-[54px] leading-[54px] text-[18px] text-[#fff] box-border pl-[56px] bg-[18px] select-none city_shider">敬请期待</li>
+</ul>
+```
+
+### 渲染 `Shider` 组件
+```tsx
+<Shider cityDetail={cityDate} />
+```
+
+## 导出组件
+```tsx
+export default CharacterDetail;
+```
