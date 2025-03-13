@@ -321,6 +321,7 @@ return (
 ```tsx
 export default Shider;
 ```
+
 # `CharacterDetail` 组件文档
 ## 文件路径
 CharacterDetail.tsx
@@ -399,4 +400,71 @@ useEffect(() => {
 ## 导出组件
 ```tsx
 export default CharacterDetail;
+```
+
+
+# `City` 组件文档
+
+## 文件路径
+[src/components/City/City.tsx](src/components/City/City.tsx)
+
+## 组件概述
+`City` 组件用于展示城市列表，每个城市项包括背景图片、城市名称和角色图片。点击城市项可以导航到相应的城市详情页面。
+
+## 导入的模块
+```tsx
+import { Link } from 'react-router-dom';
+import { cityDateData } from '@/data/slidesData';
+```
+
+## 组件结构
+```tsx
+const City = () => {
+    return (
+        <section className="w-full">
+            <ul className="overflow-hidden">
+                {cityDateData.map((city) => (
+                    <li key={city.id}
+                        className="city__list-item relative w-full h-[260px] cursor-pointer overflow-hidden">
+                        <div
+                            className="city__list-bg absolute top-0 left-0 block w-full h-full"
+                            style={{backgroundImage: `url(${city.backgroundImage})`}}
+                        ></div>
+                        <Link to={`${city.url}?cat=0`}
+                              className="city__list-itema inline-block relative z-[3] text-[36px] text-[#fff] leading-[260px] w-full h-[260px] text-center overflow-hidden">
+                            <p className="city__list-itema inline-block relative z-[3] text-[36px] text-[#fff] leading-[260px] w-full h-[260px] text-center overflow-hidden pda">{city.name}</p>
+                        </Link>
+                        <div
+                            className="city__list-char"
+                            style={{backgroundImage: `url(${city.characterImage})`}}
+                        ></div>
+                    </li>
+                ))}
+                <li className="city__list-item pointer-events-none city__list-item2 relative w-full h-[260px] cursor-pointer overflow-hidden">
+                    <p className="city__list-item-des city__list-itema inline-block relative z-[3] text-[36px] text-[#fff] leading-[260px] w-full h-[260px] text-center overflow-hidden pda">敬请期待</p>
+                </li>
+            </ul>
+        </section>
+    );
+};
+
+export default City;
+```
+
+## 组件属性
+- `cityDateData`: 包含城市数据的数组，每个城市数据包括 `id`, `backgroundImage`, `url`, `name`, 和 `characterImage` 属性。
+
+## 主要功能
+### 渲染城市列表
+组件通过遍历 `cityDateData` 数组，生成每个城市的列表项。每个列表项包括背景图片、城市名称和角色图片。
+
+### 导航到城市详情页面
+点击城市项时，通过 `Link` 组件导航到相应的城市详情页面，URL 包含城市的 `id` 和 `cat` 参数。
+
+### 显示“敬请期待”项
+在城市列表的末尾，添加一个“敬请期待”的列表项，表示未来将添加更多城市。
+
+## 导出组件
+```tsx
+export default City;
 ```
