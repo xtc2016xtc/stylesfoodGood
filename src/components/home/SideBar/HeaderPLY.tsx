@@ -16,13 +16,13 @@ const HeaderPLY = () =>{
         >
             {/* 第一部分：顶部 */}
             <div className="p-6">
-                <h2 className="text-3xl font-bold mb-4">金铲铲福星登场</h2>
+                <h2 className="text-3xl font-bold mb-4">金铲铲新模式【动图/gif】</h2>
             </div>
 
             {/* 第二部分：阵容推荐 */}
             <section className="p-6">
                 <h3 className="text-2xl font-semibold mb-4">阵容推荐</h3>
-                <p className="text-gray-300">这里可以放一些关于阵容推荐的信息。</p>
+                <p className="text-gray-300">把内嵌工具搬运这。</p>
             </section>
 
             {/* 第三部分：按键优化方案 */}
