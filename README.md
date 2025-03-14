@@ -468,3 +468,128 @@ export default City;
 ```tsx
 export default City;
 ```
+
+# `Mediaido` 组件文档
+
+## 文件路径
+[src/components/media/Mediaido.tsx](src/components/media/Mediaido.tsx)
+
+## 组件概述
+`Mediaido` 组件用于显示一个视频弹窗，包含一个关闭按钮。该组件根据 `isVisible` 属性控制显示或隐藏。
+
+## 导入的模块
+```tsx
+import { MediaidoProps } from "@/types";
+```
+
+## 组件结构
+```tsx
+const Mediaido = ({ isVisible, onClose }: MediaidoProps) => {
+    if (!isVisible) return <div className="absolute left-0 top-0 w-full h-full overflow-hidden max-w-[1280ppx]"></div>;
+
+    return (
+        <div className="absolute left-0 top-0 w-full h-full overflow-hidden z-[1000]">
+            <div className="bg-black-7 fixed box-border left-0 top-0 w-full h-screen opacity-100 right-0 bottom-0 z-[1000]" aria-expanded="true">
+                <div className="w-full min-h-full h-auto">
+                    <div className="block absolute right-0 top-0"></div>
+                    <div role="dialog" aria-modal="true" className="top-0 left-[316px] w-[896px] max-h-[504px] min-h-[504px] h-screen box-border custom-position-important">
+                        <div className="relative w-full h-full">
+                            <button
+                                onClick={onClose}
+                                className="
+                                absolute
+                                right-[-62px]
+                                 top-2.5
+                                 w-8
+                                 h-8
+                                  opacity-75
+                                   custom-background
+                                   border-0
+                                    outline-none
+                                     text-0
+                                      cursor-pointer">关闭</button>
+                            <video className="w-full h-auto" controls autoPlay src="https://webstatic.mihoyo.com/upload/op-public/2020/09/27/fd431739ff26ceeb3010ac561d68446b_345688670889091949.mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Mediaido;
+```
+
+## 组件属性
+- `isVisible`: 布尔值，控制视频弹窗的显示或隐藏。
+- `onClose`: 函数，当点击关闭按钮时调用该函数。
+
+## 主要功能
+### 控制弹窗显示
+根据 `isVisible` 属性，决定是否渲染视频弹窗。如果 `isVisible` 为 `false`，返回一个隐藏的 `div`。
+
+### 显示视频弹窗
+当 `isVisible` 为 `true` 时，渲染一个包含视频的弹窗。弹窗包含一个关闭按钮，点击按钮时调用 `onClose` 函数。
+
+### 视频播放
+弹窗内包含一个 `video` 元素，自动播放指定的 `src` 视频。
+
+## 导出组件
+```tsx
+export default Mediaido;
+```
+
+# `MediaPG` 组件文档
+
+## 文件路径
+[src/components/media/MediaPG.tsx](src/components/media/MediaPG.tsx)
+
+## 组件概述
+`MediaPG` 组件用于显示一个全屏背景视频，视频自动播放、静音并循环播放。
+
+## 导入的模块
+```tsx
+import { poster } from "@/utils";
+```
+
+## 组件结构
+```tsx
+const MediaPG = () => {
+    return (
+        <video id="bg" poster="/Header/poster.jpg"
+               loop
+               muted
+               autoPlay
+               className="opacity-100 h-screen w-screen object-cover">
+            <source src={poster} type="video/mp4" />
+            " 您的浏览器不支持播放此视频. "
+        </video>
+    )
+}
+
+export default MediaPG;
+```
+
+## 组件属性
+该组件没有接收任何属性。
+
+## 主要功能
+### 显示背景视频
+- `poster`: 视频加载前显示的海报图片。
+- `loop`: 视频循环播放。
+- `muted`: 视频静音播放。
+- `autoPlay`: 视频自动播放。
+- `className`: 设置视频的样式，使其全屏显示并覆盖整个背景。
+
+### 视频源
+- `src`: 视频文件的路径，从 `poster` 变量中获取。
+- `type`: 视频文件的类型，这里为 `video/mp4`。
+
+### 浏览器不支持提示
+如果浏览器不支持视频播放，显示提示信息 `" 您的浏览器不支持播放此视频. "`。
+
+## 导出组件
+```tsx
+export default MediaPG;
+```
